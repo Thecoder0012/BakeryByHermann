@@ -18,4 +18,8 @@ public class CustomerService {
         return customerRepo.fetchAll();
     }
 
+    public void addNew(Customer customer) {
+        customerRepo.addNew(customer);
+    }
+
 }

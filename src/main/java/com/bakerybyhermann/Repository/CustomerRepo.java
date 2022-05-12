@@ -25,6 +25,35 @@ public class CustomerRepo {
         return jdbcTemplate.query(sql,rowMapper);
     }
 
+    public void addNew (Customer customer) {
+        String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
+
+        String sql = "INSERT INTO customer_tbl(first_name,last_name,address_id,phone_number,e_mail, repeated_visits, company_name)" +
+                " VALUES (?,?,?,?,?,?,?)";
+
+        jdbcTemplate.update(sql2,customer.getAddress()
+                ,3,customer.getZipCode());
+
+        jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),6,customer.getPhoneNumber(),
+                customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
+
+
+       //
+        //+" INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?) ";
+        System.out.println(customer.getFirstName()+customer.getLastName()+customer.getPhoneNumber()+
+                customer.getEmail()+customer.getRepeatedVisits()+customer.getCompanyName()+customer.getAddress()
+                +customer.getZipCode());
+
+        /*jdbcTemplate.update(sql2,customer.getAddress()
+                ,3,customer.getZipCode() );*/
+
+
+
+//,customer.getAddress()
+//                ,3,customer.getZipCode()
+
+    }
+
 
 
 }
