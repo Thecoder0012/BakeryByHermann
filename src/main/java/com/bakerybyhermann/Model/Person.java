@@ -2,6 +2,7 @@ package com.bakerybyhermann.Model;
 
 public class Person {
 
+    private int personId;
     private String firstName;
     private String lastName;
     private String address;
@@ -10,7 +11,8 @@ public class Person {
     private int phoneNumber;
     private String email;
 
-    public Person(String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email) {
+    public Person(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email) {
+        this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -21,6 +23,14 @@ public class Person {
     }
 
     public Person() {
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public String getFirstName() {
