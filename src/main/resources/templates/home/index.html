@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+
+<table>
+
+    <thead>
+
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>address</th>
+            <th>Zip code</th>
+            <th>City</th>
+            <th>Phonenumber</th>
+            <th>Email</th>
+            <th>Repeated visits</th>
+            <th>Company name</th>
+
+        </tr>
+
+    <tr th:each="customer :${customersList}" >
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}" ></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.zipCode}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.phoneNumber}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.repeatedVisits}"></td>
+        <td th:text="${customer.companyName}"></td>
+    </tr>
+
+    </thead>
+
+</table>
+
+
+</body>
+</html>
