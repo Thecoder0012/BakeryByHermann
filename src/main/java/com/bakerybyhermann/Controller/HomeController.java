@@ -16,6 +16,20 @@ public class HomeController {
     @GetMapping("/")
     public String getIndex(Model model){
         model.addAttribute("customersList",customerService.fetchAll());
+        for (int i = 0; i < customerService.fetchAll().size(); i++) {
+            System.out.println(customerService.fetchAll().get(i).getEmail());
+            System.out.println(customerService.fetchAll().get(i).getFirstName());
+            System.out.println(customerService.fetchAll().get(i).getLastName());
+            System.out.println(customerService.fetchAll().get(i).getAddress());
+            System.out.println(customerService.fetchAll().get(i).getZipCode());
+            System.out.println(customerService.fetchAll().get(i).getCity());
+            System.out.println(customerService.fetchAll().get(i).getZipCode());
+            System.out.println(customerService.fetchAll().get(i).getPhoneNumber());
+            System.out.println(customerService.fetchAll().get(i).getEmail());
+
+
+
+        }
         return "home/index";
     }
 
