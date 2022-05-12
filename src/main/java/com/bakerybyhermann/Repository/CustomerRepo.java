@@ -22,7 +22,22 @@ public class CustomerRepo {
                 "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
                 "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        int idid = getAddressId();
         return jdbcTemplate.query(sql,rowMapper);
+    }
+
+    public int getAddressId(){
+        String sql = "SELECT customer_id, address_id\n" +
+                "   FROM customer_tbl \n" +
+                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
+                "                ";
+        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        List<Customer> cuscus =  jdbcTemplate.query(sql,rowMapper);
+        for (int i = 0; i < cuscus.size(); i++) {
+            System.out.println(cuscus.get(i).getAddress());
+        }
+        return 0;
+
     }
 
     public void addNew (Customer customer) {
@@ -53,7 +68,5 @@ public class CustomerRepo {
 //                ,3,customer.getZipCode()
 
     }
-
-
 
 }
