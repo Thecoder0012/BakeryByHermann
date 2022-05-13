@@ -56,7 +56,8 @@ public class CustomerRepo {
     }
 
     public void delete(int customerId){
-        String sql = "DELETE FROM customer_tbl WHERE customer_id = ?";
+        String sql = "DELETE customer_tbl,address_tbl FROM customer_tbl " +
+                "INNER JOIN address_tbl ON customer_tbl.address_id = address_tbl.address_id WHERE customer_id = ?";
         jdbcTemplate.update(sql,customerId);
     }
 
