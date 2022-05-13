@@ -14,6 +14,7 @@ public class Customer extends Person {
     public Customer() {
     }
 
+
     public int getRepeatedVisits() {
         return repeatedVisits;
     }

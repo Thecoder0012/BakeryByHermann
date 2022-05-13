@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -44,6 +45,12 @@ public class HomeController {
     @PostMapping("/new-customer")
     public String createCustomer(@ModelAttribute Customer customer){
         customerService.addNew(customer);
+        return "redirect:/";
+    }
+
+    @GetMapping("/customer/{personId}")
+    public String deleteCustomer(@PathVariable("personId") int personId){
+        customerService.delete(personId);
         return "redirect:/";
     }
 

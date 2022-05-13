@@ -34,6 +34,11 @@
         <td th:text="${customer.email}"></td>
         <td th:text="${customer.repeatedVisits}"></td>
         <td th:text="${customer.companyName}"></td>
+
+        <td>
+<!--            <a th:href="@{/customer/+${customer.personId}}">Delete</a>-->
+            <a th:href="@{/customer/{personId}(personId=${customer.personId})}"-->Remove</a>
+        </td>
     </tr>
 
     </thead>

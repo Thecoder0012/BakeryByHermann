@@ -22,4 +22,8 @@ public class CustomerService {
         customerRepo.addNew(customer);
     }
 
+    public void delete(int personId){
+        customerRepo.delete(personId);
+    }
+
 }

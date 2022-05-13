@@ -22,23 +22,23 @@ public class CustomerRepo {
                 "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
                 "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
-        int idid = getAddressId();
+//        int idid = getAddressId();
         return jdbcTemplate.query(sql,rowMapper);
     }
 
-    public int getAddressId(){
-        String sql = "SELECT customer_id, address_id\n" +
-                "   FROM customer_tbl \n" +
-                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
-                "                ";
-        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
-        List<Customer> cuscus =  jdbcTemplate.query(sql,rowMapper);
-        for (int i = 0; i < cuscus.size(); i++) {
-            System.out.println(cuscus.get(i).getAddress());
-        }
-        return 0;
-
-    }
+//    public int getAddressId(){
+//        String sql = "SELECT customer_id, address_id\n" +
+//                "   FROM customer_tbl \n" +
+//                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
+//                "                ";
+//        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+//        List<Customer> cuscus =  jdbcTemplate.query(sql,rowMapper);
+//        for (int i = 0; i < cuscus.size(); i++) {
+//            System.out.println(cuscus.get(i).getAddress());
+//        }
+//        return 0;
+//
+//    }
 
     public void addNew (Customer customer) {
         String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
@@ -53,20 +53,11 @@ public class CustomerRepo {
                 customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
 
 
-       //
-        //+" INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?) ";
-        System.out.println(customer.getFirstName()+customer.getLastName()+customer.getPhoneNumber()+
-                customer.getEmail()+customer.getRepeatedVisits()+customer.getCompanyName()+customer.getAddress()
-                +customer.getZipCode());
+    }
 
-        /*jdbcTemplate.update(sql2,customer.getAddress()
-                ,3,customer.getZipCode() );*/
-
-
-
-//,customer.getAddress()
-//                ,3,customer.getZipCode()
-
+    public void delete(int personId){
+        String sql = "DELETE FROM customer_tbl WHERE customer_id = ?";
+        jdbcTemplate.update(sql,personId);
     }
 
 }
