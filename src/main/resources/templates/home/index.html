@@ -36,8 +36,7 @@
         <td th:text="${customer.companyName}"></td>
 
         <td>
-<!--            <a th:href="@{/customer/+${customer.personId}}">Delete</a>-->
-            <a th:href="@{/customer/{personId}(personId=${customer.personId})}"-->Remove</a>
+            <a th:href="@{'/customer/'+${customer.customerId}}">Delete</a>
         </td>
     </tr>
 

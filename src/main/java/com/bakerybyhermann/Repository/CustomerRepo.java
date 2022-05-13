@@ -55,9 +55,9 @@ public class CustomerRepo {
 
     }
 
-    public void delete(int personId){
+    public void delete(int customerId){
         String sql = "DELETE FROM customer_tbl WHERE customer_id = ?";
-        jdbcTemplate.update(sql,personId);
+        jdbcTemplate.update(sql,customerId);
     }
 
 }
