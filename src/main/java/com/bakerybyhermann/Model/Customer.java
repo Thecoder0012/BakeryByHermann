@@ -2,15 +2,15 @@ package com.bakerybyhermann.Model;
 
 public class Customer extends Person {
 
+    private int customerId;
     private int repeatedVisits;
     private String companyName;
-    private int customerId;
 
-    public Customer(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email, int repeatedVisits, String companyName, int customerId) {
+    public Customer(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email,int customerId, int repeatedVisits, String companyName) {
         super(personId, firstName, lastName, address, zipCode, city, phoneNumber, email);
+        this.customerId = customerId;
         this.repeatedVisits = repeatedVisits;
         this.companyName = companyName;
-        this.customerId = customerId;
     }
 
     public Customer() {
