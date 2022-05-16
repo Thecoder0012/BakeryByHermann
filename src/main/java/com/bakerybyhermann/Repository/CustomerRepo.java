@@ -50,7 +50,7 @@ public class CustomerRepo {
           Connection con;
 
         try {
-            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu");
+            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu"); // husk at ændre jeres kode
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1");
             if (rs != null){
@@ -120,7 +120,7 @@ public class CustomerRepo {
         Connection con;
 
         try {
-            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu");
+            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu"); // husk at ændre jeres kode
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("SELECT address_id FROM customer_tbl WHERE customer_id = " + id);
             if (rs != null){
