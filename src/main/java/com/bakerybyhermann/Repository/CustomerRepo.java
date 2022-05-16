@@ -2,10 +2,12 @@ package com.bakerybyhermann.Repository;
 
 
 import com.bakerybyhermann.Model.Customer;
+import com.zaxxer.hikari.SQLExceptionOverride;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -43,11 +45,29 @@ public class CustomerRepo {
     public void addNew (Customer customer) {
         String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
 
+        jdbcTemplate.update(sql2,customer.getAddress()
+                ,3,customer.getZipCode());
+
+        //her skal vi finde address id fra result set
+        String sql3 = "SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1";
+        //RowMapper<Object> rowMapper = new BeanPropertyRowMapper<>(Object.class);
+        int addId = 0;
+        System.out.println("the new address id: "+addId);
+
+        //List<Object> newInts = jdbcTemplate.query(sql3, rowMapper);
+        System.out.println("the new address id: "+addId);
+        //System.out.println(newInts.get(0).toString());
+        //addId = newInts.get(0);
+
+
+        System.out.println("the new address id: "+addId);
+
+
+
         String sql = "INSERT INTO customer_tbl(first_name,last_name,address_id,phone_number,e_mail, repeated_visits, company_name)" +
                 " VALUES (?,?,?,?,?,?,?)";
 
-        jdbcTemplate.update(sql2,customer.getAddress()
-                ,3,customer.getZipCode());
+
 
         jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),6,customer.getPhoneNumber(),
                 customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
