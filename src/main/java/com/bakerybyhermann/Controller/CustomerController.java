@@ -18,7 +18,7 @@ public class CustomerController {
 
     @GetMapping("/new-customer")
     public String createCustomer(){
-        return "home/new-customer";
+        return "customer/new-customer";
     }
 
     @PostMapping("/new-customer")
@@ -36,7 +36,7 @@ public class CustomerController {
     @GetMapping("/update-customer/{id}")
     public String updateCustomer (@PathVariable("id") int id, Model model){
         model.addAttribute("customer", customerService.findById(id));
-        return "home/update-customer";
+        return "customer/update-customer";
     }
 
     @PostMapping("/update-customer")
