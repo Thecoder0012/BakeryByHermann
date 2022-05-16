@@ -5,7 +5,7 @@ public class Customer extends Person {
     private int repeatedVisits;
     private String companyName;
 
-    public Customer(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email,int customerId, int repeatedVisits, String companyName) {
+    public Customer(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email, int repeatedVisits, String companyName) {
         super(personId, firstName, lastName, address, zipCode, city, phoneNumber, email);
         this.repeatedVisits = repeatedVisits;
         this.companyName = companyName;
@@ -30,4 +30,13 @@ public class Customer extends Person {
         this.companyName = companyName;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "repeatedVisits=" + repeatedVisits +
+                ", companyName='" + companyName + '\'' +
+                '}';
+    }
 }
+
+

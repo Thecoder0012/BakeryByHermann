@@ -12,6 +12,7 @@
     <thead>
 
         <tr>
+            <th>Customer id</th>
             <th>First name</th>
             <th>Last name</th>
             <th>address</th>
@@ -25,6 +26,7 @@
         </tr>
 
     <tr th:each="customer :${customersList}" >
+        <td th:text="${customer.personId}"></td>
         <td th:text="${customer.firstName}"></td>
         <td th:text="${customer.lastName}" ></td>
         <td th:text="${customer.address}"></td>

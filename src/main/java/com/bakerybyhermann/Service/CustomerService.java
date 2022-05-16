@@ -22,6 +22,14 @@ public class CustomerService {
         customerRepo.addNew(customer);
     }
 
+    public Customer findById(int id){
+        return customerRepo.findById(id);
+    }
+
+    public void updateById(int id, Customer c){
+        customerRepo.updateById(id, c);
+    }
+
     public void delete(int customerId){
         customerRepo.delete(customerId);
     }

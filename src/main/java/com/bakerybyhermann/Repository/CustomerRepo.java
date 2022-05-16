@@ -21,7 +21,7 @@ public class CustomerRepo {
     JdbcTemplate jdbcTemplate;
 
     public List<Customer> fetchAll(){
-        String sql = "SELECT customer_id, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name\n" +
+        String sql = "SELECT customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name\n" +
                 "   FROM customer_tbl \n" +
                 "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
                 "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
@@ -91,6 +91,22 @@ public class CustomerRepo {
 
         jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),addressId,customer.getPhoneNumber(),
                 customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
+    }
+
+    public Customer findById(int id){
+        String sql = "SELECT customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name\n" +
+                "   FROM customer_tbl \n" +
+                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
+                "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code WHERE customer_id = ?";
+        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        return jdbcTemplate.queryForObject(sql, rowMapper, id);
+    }
+
+    public void updateById(int id, Customer c){
+        String sql = "UPDATE customer_tbl SET customer_id = ?, first_name = ?, last_name = ?, address_id = ?, phone_number = ?," +
+                "e_mail = ?, repeated_visits = ?, company_name = ? WHERE customer_id = ?";
+        jdbcTemplate.update(sql, c.getPersonId(), c.getFirstName(), c.getLastName(), 6, c.getPhoneNumber(), c.getEmail(),
+                c.getRepeatedVisits(), c.getCompanyName(), id);
     }
 
 

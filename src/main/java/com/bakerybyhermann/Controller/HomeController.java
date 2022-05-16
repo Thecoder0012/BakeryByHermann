@@ -41,6 +41,18 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/update-customer/{id}")
+    public String updateCustomer (@PathVariable("id") int id, Model model){
+        System.out.println(id);
+        System.out.println(customerService.findById(id).toString());
+        model.addAttribute("customer", customerService.findById(id));
+        return "home/update-customer";
+    }
 
+    @PostMapping("/update-customer")
+    public String updateCustomer(@ModelAttribute Customer customer){
+        customerService.updateById(customer.getPersonId(), customer);
+        return "redirect:/";
+    }
 
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Customer</title>
+</head>
+<body>
+
+<table>
+
+    <thead>
+
+    <th>First name:</th>
+    <th>Last name:</th>
+    <th>Address:</th>
+    <th>Zip code:</th>
+    <th>City:</th>
+    <th>Phone number:</th>
+    <th>Email</th>
+    <th>Repeated Visits:</th>
+    <th>Company name:</th>
+
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="customer: ${customers}">
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.zipCode}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.phoneNumber}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.repeatedVisits}"></td>
+        <td th:text="${customer.companyName}"></td>
+        <td>
+
+            <a th:href="@{'/delete-customer/'+${customer.personId}}">Delete</a>
+
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

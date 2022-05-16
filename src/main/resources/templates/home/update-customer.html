@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Customer</title>
+</head>
+<body>
+
+<form action = "/update-customer" method ="post">
+    <label>Enter person id </label>
+    <input type="text" name="personId" th:value="${customer.personId}">
+    <label>Enter first name </label>
+    <input type="text" name="firstName" th:value="${customer.firstName}">
+    <label>Enter last name </label>
+    <input type="text" name="lastName" th:value="${customer.lastName}">
+    <label>Enter phone number  </label>
+    <input type="text" name="phoneNumber" th:value="${customer.phoneNumber}">
+    <label>Enter e-mail name </label>
+    <input type="text" name="email" th:value="${customer.email}">
+    <label>Repeated visits name </label>
+    <input type="text" name="repeatedVisits" th:value="${customer.repeatedVisits}">
+    <label>Enter Company name name </label>
+    <input type="text" name="companyName" th:value="${customer.companyName}">
+
+    <input type="submit" value="go">
+
+</form>
+
+</body>
+</html>
+
+<!--<form th:action = "@{/update-customer (personId=${id})}" th:object="${customer}" method="post">
+    <label>Enter person id </label>
+    <input type="text" name="personId" th: value = ${customer.personId}>
+    <label>Enter first name </label>
+    <input type="text" name="firstName" th: value = ${customer.firstName}>
+    <label>Enter last name </label>
+    <input type="text" name="lastName" th: value = ${customer.lastName}>
+    <label>Enter phone number  </label>
+    <input type="text" name="phoneNumber" th: value = ${customer.phoneNumber}>
+    <label>Enter e-mail name </label>
+    <input type="text" name="email" th: value = ${customer.email}>
+    <label>Repeated visits name </label>
+    <input type="text" name="repeatedVisits" th: value = ${customer.repeatedVisits}>
+    <label>Enter Company name name </label>
+    <input type="text" name="companyName" th: value = ${customer.companyName}>
+
+    <input type="submit" value="go">
+
+</form> -->
+
