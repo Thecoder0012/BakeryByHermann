@@ -38,6 +38,7 @@
         <td th:text="${customer.companyName}"></td>
 
         <td>
+            <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>
             <a th:href="@{'/customer/'+${customer.personId}}">Delete</a>
         </td>
     </tr>

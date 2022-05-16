@@ -50,7 +50,7 @@ public class CustomerRepo {
           Connection con;
 
         try {
-            con = DriverManager.getConnection(DATABASE_URL, "root", "Mohammad90%");
+            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu");
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1");
             if (rs != null){
@@ -103,10 +103,47 @@ public class CustomerRepo {
     }
 
     public void updateById(int id, Customer c){
+        String address = c.getAddress(); //her bruger vi input fra Html
+        String[] splitted = address.split(" "); // her splitter inputtet
+
+        System.out.println(Arrays.toString(splitted)); // her debugger vi for at være sikre
+        for (int i = 0; i < splitted.length; i++) {
+            System.out.println(splitted[i]);
+        }
+        int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
+        String streetName = splitted[0]; // her her vi gadenavnet
+
+        String sql1 = "UPDATE address_tbl SET street_name = ?, street_number = ?, zip_code = ? WHERE address_id = ?";
+        jdbcTemplate.update(sql1, streetName, streetNumber, c.getZipCode(), getUpdateAddressId(id) );
+
         String sql = "UPDATE customer_tbl SET customer_id = ?, first_name = ?, last_name = ?, address_id = ?, phone_number = ?," +
                 "e_mail = ?, repeated_visits = ?, company_name = ? WHERE customer_id = ?";
-        jdbcTemplate.update(sql, c.getPersonId(), c.getFirstName(), c.getLastName(), 6, c.getPhoneNumber(), c.getEmail(),
+        jdbcTemplate.update(sql, c.getPersonId(), c.getFirstName(), c.getLastName(), getUpdateAddressId(id), c.getPhoneNumber(), c.getEmail(),
                 c.getRepeatedVisits(), c.getCompanyName(), id);
+    }
+
+    public int getUpdateAddressId(int id){
+        int addressId = 0;
+        final  String jdbc_driver = "COM.MYSQL.JDBC.DRIVER";
+        final String DATABASE_URL = "jdbc:mysql://localhost:3306/bakerybyhermann";
+        Connection con;
+
+        try {
+            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT address_id FROM customer_tbl WHERE customer_id = " + id);
+            if (rs != null){
+                while (rs.next()){
+                    addressId =rs.getInt("address_id");
+                    System.out.println("Adress id: " + addressId);
+                }
+            }
+            s.close();
+            con.close();
+        }catch (SQLException sqlException){
+            System.out.println("SqlException: "+ sqlException.getMessage());
+        }
+        return addressId;
     }
 
 
