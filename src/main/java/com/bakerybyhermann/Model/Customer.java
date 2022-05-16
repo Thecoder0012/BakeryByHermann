@@ -30,13 +30,6 @@ public class Customer extends Person {
         this.companyName = companyName;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "repeatedVisits=" + repeatedVisits +
-                ", companyName='" + companyName + '\'' +
-                '}';
-    }
 }
 
 

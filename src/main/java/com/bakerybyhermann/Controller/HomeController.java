@@ -20,37 +20,9 @@ public class HomeController {
     @GetMapping("/")
     public String getIndex(Model model){
         model.addAttribute("customersList",customerService.fetchAll());
-
         return "home/index";
     }
 
-    @GetMapping("/new-customer")
-    public String createCustomer(){
-        return "home/new-customer";
-    }
 
-    @PostMapping("/new-customer")
-    public String createCustomer(@ModelAttribute Customer customer){
-        customerService.addNew(customer);
-        return "redirect:/";
-    }
-
-    @GetMapping("/customer/{customerId}")
-    public String deleteCustomer(@PathVariable("customerId") int customerId){
-        customerService.delete(customerId);
-        return "redirect:/";
-    }
-
-    @GetMapping("/update-customer/{id}")
-    public String updateCustomer (@PathVariable("id") int id, Model model){
-        model.addAttribute("customer", customerService.findById(id));
-        return "home/update-customer";
-    }
-
-    @PostMapping("/update-customer")
-    public String updateCustomer(@ModelAttribute Customer customer){
-        customerService.updateById(customer.getPersonId(), customer);
-        return "redirect:/";
-    }
 
 }

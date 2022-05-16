@@ -12,16 +12,16 @@
     <thead>
 
         <tr>
-            <th>Customer id</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>address</th>
-            <th>Zip code</th>
-            <th>City</th>
-            <th>Phonenumber</th>
-            <th>Email</th>
-            <th>Repeated visits</th>
-            <th>Company name</th>
+            <th>Kunde id</th>
+            <th>Fornavn</th>
+            <th>Efternavn</th>
+            <th>Adresse</th>
+            <th>Postnummer</th>
+            <th>By</th>
+            <th>Mobilnummer</th>
+            <th>E-mail</th>
+            <th>Gentagne besøg</th>
+            <th>Firmanavn</th>
 
         </tr>
 
@@ -40,13 +40,14 @@
         <td>
             <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>
             <a th:href="@{'/customer/'+${customer.personId}}">Delete</a>
+            <a href="/new-customer">Add</a>
         </td>
+
     </tr>
 
     </thead>
 
 </table>
-
 
 </body>
 </html>

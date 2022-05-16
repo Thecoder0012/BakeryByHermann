@@ -7,24 +7,26 @@
 <body>
 
 <form action = "/update-customer" method ="post">
-    <label>Enter person id </label>
+
+    <label>Kunde id</label>
     <input type="text" name="personId" th:value="${customer.personId}">
-    <label>Enter first name</label>
+    <label>Fornavn</label>
     <input type="text" name="firstName" th:value="${customer.firstName}">
-    <label>Enter last name</label>
+    <label>Efternavn</label>
     <input type="text" name="lastName" th:value="${customer.lastName}">
-    <label>Enter phone number</label>
-    <input type="text" name="phoneNumber" th:value="${customer.phoneNumber}">
-    <label>Enter e-mail</label>
-    <input type="text" name="email" th:value="${customer.email}">
-    <label>Repeated visits</label>
-    <input type="text" name="repeatedVisits" th:value="${customer.repeatedVisits}">
-    <label>Enter Company name</label>
-    <input type="text" name="companyName" th:value="${customer.companyName}">
-    <label>Enter address</label>
+    <label>Adresse</label>
     <input type="text" name="address" th:value="${customer.address}">
-    <label>Enter zip code</label>
+    <label>Postnummer</label>
     <input type="text" name="zipCode" th:value="${customer.zipCode}">
+    <label>Mobilnummer</label>
+    <input type="text" name="phoneNumber" th:value="${customer.phoneNumber}">
+    <label>E-mail</label>
+    <input type="text" name="email" th:value="${customer.email}">
+    <label>Gentagne besøg</label>
+    <input type="text" name="repeatedVisits" th:value="${customer.repeatedVisits}">
+    <label>Firmanavn</label>
+    <input type="text" name="companyName" th:value="${customer.companyName}">
+
 
     <input type="submit" value="go">
 

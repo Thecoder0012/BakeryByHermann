@@ -56,7 +56,6 @@ public class CustomerRepo {
             if (rs != null){
                 while (rs.next()){
                     addressId =rs.getInt("address_id");
-                            System.out.println("Adress id: " + addressId);
                 }
             }
             s.close();
@@ -71,10 +70,6 @@ public class CustomerRepo {
         String address = customer.getAddress(); //her bruger vi input fra Html
         String[] splitted = address.split(" "); // her splitter inputtet
 
-        System.out.println(Arrays.toString(splitted)); // her debugger vi for at være sikre
-        for (int i = 0; i < splitted.length; i++) {
-            System.out.println(splitted[i]);
-        }
         int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
         String streetName = splitted[0]; // her her vi gadenavnet
 
@@ -106,10 +101,6 @@ public class CustomerRepo {
         String address = c.getAddress(); //her bruger vi input fra Html
         String[] splitted = address.split(" "); // her splitter inputtet
 
-        System.out.println(Arrays.toString(splitted)); // her debugger vi for at være sikre
-        for (int i = 0; i < splitted.length; i++) {
-            System.out.println(splitted[i]);
-        }
         int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
         String streetName = splitted[0]; // her her vi gadenavnet
 
@@ -135,7 +126,6 @@ public class CustomerRepo {
             if (rs != null){
                 while (rs.next()){
                     addressId =rs.getInt("address_id");
-                    System.out.println("Adress id: " + addressId);
                 }
             }
             s.close();
