@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.stereotype.Repository;
 
+import java.sql.*;
 import java.util.List;
 
 @Repository
@@ -24,7 +25,6 @@ public class CustomerRepo {
                 "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
                 "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
-//        int idid = getAddressId();
         return jdbcTemplate.query(sql,rowMapper);
     }
 
@@ -42,6 +42,31 @@ public class CustomerRepo {
 //
 //    }
 
+    public int getAddressId(){
+        int addressId = 0;
+          final  String jdbc_driver = "COM.MYSQL.JDBC.DRIVER";
+          final String DATABASE_URL = "jdbc:mysql://localhost:3306/bakerybyhermann";
+          Connection con;
+
+        try {
+            con = DriverManager.getConnection(DATABASE_URL, "root", "Mohammad90%");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1");
+            if (rs != null){
+                while (rs.next()){
+                    addressId =rs.getInt("address_id");
+                            System.out.println("Adress id: " + addressId);
+                }
+            }
+            s.close();
+            con.close();
+        }catch (SQLException sqlException){
+            System.out.println("SqlException: "+ sqlException.getMessage());
+        }
+        return addressId;
+    }
+
+
     public void addNew (Customer customer) {
         String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
 
@@ -49,27 +74,15 @@ public class CustomerRepo {
                 ,3,customer.getZipCode());
 
         //her skal vi finde address id fra result set
-        String sql3 = "SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1";
-        //RowMapper<Object> rowMapper = new BeanPropertyRowMapper<>(Object.class);
-        int addId = 0;
-        System.out.println("the new address id: "+addId);
-
-        //List<Object> newInts = jdbcTemplate.query(sql3, rowMapper);
-        System.out.println("the new address id: "+addId);
-        //System.out.println(newInts.get(0).toString());
-        //addId = newInts.get(0);
-
-
-        System.out.println("the new address id: "+addId);
-
-
+        int addressId = getAddressId();
+        System.out.println("the new address id: "+addressId);
 
         String sql = "INSERT INTO customer_tbl(first_name,last_name,address_id,phone_number,e_mail, repeated_visits, company_name)" +
                 " VALUES (?,?,?,?,?,?,?)";
 
 
 
-        jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),6,customer.getPhoneNumber(),
+        jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),addressId,customer.getPhoneNumber(),
                 customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
 
 
