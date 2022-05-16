@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -66,27 +67,32 @@ public class CustomerRepo {
         return addressId;
     }
 
-
     public void addNew (Customer customer) {
+        String address = customer.getAddress(); //her bruger vi input fra Html
+        String[] splitted = address.split(" "); // her splitter inputtet
+
+        System.out.println(Arrays.toString(splitted)); // her debugger vi for at være sikre
+        for (int i = 0; i < splitted.length; i++) {
+            System.out.println(splitted[i]);
+        }
+        int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
+        String streetName = splitted[0]; // her her vi gadenavnet
+
         String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
 
-        jdbcTemplate.update(sql2,customer.getAddress()
-                ,3,customer.getZipCode());
+        jdbcTemplate.update(sql2,streetName,streetNumber,customer.getZipCode());
 
         //her skal vi finde address id fra result set
         int addressId = getAddressId();
-        System.out.println("the new address id: "+addressId);
+        System.out.println("the new address id: "+addressId); // debug purpose
 
         String sql = "INSERT INTO customer_tbl(first_name,last_name,address_id,phone_number,e_mail, repeated_visits, company_name)" +
                 " VALUES (?,?,?,?,?,?,?)";
 
-
-
         jdbcTemplate.update(sql,customer.getFirstName(),customer.getLastName(),addressId,customer.getPhoneNumber(),
                 customer.getEmail(),customer.getRepeatedVisits(),customer.getCompanyName());
-
-
     }
+
 
     public void delete(int customerId){
         String sql = "DELETE customer_tbl,address_tbl FROM customer_tbl " +
