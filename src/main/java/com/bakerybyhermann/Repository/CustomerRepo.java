@@ -1,17 +1,13 @@
 package com.bakerybyhermann.Repository;
 
 
+import com.bakerybyhermann.Model.Address;
 import com.bakerybyhermann.Model.Customer;
-import com.zaxxer.hikari.SQLExceptionOverride;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.stereotype.Repository;
-
-import java.sql.*;
-import java.util.Arrays;
 import java.util.List;
 
 @Repository
@@ -21,52 +17,23 @@ public class CustomerRepo {
     JdbcTemplate jdbcTemplate;
 
     public List<Customer> fetchAll(){
-        String sql = "SELECT customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name\n" +
-                "   FROM customer_tbl \n" +
-                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
+        String sql = "SELECT customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name" +
+                "   FROM customer_tbl " +
+                "                 address_tbl  ON  address_tbl.address_id = customer_tbl.address_id" +
                 "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
         return jdbcTemplate.query(sql,rowMapper);
     }
 
-//    public int getAddressId(){
-//        String sql = "SELECT customer_id, address_id\n" +
-//                "   FROM customer_tbl \n" +
-//                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id \n" +
-//                "                ";
-//        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
-//        List<Customer> cuscus =  jdbcTemplate.query(sql,rowMapper);
-//        for (int i = 0; i < cuscus.size(); i++) {
-//            System.out.println(cuscus.get(i).getAddress());
-//        }
-//        return 0;
-//
-//    }
 
     public int getAddressId(){
-        int addressId = 0;
-          final  String jdbc_driver = "COM.MYSQL.JDBC.DRIVER";
-          final String DATABASE_URL = "jdbc:mysql://localhost:3306/bakerybyhermann";
-          Connection con;
-
-        try {
-            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu"); // husk at ændre jeres kode
-            Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery("SELECT address_id FROM address_tbl ORDER BY address_id DESC LIMIT 1");
-            if (rs != null){
-                while (rs.next()){
-                    addressId =rs.getInt("address_id");
-                }
-            }
-            s.close();
-            con.close();
-        }catch (SQLException sqlException){
-            System.out.println("SqlException: "+ sqlException.getMessage());
-        }
-        return addressId;
+        String sql = "SELECT address_id,street_name,street_number FROM address_tbl ORDER BY address_id DESC LIMIT 1";
+        RowMapper<Address> rowMapper = new BeanPropertyRowMapper<>(Address.class);
+        Address address = jdbcTemplate.queryForObject(sql, rowMapper);
+        return address.getAddressId();
     }
 
-    public void addNew (Customer customer) {
+    public void addNew(Customer customer) {
         String address = customer.getAddress(); //her bruger vi input fra Html
         String[] splitted = address.split(" "); // her splitter inputtet
 
@@ -114,26 +81,10 @@ public class CustomerRepo {
     }
 
     public int getUpdateAddressId(int id){
-        int addressId = 0;
-        final  String jdbc_driver = "COM.MYSQL.JDBC.DRIVER";
-        final String DATABASE_URL = "jdbc:mysql://localhost:3306/bakerybyhermann";
-        Connection con;
-
-        try {
-            con = DriverManager.getConnection(DATABASE_URL, "root", "KKE94utu"); // husk at ændre jeres kode
-            Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery("SELECT address_id FROM customer_tbl WHERE customer_id = " + id);
-            if (rs != null){
-                while (rs.next()){
-                    addressId =rs.getInt("address_id");
-                }
-            }
-            s.close();
-            con.close();
-        }catch (SQLException sqlException){
-            System.out.println("SqlException: "+ sqlException.getMessage());
-        }
-        return addressId;
+        String sql = "SELECT address_id FROM customer_tbl WHERE customer_id = ?";
+        RowMapper<Address> rowMapper = new BeanPropertyRowMapper<>(Address.class);
+        Address address = jdbcTemplate.queryForObject(sql, rowMapper, id);
+        return address.getAddressId();
     }
 
 
