@@ -17,10 +17,16 @@ public class CustomerRepo {
     JdbcTemplate jdbcTemplate;
 
     public List<Customer> fetchAll(){
-        String sql = "SELECT customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, repeated_visits, company_name" +
-                "   FROM customer_tbl " +
-                "                 address_tbl  ON  address_tbl.address_id = customer_tbl.address_id" +
-                "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
+//        String sql = "SELECT customer_tbl.customer_id as personId, first_name, last_name, CONCAT(street_name, ' ', street_number) as address, zip_code_tbl.zip_code, city, phone_number, e_mail as email, customer_tbl.repeated_visits, customer_tbl.company_name" +
+//                "   FROM person_tbl JOIN customer_tbl ON person_tbl.person_id = customer_tbl.customer_id " +
+////                "                JOIN address_tbl  ON  address_tbl.address_id = customer_tbl.address_id" +
+//                "                JOIN zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
+
+     String sql = "SELECT customer_tbl.customer_id as personId,first_name,last_name,CONCAT(street_name, ' ', street_number) as address,address_tbl.zip_code,city,phone_number,e_mail as email,repeated_visits,company_name\n" +
+             "FROM person_tbl\n" +
+             "INNER JOIN customer_tbl ON person_tbl.person_id = customer_tbl.person_id\n" +
+             "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
+             "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
         return jdbcTemplate.query(sql,rowMapper);
     }
@@ -34,15 +40,15 @@ public class CustomerRepo {
     }
 
     public void addNew(Customer customer) {
-        String address = customer.getAddress(); //her bruger vi input fra Html
-        String[] splitted = address.split(" "); // her splitter inputtet
-
-        int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
-        String streetName = splitted[0]; // her her vi gadenavnet
+////        String address = customer.getAddress(); //her bruger vi input fra Html
+//        String[] splitted = address.split(" "); // her splitter inputtet
+//
+//        int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
+//        String streetName = splitted[0]; // her her vi gadenavnet
 
         String sql2 = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
 
-        jdbcTemplate.update(sql2,streetName,streetNumber,customer.getZipCode());
+//        jdbcTemplate.update(sql2,streetName,streetNumber,customer.getZipCode());
 
         //her skal vi finde address id fra result set
         int addressId = getAddressId();
@@ -65,14 +71,15 @@ public class CustomerRepo {
     }
 
     public void updateById(int id, Customer c){
-        String address = c.getAddress(); //her bruger vi input fra Html
+        /*String address = c.getAddress(); //her bruger vi input fra Html
         String[] splitted = address.split(" "); // her splitter inputtet
 
         int streetNumber = Integer.parseInt(splitted[1]); // her har vi gadenummet
-        String streetName = splitted[0]; // her her vi gadenavnet
+        String streetName = splitted[0]; // her her vi gadenavnet*/
+
 
         String sql1 = "UPDATE address_tbl SET street_name = ?, street_number = ?, zip_code = ? WHERE address_id = ?";
-        jdbcTemplate.update(sql1, streetName, streetNumber, c.getZipCode(), getUpdateAddressId(id) );
+        jdbcTemplate.update(sql1, c.getAddress().getStreetName(), c.getAddress().getStreetNumber(), c.getZipCode(), getUpdateAddressId(id) );
 
         String sql = "UPDATE customer_tbl SET customer_id = ?, first_name = ?, last_name = ?, address_id = ?, phone_number = ?," +
                 "e_mail = ?, repeated_visits = ?, company_name = ? WHERE customer_id = ?";

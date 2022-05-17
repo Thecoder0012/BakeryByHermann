@@ -5,13 +5,13 @@ public class Person {
     private int personId;
     private String firstName;
     private String lastName;
-    private String address;
+    private Address address;
     private int zipCode;
     private String city;
     private int phoneNumber;
     private String email;
 
-    public Person(int personId, String firstName, String lastName, String address, int zipCode, String city, int phoneNumber, String email) {
+    public Person(int personId, String firstName, String lastName, Address address, int zipCode, String city, int phoneNumber, String email) {
         this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,11 +49,11 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
