@@ -8,16 +8,22 @@
 
 <form action = "/update-customer" method ="post">
 
-    <label>Kunde id</label>
-    <input type="text" name="personId" th:value="${customer.personId}">
+    <label>id</label>
+    <input type="text" name="personId" th:value="${customer.personId}" readonly>
     <label>Fornavn</label>
-    <input type="text" name="firstName" th:value="${customer.firstName}">
+    <input type="text" name="firstName" th:value="${customer.firstName}" readonly>
     <label>Efternavn</label>
     <input type="text" name="lastName" th:value="${customer.lastName}">
-    <label>Adresse</label>
-    <input type="text" name="address" th:value="${customer.address}">
+    <label>Addressid</label>
+    <input type="text" name="address.addressId" th:value="${customer.address.addressId}"readonly>
+    <label>Vejnavn</label>
+    <input type="text" name="address.streetName" th:value="${customer.address.streetName}">
+    <label>Vejnummer</label>
+    <input type="text" name="address.streetNumber" th:value="${customer.address.streetNumber}">
     <label>Postnummer</label>
-    <input type="text" name="zipCode" th:value="${customer.zipCode}">
+    <input type="text" name="address.zipCode" th:value="${customer.address.zipCode}">
+    <label>By</label>
+    <input type="text" name="address.city" th:value="${customer.address.city}" readonly>
     <label>Mobilnummer</label>
     <input type="text" name="phoneNumber" th:value="${customer.phoneNumber}">
     <label>E-mail</label>
