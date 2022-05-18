@@ -5,8 +5,9 @@ public class Customer extends Person {
     private int repeatedVisits;
     private String companyName;
 
-    public Customer(int personId, String firstName, String lastName, Address address, int zipCode, String city, int phoneNumber, String email, int repeatedVisits, String companyName) {
-        super(personId, firstName, lastName, address, zipCode, city, phoneNumber, email);
+
+    public Customer(int personId, String firstName, String lastName, Address address,int phoneNumber, String email, int repeatedVisits, String companyName) {
+        super(personId, firstName, lastName, address, phoneNumber, email);
         this.repeatedVisits = repeatedVisits;
         this.companyName = companyName;
     }

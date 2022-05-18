@@ -1,6 +1,8 @@
 package com.bakerybyhermann.Service;
 
+import com.bakerybyhermann.Model.Address;
 import com.bakerybyhermann.Model.Customer;
+import com.bakerybyhermann.Model.Person;
 import com.bakerybyhermann.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,8 @@ public class CustomerService {
         return customerRepo.fetchAll();
     }
 
-    public void addNew(Customer customer) {
-        customerRepo.addNew(customer);
+    public void addNew(Customer customer, Address address) {
+        customerRepo.addNew(customer, address);
     }
 
     public Customer findById(int id){

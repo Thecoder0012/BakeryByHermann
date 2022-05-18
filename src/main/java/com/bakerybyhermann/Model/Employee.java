@@ -6,8 +6,8 @@ public class Employee extends Customer {
     private boolean gender;
     private boolean fullTimeEmployee;
 
-    public Employee(int personId, String firstName, String lastName, Address address, int zipCode, String city, int phoneNumber, String email, int repeatedVisits, String companyName, int age, boolean gender) {
-        super(personId, firstName, lastName, address, zipCode, city, phoneNumber, email, repeatedVisits, companyName);
+    public Employee(int personId, String firstName, String lastName, Address address, int phoneNumber, String email, int repeatedVisits, String companyName, int age, boolean gender) {
+        super(personId, firstName, lastName, address,  phoneNumber, email, repeatedVisits, companyName);
         this.age = age;
         this.gender = gender;
     }

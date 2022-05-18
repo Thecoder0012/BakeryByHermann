@@ -15,7 +15,8 @@
             <th>Kunde id</th>
             <th>Fornavn</th>
             <th>Efternavn</th>
-            <th>Addresse</th>
+   <        <th>Vejnavn</th>
+            <th>Vejnummer</th>
             <th>Postnummer</th>
             <th>By</th>
             <th>Mobilnummer</th>
@@ -29,14 +30,14 @@
         <td th:text="${customer.personId}"></td>
         <td th:text="${customer.firstName}"></td>
         <td th:text="${customer.lastName}" ></td>
-        <td th:text="${customer.address}"></td>
-        <td th:text="${customer.zipCode}"></td>
-        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.address.streetName}"></td>
+        <td th:text="${customer.address.streetNumber}"></td>
+        <td th:text="${customer.address.zipCode}"></td>
+        <td th:text="${customer.address.city}"></td>
         <td th:text="${customer.phoneNumber}"></td>
         <td th:text="${customer.email}"></td>
         <td th:text="${customer.repeatedVisits}"></td>
         <td th:text="${customer.companyName}"></td>
-
         <td>
             <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>
             <a th:href="@{'/customer/'+${customer.personId}}">Delete</a>

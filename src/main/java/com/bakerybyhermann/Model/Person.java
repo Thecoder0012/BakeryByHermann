@@ -6,18 +6,14 @@ public class Person {
     private String firstName;
     private String lastName;
     private Address address;
-    private int zipCode;
-    private String city;
     private int phoneNumber;
     private String email;
 
-    public Person(int personId, String firstName, String lastName, Address address, int zipCode, String city, int phoneNumber, String email) {
+    public Person(int personId, String firstName, String lastName, Address address, int phoneNumber, String email) {
         this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.zipCode = zipCode;
-        this.city = city;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -55,22 +51,6 @@ public class Person {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public int getPhoneNumber() {
