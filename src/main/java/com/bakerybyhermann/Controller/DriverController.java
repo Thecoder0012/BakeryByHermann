@@ -51,13 +51,7 @@ public class DriverController {
     }
 
     @GetMapping("/driver/{driverId}")
-    public String deleteCustomer(@PathVariable("driverId") int driverId){
-        driverService.deleteDriver(driverId);
-        return "redirect:/";
-    }
-
-    @GetMapping("/driver/{driverId}")
-    public String deleteCashier(@PathVariable("driverId") int driverId){
+    public String deleteDriver(@PathVariable("driverId") int driverId){
         driverService.deleteDriver(driverId);
         return "redirect:/";
     }
