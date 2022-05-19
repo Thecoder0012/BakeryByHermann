@@ -48,9 +48,12 @@
         <td th:text="${driver.driverLicenseNumber}"></td>
         <td th:text="${driver.registrationNumber}"></td>
 
-        <a href="/new-driver">Add</a>
-        <a th:href="@{'/update-driver/'+${driver.personId}}">Edit</a>
-        <a th:href="@{'/driver/'+${driver.personId}}">Delete</a>
+        <td>
+            <a href="/new-driver">Add</a>
+            <a th:href="@{'/update-driver/'+${driver.personId}}">Edit</a>
+            <a th:href="@{'/view-driver/'+${driver.personId}}">Delete</a>
+        </td>
+
 
     </tr>
 

@@ -2,7 +2,6 @@ package com.bakerybyhermann.Controller;
 
 
 import com.bakerybyhermann.Model.Address;
-import com.bakerybyhermann.Model.Customer;
 import com.bakerybyhermann.Model.Driver;
 import com.bakerybyhermann.Service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,10 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-    @GetMapping("/driver")
+    @GetMapping("/view-driver")
     public String getDriver(Model model){
         model.addAttribute("driversList",driverService.fetchAll());
-        return "driver/index";
+        return "driver/view-driver";
     }
 
     @GetMapping("/new-driver")
@@ -34,11 +33,11 @@ public class DriverController {
     public String createDriver(@ModelAttribute Driver driver, @ModelAttribute Address address){
         driver.setAddress(address);
         driverService.addNewDriver(driver, address);
-        return "redirect:/";
+        return "redirect:/view-driver";
     }
 
-    @GetMapping("/update-driver/{id}")
-    public String updateDriver(@PathVariable("id") int id, Model model){
+    @GetMapping("/update-driver/{driverId}")
+    public String updateDriver(@PathVariable("driverId") int id, Model model){
         Driver driver = driverService.findById(id);
         model.addAttribute("driver", driver);
         return "driver/update-driver";
@@ -47,7 +46,7 @@ public class DriverController {
     @PostMapping("/update-driver")
     public String updateCustomer(@ModelAttribute Driver driver){
         driverService.updateById(driver.getPersonId(), driver);
-        return "redirect:/";
+        return "redirect:/view-driver";
     }
 
     @GetMapping("/driver/{driverId}")

@@ -6,16 +6,14 @@
 </head>
 <body>
 
-<form action = "/update-customer" method ="post">
+<form action = "/update-driver" method ="post">
 
-    <label>id</label>
+    <label>Person id</label>
     <input type="text" name="personId" th:value="${driver.personId}" readonly>
     <label>Fornavn</label>
-    <input type="text" name="firstName" th:value="${driver.firstName}" readonly>
+    <input type="text" name="firstName" th:value="${driver.firstName}">
     <label>Efternavn</label>
     <input type="text" name="lastName" th:value="${driver.lastName}">
-    <label>Addressid</label>
-    <input type="text" name="address.addressId" th:value="${driver.address.addressId}"readonly>
     <label>Vejnavn</label>
     <input type="text" name="address.streetName" th:value="${driver.address.streetName}">
     <label>Vejnummer</label>
