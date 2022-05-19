@@ -3,7 +3,7 @@ package com.bakerybyhermann.Model;
 import java.util.List;
 
 public class Cashier extends Employee{
-
+/*
         private List<String> languages;
         private boolean isOver18;
 
@@ -29,5 +29,5 @@ public class Cashier extends Employee{
 
         public void setOver18(boolean over18) {
                 isOver18 = over18;
-        }
+        }*/
 }

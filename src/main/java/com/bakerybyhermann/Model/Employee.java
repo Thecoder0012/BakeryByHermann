@@ -1,7 +1,7 @@
 package com.bakerybyhermann.Model;
 
-public class Employee extends Customer {
-
+public class Employee extends Person {
+/*
     private int age;
     private boolean gender;
     private boolean fullTimeEmployee;
@@ -31,5 +31,5 @@ public class Employee extends Customer {
 
     public void setGender(boolean gender) {
         this.gender = gender;
-    }
+    }*/
 }
