@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+
+<form action = "/update-product" method ="post">
+
+    <label>vare nummer</label>
+    <input type="text" name="productId" th:value="${product.productId}" readonly>
+    <label>Vare navn</label>
+    <input type="text" name="productName" th:value="${product.productName}">
+    <label>Pris</label>
+    <input type="text" name="price" th:value="${product.price}">
+
+    <input type="submit" value="go">
+
+</form>
+
+
+</body>
+</html>
