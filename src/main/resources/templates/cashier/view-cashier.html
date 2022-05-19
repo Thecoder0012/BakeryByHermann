@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table>
+
+    <thead>
+
+    <tr>
+        <th>Personid</th>
+        <th>Navn</th>
+        <th>Efternavn</th>
+        <th>Vejnavn</th>
+        <th>Vejnummer</th>
+        <th>Postnummer</th>
+        <th>by</th>
+        <th>Telefonnummer</th>
+        <th>email</th>
+        <th>CashierId</th>
+        <th>Alder</th>
+        <th>Køn</th>
+        <th>Fuldtidsansat</th>
+        <th>Kaffe diplom</th>
+        <th>Actions</th>
+
+
+
+
+    </tr>
+
+    <tr th:each="cashier :${cashierEmployee}" >
+        <td th:text="${cashier.personId}"></td>
+        <td th:text="${cashier.firstName}"></td>
+        <td th:text="${cashier.lastName}" ></td>
+        <td th:text="${cashier.address.streetName}"></td>
+        <td th:text="${cashier.address.streetNumber}"></td>
+        <td th:text="${cashier.address.zipCode}"></td>
+        <td th:text="${cashier.address.city}"></td>
+        <td th:text="${cashier.phoneNumber}"></td>
+        <td th:text="${cashier.email}"></td>
+        <td th:text="${cashier.cashierId}" ></td>
+        <td th:text="${cashier.age}"></td>
+        <td th:text="${cashier.gender}"></td>
+        <td th:text="${cashier.fullTimeEmployee}"></td>
+        <td th:text="${cashier.coffeeDiplom}"></td>
+        <td>
+<!--            <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>-->
+            <a th:href="@{'/cashier/'+${cashier.cashierId}}">Delete</a>
+<!--            <a href="/new-customer">Add</a>-->
+        </td>
+
+
+    </tr>
+
+    </thead>
+
+</table>
+
+
+</body>
+</html>

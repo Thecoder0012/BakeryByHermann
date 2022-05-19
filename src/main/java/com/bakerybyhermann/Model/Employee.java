@@ -18,6 +18,7 @@ public class Employee extends Person {
     public Employee() {
     }
 
+
     public int getEmployeeId() {
         return employeeId;
     }
