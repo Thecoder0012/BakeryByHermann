@@ -51,31 +51,23 @@ public class DriverRepo {
     }
 
 
-    public void addNew(Driver driver, Address address) {
+    public void addNewDriver(Driver driver, Address address) {
 
         String sql = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
         jdbcTemplate.update(sql, address.getStreetName(), address.getStreetNumber(), address.getZipCode());
 
-        String sql2 = "INSERT INTO person_tbl(first_name,last_name,address_id,phone_number,e_mail) VALUES (?,?,?,?,?)";
-        jdbcTemplate.update(sql2, driver.getFirstName(), driver.getLastName(), getAddressId(), driver.getPhoneNumber(),
+        String sql1 = "INSERT INTO person_tbl(person_id, first_name,last_name,address_id,phone_number,e_mail) VALUES (?,?,?,?,?,?)";
+        jdbcTemplate.update(sql1, driver.getPersonId(), driver.getFirstName(), driver.getLastName(), getAddressId(), driver.getPhoneNumber(),
                 driver.getEmail());
 
+        String sql2 = "INSERT INTO employee_tbl(employee_id, age, gender, fulltime_employee) VALUES (?,?,?,?)";
+        jdbcTemplate.update(sql2, driver.getEmployeeId(), driver.getAge(), driver.isGender(), driver.isFullTimeEmployee());
+
+        String sql3 = "INSERT INTO driver_tbl(driver_license_number, registration_number) VALUES (?,?)";
+        jdbcTemplate.update(sql3, driver.getDriverLicenseNumber(), driver.getRegistrationNumber());
 
     }
 
 
 
-    public void addNew(Customer customer, Address address) {
-
-        String sql = "INSERT INTO address_tbl(street_name, street_number, zip_code) VALUES (?,?,?)";
-        jdbcTemplate.update(sql, address.getStreetName(), address.getStreetNumber(), address.getZipCode());
-
-        String sql2 = "INSERT INTO person_tbl(first_name,last_name,address_id,phone_number,e_mail) VALUES (?,?,?,?,?)";
-        jdbcTemplate.update(sql2, customer.getFirstName(), customer.getLastName(), getAddressId(), customer.getPhoneNumber(),
-                customer.getEmail());
-
-        String sql1 = "INSERT INTO customer_tbl(person_id, repeated_visits, company_name)" + " VALUES (?,?,?)";
-        jdbcTemplate.update(sql1, getPersonId(), customer.getRepeatedVisits(), customer.getCompanyName());
-
-    }
 }
