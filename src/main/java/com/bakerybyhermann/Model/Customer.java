@@ -6,7 +6,7 @@ public class Customer extends Person {
     private int repeatedVisits;
     private String companyName;
 
-    public Customer(int personId, String firstName, String lastName, Address address, int phoneNumber, String email, int customerId, String companyName) {
+    public Customer(int personId, String firstName, String lastName, Address address, int phoneNumber, String email, int customerId, int repeatedVisits, String companyName) {
         super(personId, firstName, lastName, address, phoneNumber, email);
         this.customerId = customerId;
         this.repeatedVisits = repeatedVisits;

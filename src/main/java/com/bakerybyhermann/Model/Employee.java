@@ -17,4 +17,37 @@ public class Employee extends Person {
 
     public Employee() {
     }
+
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
+    public boolean isFullTimeEmployee() {
+        return fullTimeEmployee;
+    }
+
+    public void setFullTimeEmployee(boolean fullTimeEmployee) {
+        this.fullTimeEmployee = fullTimeEmployee;
+    }
 }
