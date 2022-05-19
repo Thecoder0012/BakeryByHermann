@@ -1,8 +1,6 @@
 package com.bakerybyhermann.Service;
 
-
 import com.bakerybyhermann.Model.Address;
-import com.bakerybyhermann.Model.Customer;
 import com.bakerybyhermann.Model.Driver;
 import com.bakerybyhermann.Repository.DriverRepo;
 import org.springframework.beans.factory.annotation.Autowired;
