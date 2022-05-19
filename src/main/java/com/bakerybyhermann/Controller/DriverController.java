@@ -20,21 +20,26 @@ public class DriverController {
 
     @GetMapping("/driver")
     public String getDriver(Model model){
-
         model.addAttribute("driversList",driverService.fetchAll());
         return "driver/index";
     }
 
-    /*@GetMapping("/new-driver")
-    public String createCustomer(){
+    @GetMapping("/new-driver")
+    public String createDriver(){
         return "driver/new-driver";
     }
 
     @PostMapping("/new-driver")
-    public String createCustomer(@ModelAttribute Driver driver, @ModelAttribute Address address){
+    public String createDriver(@ModelAttribute Driver driver, @ModelAttribute Address address){
         driver.setAddress(address);
-        driverService.addNew(driver, address);
+        driverService.addNewDriver(driver, address);
         return "redirect:/";
+    }
+
+    /*@PostMapping("/new-product")
+    public String createCustomer(@ModelAttribute Product product){
+        productService.addNew(product);
+        return "redirect:/show-product";
     }*/
 
     /*@GetMapping("/customer/{customerId}")

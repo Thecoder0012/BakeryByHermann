@@ -19,7 +19,8 @@ public class DriverService {
     public List<Driver> fetchAll(){
         return driverRepo.fetchAll();
     }
-    /*public void addNew(Driver driver, Address address) {
-        driverRepo.addNew(driver, address);
-    }*/
+
+    public void addNewDriver(Driver driver, Address address) {
+        driverRepo.addNewDriver(driver, address);
+    }
 }
