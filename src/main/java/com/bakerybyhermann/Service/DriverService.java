@@ -23,4 +23,16 @@ public class DriverService {
     public void addNewDriver(Driver driver, Address address) {
         driverRepo.addNewDriver(driver, address);
     }
+
+    public Driver findById(int id){
+        return driverRepo.findById(id);
+    }
+
+    public void updateById(int id, Driver driver){
+        driverRepo.updateById(id, driver);
+    }
+
+    public void deleteDriver(int driverId){
+        driverRepo.deleteDriver(driverId);
+    }
 }

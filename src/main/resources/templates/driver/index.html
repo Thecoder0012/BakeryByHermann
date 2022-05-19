@@ -49,6 +49,7 @@
         <td th:text="${driver.registrationNumber}"></td>
 
         <a href="/new-driver">Add</a>
+        <a th:href="@{'/update-driver/'+${driver.personId}}">Edit</a>
 
 
 

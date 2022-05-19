@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -36,18 +37,32 @@ public class DriverController {
         return "redirect:/";
     }
 
-    /*@PostMapping("/new-product")
-    public String createCustomer(@ModelAttribute Product product){
-        productService.addNew(product);
-        return "redirect:/show-product";
-    }*/
+    @GetMapping("/update-driver/{id}")
+    public String updateDriver(@PathVariable("id") int id, Model model){
+        Driver driver = driverService.findById(id);
+        model.addAttribute("driver", driver);
+        return "driver/update-driver";
+    }
 
-    /*@GetMapping("/customer/{customerId}")
-    public String deleteCustomer(@PathVariable("customerId") int customerId){
-        customerService.delete(customerId);
+    @PostMapping("/update-driver")
+    public String updateCustomer(@ModelAttribute Driver driver){
+        driverService.updateById(driver.getPersonId(), driver);
         return "redirect:/";
     }
 
+    @GetMapping("/driver/{driverId}")
+    public String deleteCustomer(@PathVariable("driverId") int driverId){
+        driverService.deleteDriver(driverId);
+        return "redirect:/";
+    }
+
+    @GetMapping("/driver/{driverId}")
+    public String deleteCashier(@PathVariable("driverId") int driverId){
+        driverService.deleteDriver(driverId);
+        return "redirect:/";
+    }
+
+/*
     @GetMapping("/update-customer/{id}")
     public String updateCustomer(@PathVariable("id") int id, Model model){
         Customer customer = customerService.findById(id);
@@ -64,6 +79,12 @@ public class DriverController {
         System.out.println(customer.getAddress().getCity());
         customerService.updateById(customer.getPersonId(), customer);
         System.out.println("id er lig med  ="+customer.getPersonId());
+        return "redirect:/";
+    }*/
+
+    /*@GetMapping("/customer/{customerId}")
+    public String deleteCustomer(@PathVariable("customerId") int customerId){
+        customerService.delete(customerId);
         return "redirect:/";
     }*/
 }
