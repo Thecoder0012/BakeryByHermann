@@ -66,7 +66,7 @@ public class DriverRepo {
         jdbcTemplate.update(sql1,  driver.getFirstName(), driver.getLastName(), getAddressId(), driver.getPhoneNumber(),
                 driver.getEmail());
 
-        String sql2 = "INSERT INTO employee_tbl( person_id, age, gender, fulltime_employee) VALUES (?,?,?,?)";
+        String sql2 = "INSERT INTO employee_tbl(person_id, age, gender, fulltime_employee) VALUES (?,?,?,?)";
         jdbcTemplate.update(sql2, getPersonId(), driver.getAge(), driver.isGender(), driver.isFullTimeEmployee());
 
         String sql3 = "INSERT INTO driver_tbl(employee_id, driver_license_number, registration_number) VALUES (?,?,?)";

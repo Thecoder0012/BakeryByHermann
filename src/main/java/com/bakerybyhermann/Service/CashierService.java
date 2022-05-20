@@ -1,6 +1,7 @@
 package com.bakerybyhermann.Service;
 
 
+import com.bakerybyhermann.Model.Address;
 import com.bakerybyhermann.Model.Cashier;
 import com.bakerybyhermann.Repository.CashierRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,15 @@ public class CashierService {
         cashierRepo.delete(cashierId);
     }
 
+    public void addNew(Cashier cashier,Address address){
+        cashierRepo.addNew(cashier, address);
+    }
+
+    public Cashier findById(int cashierId) {
+        return cashierRepo.findById(cashierId);
+    }
+
+    public void updateById(int id,Cashier cashier){
+        cashierRepo.updateById(id,cashier);
+    }
 }

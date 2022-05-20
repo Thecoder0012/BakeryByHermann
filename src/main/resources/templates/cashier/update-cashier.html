@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+
+
+<form action = "/cashier-update" method ="post">
+
+    <label>id</label>
+    <input type="text" name="personId" th:value="${cashier.personId}" readonly>
+    <label>Fornavn</label>
+    <input type="text" name="firstName" th:value="${cashier.firstName}" >
+    <label>Efternavn</label>
+    <input type="text" name="lastName" th:value="${cashier.lastName}">
+    <label>Addressid</label>
+    <input type="text" name="address.addressId" th:value="${cashier.address.addressId}"readonly>
+    <label>Vejnavn</label>
+    <input type="text" name="address.streetName" th:value="${cashier.address.streetName}">
+    <label>Vejnummer</label>
+    <input type="text" name="address.streetNumber" th:value="${cashier.address.streetNumber}">
+    <label>Postnummer</label>
+    <input type="text" name="address.zipCode" th:value="${cashier.address.zipCode}">
+    <label>By</label>
+    <input type="text" name="address.city" th:value="${cashier.address.city}" readonly>
+    <label>Mobilnummer</label>
+    <input type="text" name="phoneNumber" th:value="${cashier.phoneNumber}">
+    <label>E-mail</label>
+    <input type="text" name="email" th:value="${cashier.email}">
+
+    <label>Alder</label>
+    <input type="text" name="age" th:value="${cashier.age}">
+
+    <label>Køn</label>
+    <input type="text" name="gender" th:value="${cashier.gender}">
+
+    <label>Alder</label>
+    <input type="text" name="fullTimeEmployee" th:value="${cashier.fullTimeEmployee}">
+
+    <label>Køn</label>
+    <input type="text" name="coffeeDiplom" th:value="${cashier.coffeeDiplom}">
+
+
+    <input type="submit" value="go">
+
+</form>
+
+
+
+</body>
+</html>

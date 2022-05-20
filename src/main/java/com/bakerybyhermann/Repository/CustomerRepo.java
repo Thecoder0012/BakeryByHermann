@@ -105,7 +105,7 @@ public class CustomerRepo {
                 "FROM person_tbl\n" +
                 "INNER JOIN customer_tbl ON person_tbl.person_id = customer_tbl.person_id\n" +
                 "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
-                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code WHERE person_tbl.person_id = ?";
+                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code WHERE employee_tbl.employee_id = ?";
 
         RowMapper rowMapper = new CustomerMapper();
 

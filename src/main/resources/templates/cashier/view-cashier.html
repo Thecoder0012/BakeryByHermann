@@ -49,8 +49,8 @@
         <td th:text="${cashier.fullTimeEmployee}"></td>
         <td th:text="${cashier.coffeeDiplom}"></td>
         <td>
-<!--            <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>-->
-            <a th:href="@{'/cashier/'+${cashier.cashierId}}">Delete</a>
+            <a th:href="@{'/cashier-update/'+${cashier.cashierId}}">Edit</a>
+            <a  th:href="@{'/cashier/'+${cashier.cashierId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Delete</a>
 <!--            <a href="/new-customer">Add</a>-->
         </td>
 
