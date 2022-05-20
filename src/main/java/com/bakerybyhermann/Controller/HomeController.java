@@ -19,7 +19,7 @@ public class HomeController {
     public String getIndex(Model model){
         
         model.addAttribute("customersList",customerService.fetchAll());
-        return "home/index";
+        return "customer/show-customer";
     }
 
 

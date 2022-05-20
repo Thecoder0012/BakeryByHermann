@@ -26,13 +26,13 @@ public class CustomerController {
     public String createCustomer(@ModelAttribute Customer customer, @ModelAttribute Address address){
         customer.setAddress(address);
         customerService.addNew(customer, address);
-        return "redirect:/show-customer";
+        return "redirect:/";
     }
 
     @GetMapping("/customer/{customerId}")
     public String deleteCustomer(@PathVariable("customerId") int customerId){
         customerService.delete(customerId);
-        return "redirect:/show-customer";
+        return "redirect:/";
     }
 
     @GetMapping("/update-customer/{id}")
@@ -51,6 +51,6 @@ public class CustomerController {
         System.out.println(customer.getAddress().getCity());
         customerService.updateById(customer.getPersonId(), customer);
         System.out.println("id er lig med  ="+customer.getPersonId());
-        return "redirect:/show-customer";
+        return "redirect:/";
     }
 }
