@@ -1,6 +1,5 @@
 package com.bakerybyhermann.Controller;
 
-import com.bakerybyhermann.Model.Customer;
 import com.bakerybyhermann.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
