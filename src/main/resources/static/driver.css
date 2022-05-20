@@ -1,0 +1,42 @@
+body {
+    width: 100%;
+    height: 100%;
+    background: #c7dee4;
+    color: #030303;
+}
+
+#HeadlinePerson, #HeadlineMedarbejder, #HeadlineDriver, #HeadlineAddress {
+    font-family: fangsong;
+    font-size: 100%;
+    margin-left: 1%;
+    margin-top: 2.5%;
+    text-align: left;
+}
+
+.table-1, .table-2, .table-3, .table-4 {
+    font-size: 100%;
+    font-family: auto;
+    margin-left: 0.5%;
+    margin-top: 1%;
+    width: 80%;
+}
+
+.table-1, .table-2, .table-3, .table-4 {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    border: 1px solid black;
+    height: 50px;
+    padding: 1px 25px;
+}
+
+th {
+    background-color: #004F54;
+    color: white;
+}
