@@ -11,19 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    CustomerService customerService;
-
-
-    @GetMapping("/show-customer")
-    public String getIndex(Model model){
-        
-        model.addAttribute("customersList",customerService.fetchAll());
-        return "customer/show-customer";
-    }
-
     @GetMapping("/")
-    public String getIndex1(){
+    public String getIndex(){
         return "home/index";
     }
 
