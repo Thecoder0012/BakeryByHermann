@@ -15,11 +15,16 @@ public class HomeController {
     CustomerService customerService;
 
 
-    @GetMapping("/")
+    @GetMapping("/show-customer")
     public String getIndex(Model model){
         
         model.addAttribute("customersList",customerService.fetchAll());
         return "customer/show-customer";
+    }
+
+    @GetMapping("/")
+    public String getIndex1(){
+        return "home/index";
     }
 
 
