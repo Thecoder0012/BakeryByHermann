@@ -56,7 +56,7 @@ public class CashierController {
 //     update get
     @PostMapping("/cashier-update")
     public String editCashier(@ModelAttribute Cashier cashier){
-        cashierService.updateById(cashier.getCashierId(),cashier);
+        cashierService.updateById(cashier);
         return "redirect:/cashier";
     }
 }

@@ -31,7 +31,7 @@ public class CashierService {
         return cashierRepo.findById(cashierId);
     }
 
-    public void updateById(int id,Cashier cashier){
-        cashierRepo.updateById(id,cashier);
+    public void updateById(Cashier cashier){
+        cashierRepo.updateById(cashier);
     }
 }
