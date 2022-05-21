@@ -1,9 +1,6 @@
 package com.bakerybyhermann.Repository;
 
-import com.bakerybyhermann.Model.Address;
-import com.bakerybyhermann.Model.Driver;
-import com.bakerybyhermann.Model.Employee;
-import com.bakerybyhermann.Model.Person;
+import com.bakerybyhermann.Model.*;
 import com.bakerybyhermann.Repository.Mapper.CustomerMapper;
 import com.bakerybyhermann.Repository.Mapper.DriverMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,21 +99,31 @@ public class DriverRepo {
         return driverList.get(0);
     }
 
-    public void updateById(int id, Driver driver) {
-
-        String sqlAddress = "UPDATE address_tbl SET street_name = ?, street_number = ?, zip_code = ? WHERE address_id = ?";
-        jdbcTemplate.update(sqlAddress, driver.getAddress().getStreetName(), driver.getAddress().getStreetNumber(), driver.getAddress().getZipCode(), getUpdateAddressId(id));
-
-        String sqlEmployee = "UPDATE employee_tbl SET age = ?, gender = ?, fulltime_employee = ? WHERE employee_id = ?";
-        jdbcTemplate.update(sqlEmployee, driver.getAge(), driver.isGender(), driver.isFullTimeEmployee(), id);
+    public void updateById(Driver driver) {
 
         String sqlDriver = "UPDATE driver_tbl SET driver_license_number = ?, registration_number = ? WHERE driver_id = ?";
-        jdbcTemplate.update(sqlDriver, driver.getDriverLicenseNumber(), driver.getRegistrationNumber(), id);
+        jdbcTemplate.update(sqlDriver, driver.getDriverLicenseNumber(), driver.getRegistrationNumber(), getDriverId());
+
+
+        String sqlEmployee = "UPDATE employee_tbl SET age = ?, gender = ?, fulltime_employee = ? WHERE employee_id = ?";
+        jdbcTemplate.update(sqlEmployee, driver.getAge(), driver.isGender(), driver.isFullTimeEmployee(), getEmployeeId());
+
+
+        String sqlAddress = "UPDATE address_tbl SET street_name = ?, street_number = ?, zip_code = ? WHERE address_id = ?";
+        jdbcTemplate.update(sqlAddress, driver.getAddress().getStreetName(), driver.getAddress().getStreetNumber(), driver.getAddress().getZipCode(),getAddressId());
 
         String sqlPerson = "UPDATE person_tbl SET first_name = ?, last_name = ?, phone_number = ?,e_mail = ? WHERE person_tbl.person_id = ?";
-        jdbcTemplate.update(sqlPerson, driver.getFirstName(), driver.getLastName(), driver.getPhoneNumber(),driver.getEmail(), id);
+        jdbcTemplate.update(sqlPerson, driver.getFirstName(), driver.getLastName(), driver.getPhoneNumber(),driver.getEmail(), driver.getPersonId());
 
     }
+
+    public int getDriverId() {
+        String sql = "SELECT * FROM driver_tbl ORDER BY driver_id DESC LIMIT 1";
+        RowMapper<Driver> rowMapper = new BeanPropertyRowMapper<>(Driver.class);
+        Driver driver = jdbcTemplate.queryForObject(sql, rowMapper);
+        return driver.getDriverId();
+    }
+
 
     public void deleteDriver(int driverId) {
         String sql = "DELETE driver_tbl,employee_tbl,person_tbl,address_tbl FROM driver_tbl \n" +
@@ -124,6 +131,14 @@ public class DriverRepo {
                 "INNER JOIN person_tbl ON employee_tbl.person_id = person_tbl.person_id\n" +
                 "INNER JOIN address_tbl on person_tbl.address_id = address_tbl.address_id\n" +
                 "WHERE driver_tbl.driver_id = ?";
+
+//        String sql1 = "DELETE cashier_tbl,employee_tbl,person_tbl,address_tbl FROM cashier_tbl \n" +
+//                "INNER JOIN employee_tbl ON cashier_tbl.employee_id = employee_tbl.employee_id \n" +
+//                "INNER JOIN person_tbl ON employee_tbl.person_id = person_tbl.person_id\n" +
+//                "INNER JOIN address_tbl on person_tbl.address_id = address_tbl.address_id\n" +
+//                "WHERE cashier_tbl.cashier_id = ?;";
+//
+//        jdbcTemplate.update(sql, cashierId);
 
         jdbcTemplate.update(sql, driverId);
     }

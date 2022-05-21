@@ -26,8 +26,8 @@ public class DriverService {
         return driverRepo.findById(id);
     }
 
-    public void updateById(int id, Driver driver){
-        driverRepo.updateById(id, driver);
+    public void updateById(Driver driver){
+        driverRepo.updateById(driver);
     }
 
     public void deleteDriver(int driverId){

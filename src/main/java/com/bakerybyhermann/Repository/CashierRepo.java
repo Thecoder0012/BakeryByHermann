@@ -27,7 +27,11 @@ public class CashierRepo {
 
 
     public void delete(int cashierId) {
-        String sql = "DELETE cashier_tbl,employee_tbl,person_tbl,address_tbl FROM cashier_tbl \n" + "INNER JOIN employee_tbl ON cashier_tbl.employee_id = employee_tbl.employee_id \n" + "INNER JOIN person_tbl ON employee_tbl.person_id = person_tbl.person_id\n" + "INNER JOIN address_tbl on person_tbl.address_id = address_tbl.address_id\n" + "WHERE cashier_tbl.cashier_id = ?;";
+        String sql = "DELETE cashier_tbl,employee_tbl,person_tbl,address_tbl FROM cashier_tbl \n" +
+                "INNER JOIN employee_tbl ON cashier_tbl.employee_id = employee_tbl.employee_id \n" +
+                "INNER JOIN person_tbl ON employee_tbl.person_id = person_tbl.person_id\n" +
+                "INNER JOIN address_tbl on person_tbl.address_id = address_tbl.address_id\n" +
+                "WHERE cashier_tbl.cashier_id = ?;";
 
         jdbcTemplate.update(sql, cashierId);
     }
@@ -64,8 +68,6 @@ public class CashierRepo {
 
         String sqlPerson = "UPDATE person_tbl SET first_name = ?, last_name = ?, phone_number = ?,e_mail = ? WHERE person_tbl.person_id = ?";
         jdbcTemplate.update(sqlPerson, cashier.getFirstName(), cashier.getLastName(), cashier.getPhoneNumber(), cashier.getEmail(), cashier.getPersonId());
-
-
     }
 
     public int getEmployeeId() {

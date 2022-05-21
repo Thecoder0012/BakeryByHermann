@@ -45,14 +45,14 @@ public class DriverController {
 
     @PostMapping("/update-driver")
     public String updateCustomer(@ModelAttribute Driver driver){
-        driverService.updateById(driver.getPersonId(), driver);
+        driverService.updateById(driver);
         return "redirect:/view-driver";
     }
 
     @GetMapping("/driver/{driverId}")
     public String deleteDriver(@PathVariable("driverId") int driverId){
         driverService.deleteDriver(driverId);
-        return "redirect:/";
+        return "redirect:/view-driver";
     }
 
 }
