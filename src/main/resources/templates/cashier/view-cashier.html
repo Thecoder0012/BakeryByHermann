@@ -45,9 +45,9 @@
         <td th:text="${cashier.email}"></td>
         <td th:text="${cashier.cashierId}" ></td>
         <td th:text="${cashier.age}"></td>
-        <td th:text="${cashier.gender}"></td>
-        <td th:text="${cashier.fullTimeEmployee}"></td>
-        <td th:text="${cashier.coffeeDiplom}"></td>
+        <td th:text="${cashier.gender} ? 'Mand' : 'Kvinde'" />
+        <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'nej'" />
+        <td th:text="${cashier.coffeeDiplom} ? 'Ja' : 'Nej'"></td>
         <td>
             <a th:href="@{'/cashier-update/'+${cashier.cashierId}}">Edit</a>
             <a  th:href="@{'/cashier/'+${cashier.cashierId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Delete</a>

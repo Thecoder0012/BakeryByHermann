@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class CashierController {
 
@@ -21,7 +23,16 @@ public class CashierController {
 
     @GetMapping("/cashier")
     public String getCashier(Model model){
-        model.addAttribute("cashierEmployee",cashierService.fetchAll());
+        List<Cashier> cashierList = cashierService.fetchAll();
+//        for (int i = 0; i<cashierList.size(); i++){
+//            if (cashierList.get(i).isGender()){
+//                cashier.setGender(Boolean.parseBoolean("Mand"));
+//            }else{
+//                cashier.setGender(Boolean.parseBoolean("Kvinde"));
+//            }
+//        }
+
+        model.addAttribute("cashierEmployee",cashierList);
         return "cashier/view-cashier";
     }
 
