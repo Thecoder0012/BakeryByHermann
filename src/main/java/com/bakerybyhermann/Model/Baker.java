@@ -5,11 +5,14 @@ public class Baker extends Employee {
     private int employeeId;
     private int yearsOfExperience;
 
-    public Baker(int bakerId, int employeeId, int yearsOfExperience) {
+        public Baker(int personId, String firstName, String lastName, Address address, int phoneNumber, String email, int employeeId, int age, boolean gender, boolean fullTimeEmployee, int bakerId, int yearsOfExperience)
+        {super(personId, firstName, lastName, address, phoneNumber, email, employeeId, age, gender, fullTimeEmployee);
         this.bakerId = bakerId;
         this.employeeId = employeeId;
         this.yearsOfExperience = yearsOfExperience;
     }
+
+
 
     public Baker() {
     }
@@ -38,3 +41,5 @@ public class Baker extends Employee {
         this.yearsOfExperience = yearsOfExperience;
     }
 }
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Baker</title>
+</head>
+<body>
+
+<form action = "/update-baker" method ="post">
+
+    <label>Person id</label>
+    <input type="text" name="personId" th:value="${baker.personId}" readonly>
+    <label>Fornavn</label>
+    <input type="text" name="firstName" th:value="${baker.firstName}">
+    <label>Efternavn</label>
+    <input type="text" name="lastName" th:value="${baker.lastName}">
+    <label>Vejnavn</label>
+    <input type="text" name="address.streetName" th:value="${baker.address.streetName}">
+    <label>Vejnummer</label>
+    <input type="text" name="address.streetNumber" th:value="${baker.address.streetNumber}">
+    <label>Postnummer</label>
+    <input type="text" name="address.zipCode" th:value="${baker.address.zipCode}">
+    <label>By</label>
+    <input type="text" name="address.city" th:value="${baker.address.city}" readonly>
+    <label>Mobilnummer</label>
+    <input type="text" name="phoneNumber" th:value="${baker.phoneNumber}">
+    <label>E-mail</label>
+    <input type="text" name="email" th:value="${baker.email}">
+    <label>Alder</label>
+    <input type="text" name="age" th:value="${baker.age}">
+    <label>Køn</label>
+    <input type="text" name="gender" th:value="${baker.gender}">
+    <label>Firmanavn</label>
+    <input type="text" name="fullTimeEmployee" th:value="${baker.fullTimeEmployee}">
+    <label>Års erfaring</label>
+    <input type="text" name="yearsOfExperience" th:value="${baker.yearsOfExperience}">
+
+
+
+    <input type="submit" value="go">
+
+</form>
+
+</body>
+</html>

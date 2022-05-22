@@ -47,6 +47,12 @@
         <td th:text="${baker.fullTimeEmployee}"></td>
         <td th:text="${baker.yearsOfExperience}"></td>
 
+        <td>
+            <a href="/new-baker">Add</a>
+            <a th:href="@{'/update-baker/'+${baker.personId}}">Edit</a>
+            <a th:href="@{'/view-baker/'+${baker.personId}}">Delete</a>
+        </td>
+
 
 
     </tr>
