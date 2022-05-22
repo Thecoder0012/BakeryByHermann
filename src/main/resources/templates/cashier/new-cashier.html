@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Add</title>
@@ -33,14 +33,23 @@
     <label>Alder</label>
     <input type="text" name="age">
 
-    <label>Køn</label>
-    <input type="text" name="gender">
+    <label>Mand</label>
+    <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
+
+    <label>Kvinde</label>
+    <input type="checkbox" name="woman" th:checked="${woman}">
+
 
     <label>FuldtidsAnsat?</label>
     <input type="text" name="fullTimeEmployee">
 
     <label>KaffeDiplom?</label>
     <input type="text" name="coffeeDiplom">
+
+
+
+
+
 
 
     <input type="submit" value="go">
