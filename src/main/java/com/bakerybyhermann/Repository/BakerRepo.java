@@ -124,7 +124,7 @@ public class BakerRepo {
     }*/
     public void updateById(Baker baker) {
 
-    String sqlBaker = "UPDATE baker_tbl SET years_of_experience = ?, WHERE baker_id = ?";
+    String sqlBaker = "UPDATE baker_tbl SET years_of_experience = ? WHERE baker_id = ?";
         jdbcTemplate.update(sqlBaker, baker.getYearsOfExperience(), getBakerId());
 
 

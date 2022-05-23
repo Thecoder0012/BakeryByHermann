@@ -51,7 +51,7 @@ public class BakerController {
     }*/
 
     @PostMapping("/update-baker")
-    public String updateCustomer(@ModelAttribute Baker baker){
+    public String updateBaker(@ModelAttribute Baker baker){
         bakerService.updateById(baker);
         return "redirect:/baker";
     }
