@@ -96,7 +96,8 @@
 
         <td><a href="/new-driver">Opret</a></td>
         <td><a th:href="@{'/update-driver/'+${driver.personId}}">Rediger</a></td>
-        <td><a th:href="@{'/driver/'+${driver.driverId}}">Slet</a></td>
+        <td><a th:href="@{'/driver/'+${driver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
+
 
     </tr>
 
@@ -128,8 +129,8 @@
         <td th:text="${driver.personId}"></td>
         <td th:text="${driver.firstName}"></td>
         <td th:text="${driver.age}"></td>
-        <td th:text="${driver.gender}"></td>
-        <td th:text="${driver.fullTimeEmployee}"></td>
+        <td th:text="${driver.gender} ? 'Mand' : 'Kvinde'" />
+        <td th:text="${driver.fullTimeEmployee} ? 'Ja' : 'nej'" />
         <td th:text="${driver.email}"></td>
         <td th:text="${driver.phoneNumber}"></td>
 

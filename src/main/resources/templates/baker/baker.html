@@ -38,6 +38,34 @@
 
 <table class="table01">
 
+    <div id="HeadlineBaker"><h1>
+        Bager oplysninger
+    </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Års erfaring</th>
+
+    </tr>
+
+    <tr th:each="baker :${bakersList}" >
+        <td th:text="${baker.personId}"></td>
+        <td th:text="${baker.firstName}"></td>
+        <td th:text="${baker.yearsOfExperience}"></td>
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table class="table02">
+
     <div id="HeadlinePerson"><h1>
         Person oplysninger
     </h1>
@@ -67,7 +95,7 @@
 
         <td><a href="/new-baker">Opret</a></td>
         <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>
-        <td><a th:href="@{'/baker/'+${baker.bakerId}}">Slet</a></td>
+        <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
 
     </tr>
 
@@ -75,7 +103,7 @@
 
 </table>
 
-<table class="table02">
+<table class="table03">
 
     <div id="HeadlineMedarbejder"><h1>
         Medarbejder oplysninger
@@ -99,8 +127,8 @@
         <td th:text="${baker.personId}"></td>
         <td th:text="${baker.firstName}"></td>
         <td th:text="${baker.age}"></td>
-        <td th:text="${baker.gender}"></td>
-        <td th:text="${baker.fullTimeEmployee}"></td>
+        <td th:text="${baker.gender} ? 'Mand' : 'Kvinde'" />
+        <td th:text="${baker.fullTimeEmployee} ? 'Ja' : 'nej'" />
         <td th:text="${baker.email}"></td>
         <td th:text="${baker.phoneNumber}"></td>
 
@@ -111,33 +139,6 @@
 
 </table>
 
-<table class="table03">
-
-    <div id="HeadlineBaker"><h1>
-        Bager oplysninger
-    </h1>
-    </div>
-
-    <thead>
-
-    <tr>
-
-        <th>Person id</th>
-        <th>Fornavn</th>
-        <th>Års erfaring</th>
-
-    </tr>
-
-    <tr th:each="baker :${bakersList}" >
-        <td th:text="${baker.personId}"></td>
-        <td th:text="${baker.firstName}"></td>
-        <td th:text="${baker.yearsOfExperience}"></td>
-
-    </tr>
-
-    </thead>
-
-</table>
 
 <table class="table04">
 

@@ -28,8 +28,10 @@
     <input type="text" name="registrationNumber">
     <label>Alder</label>
     <input type="text" name="age">
-    <label>Køn</label>
-    <input type="text" name="gender">
+    <label>Mand</label>
+    <input type="checkbox" name="man" th:checked="${driver?.gender}">
+    <label>Kvinde</label>
+    <input type="checkbox" name="woman" th:checked="${woman}">
     <label>Fuldtidsansat</label>
     <input type="text" name="fullTimeEmployee">
 
