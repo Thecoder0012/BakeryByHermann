@@ -3,44 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Driver</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="tabel-structur.css"/>
 </head>
 <body>
 
+<nav>
+    <div class="menu">
+
+        <div class="logo">
+            <a href="#">Bakery By Hermann</a>
+        </div>
+
+        <ul>
+            <li><a href="/">Startside</a></li>
+            <li><a href="#">Bestilling</a></li>
+            <li><a href="/show-customer">Kunde</a></li>
+            <div class="dropdown">
+                <li><a href="#">Medarbejder</a></li>
+                <div class="dropdown-content">
+                    <a href="/baker">Bager</a>
+                    <a href="/cashier">Butiksansat</a>
+                    <a href="/driver">Chauffør</a>
+                </div>
+            </div>
+            <li><a href="#">Hjælp</a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<h1>Indtast chaufførens nye oplysninger</h1>
+
+<div class="table-new">
 <form action = "/update-driver" method ="post">
 
-    <label>Person id</label>
+    <ul>
+    <li><label>Person id</label></li>
     <input type="text" name="personId" th:value="${driver.personId}" readonly>
-    <label>Fornavn</label>
+        <li><label>Fornavn</label></li>
     <input type="text" name="firstName" th:value="${driver.firstName}">
-    <label>Efternavn</label>
+        <li><label>Efternavn</label></li>
     <input type="text" name="lastName" th:value="${driver.lastName}">
-    <label>Vejnavn</label>
+        <li><label>Vejnavn</label></li>
     <input type="text" name="address.streetName" th:value="${driver.address.streetName}">
-    <label>Vejnummer</label>
+        <li><label>Vejnummer</label></li>
     <input type="text" name="address.streetNumber" th:value="${driver.address.streetNumber}">
-    <label>Postnummer</label>
+        <li><label>Postnummer</label></li>
     <input type="text" name="address.zipCode" th:value="${driver.address.zipCode}">
-    <label>By</label>
+        <li><label>By</label></li>
     <input type="text" name="address.city" th:value="${driver.address.city}" readonly>
-    <label>Mobilnummer</label>
+        <li><label>Mobilnummer</label></li>
     <input type="text" name="phoneNumber" th:value="${driver.phoneNumber}">
-    <label>E-mail</label>
+        <li><label>E-mail</label></li>
     <input type="text" name="email" th:value="${driver.email}">
-    <label>Alder</label>
+        <li><label>Alder</label></li>
     <input type="text" name="age" th:value="${driver.age}">
-    <label>Køn</label>
+        <li><label>Køn</label></li>
     <input type="text" name="gender" th:value="${driver.gender}">
-    <label>Firmanavn</label>
+        <li><label>Firmanavn</label></li>
     <input type="text" name="fullTimeEmployee" th:value="${driver.fullTimeEmployee}">
-    <label>Kørekort nummer</label>
+        <li><label>Kørekort nummer</label></li>
     <input type="text" name="driverLicenseNumber" th:value="${driver.driverLicenseNumber}">
-    <label>Registreringsnummer</label>
+        <li><label>Registreringsnummer</label></li>
     <input type="text" name="registrationNumber" th:value="${driver.registrationNumber}">
 
 
-    <input type="submit" value="go">
-
-</form>
+    <input type="submit" value="Opdater">
+        </ul>
+    </form>
+</div>
 
 </body>
 </html>

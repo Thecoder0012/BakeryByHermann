@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Driver index</title>
-    <link rel="stylesheet" href="driver.css"/>
     <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="tabel-structur.css"/>
 </head>
 <body>
 
@@ -37,7 +37,13 @@
 
 <table class="table-1">
 
-    <div id="HeadlineDriver"><h1>
+    <div id="HeadlineDriver">
+
+        <div class="button-employees">
+            <button onclick="window.location.href='/new-driver';">Opret ny chauffør</button>
+        </div>
+
+        <h1>
         Chauffør oplysninger
     </h1>
     </div>
@@ -50,7 +56,6 @@
         <th>Fornavn</th>
         <th>Kørekort nummer</th>
         <th>Registrerings nummer</th>
-        <th><a href="/new-driver" style="color: white">Opret</a></th>
 
     </tr>
 

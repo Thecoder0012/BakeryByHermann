@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Baker</title>
-     <link rel="stylesheet" href="baker.css"/>
     <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="tabel-structur.css"/>
 
 </head>
 <body>
@@ -38,9 +38,17 @@
 
 <table class="table01">
 
-    <div id="HeadlineBaker"><h1>
+    <div id="HeadlineBaker">
+
+        <div class="button-employees">
+        <button onclick="window.location.href='/new-baker';">Opret ny bager</button>
+        </div>
+
+
+    <h1>
         Bager oplysninger
     </h1>
+
     </div>
 
     <thead>
@@ -50,8 +58,6 @@
         <th>Person id</th>
         <th>Fornavn</th>
         <th>Års erfaring</th>
-        <th><a href="/new-baker" style="color: white">Opret</a></th>
-
 
     </tr>
 
@@ -94,8 +100,6 @@
         <td th:text="${baker.firstName}"></td>
         <td th:text="${baker.lastName}" ></td>
 
-
-        <td><a href="/new-baker">Opret</a></td>
         <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>
         <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
 

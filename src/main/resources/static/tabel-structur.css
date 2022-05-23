@@ -5,7 +5,7 @@ body {
     color: #030303;
 }
 
-#HeadlinePerson, #HeadlineMedarbejder, #HeadlineDriver, #HeadlineAddress {
+#HeadlinePerson, #HeadlineMedarbejder, #HeadlineDriver, #HeadlineAddress, #HeadlineBaker, #HeadlineCustomer, #HeadlineCashier {
     font-family: fangsong;
     font-size: 100%;
     margin-left: 1%;
@@ -13,7 +13,7 @@ body {
     text-align: left;
 }
 
-.table-1, .table-2, .table-3, .table-4 {
+.table-1, .table-2, .table-3, .table-4, .table-new {
     font-size: 100%;
     font-family: auto;
     margin-left: 0.5%;
@@ -21,7 +21,7 @@ body {
     width: 80%;
 }
 
-.table-1, .table-2, .table-3, .table-4 {
+.table-1, .table-2, .table-3, .table-4, .table-new {
     border-collapse: collapse;
 }
 

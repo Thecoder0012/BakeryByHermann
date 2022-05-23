@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Customer Home</title>
     <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="tabel-structur.css"/>
 </head>
 <body>
 
@@ -34,7 +35,20 @@
 
 </nav>
 
-<table>
+
+
+<table class="table-new">
+
+    <div id="HeadlineCustomer">
+
+        <div class="button-employees">
+            <button onclick="window.location.href='/new-customer';">Opret ny kunde</button>
+        </div>
+
+        <h1>
+            Kunde oplysninger
+        </h1>
+    </div>
 
     <thead>
 
@@ -51,6 +65,8 @@
             <th>E-mail</th>
             <th>Gentagne besøg</th>
             <th>Firmanavn</th>
+            <th>Rediger</th>
+            <th>Slet</th>
 
         </tr>
 
@@ -67,11 +83,10 @@
         <td th:text="${customer.email}"></td>
         <td th:text="${customer.repeatedVisits}"></td>
         <td th:text="${customer.companyName}"></td>
-        <td>
-            <a th:href="@{'/update-customer/'+${customer.personId}}">Edit</a>
-            <a th:href="@{'/customer/'+${customer.personId}}">Delete</a>
-            <a href="/new-customer">Add</a>
-        </td>
+
+        <td><a th:href="@{'/update-customer/'+${customer.personId}}">Rediger</a></td>
+        <td> <a th:href="@{'/customer/'+${customer.personId}}">Slet</a></td>
+
 
     </tr>
 

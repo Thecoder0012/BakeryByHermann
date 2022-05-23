@@ -3,47 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Add</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="tabel-structur.css"/>
 </head>
 <body>
 
+<nav>
+    <div class="menu">
 
+        <div class="logo">
+            <a href="#">Bakery By Hermann</a>
+        </div>
+
+        <ul>
+            <li><a href="/">Startside</a></li>
+            <li><a href="#">Bestilling</a></li>
+            <li><a href="/show-customer">Kunde</a></li>
+            <div class="dropdown">
+                <li><a href="#">Medarbejder</a></li>
+                <div class="dropdown-content">
+                    <a href="/baker">Bager</a>
+                    <a href="/cashier">Butiksansat</a>
+                    <a href="/driver">Chauffør</a>
+                </div>
+            </div>
+            <li><a href="#">Hjælp</a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<h1>Indtast butiksansat oplysninger</h1>
+
+<div class="table-new">
 <form action="/cashier/new" method="post">
 
-    <label>Fornavn</label>
+    <ul>
+        <li><label>Fornavn</label></li>
     <input type="text" name="firstName">
 
-    <label>Efternavn</label>
+        <li><label>Efternavn</label></li>
     <input type="text" name="lastName">
 
-    <label>Vejnavn</label>
+        <li> <label>Vejnavn</label></li>
     <input type="text" name="streetName">
 
-    <label>Vejnummer</label>
+        <li><label>Vejnummer</label></li>
     <input type="text" name="streetNumber">
 
-    <label>Postnummer</label>
+        <li><label>Postnummer</label></li>
     <input type="text" name="zipCode">
 
-    <label>Mobilnummer</label>
+        <li><label>Mobilnummer</label></li>
     <input type="text" name="phoneNumber">
 
-    <label>E-mail</label>
+        <li><label>E-mail</label></li>
     <input type="text" name="email">
 
-    <label>Alder</label>
+        <li><label>Alder</label></li>
     <input type="text" name="age">
 
-    <label>Mand</label>
+        <li><label>Mand</label></li>
     <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
 
-    <label>Kvinde</label>
+        <li><label>Kvinde</label></li>
     <input type="checkbox" name="woman" th:checked="${woman}">
 
 
-    <label>FuldtidsAnsat?</label>
+        <li><label>FuldtidsAnsat?</label></li>
     <input type="text" name="fullTimeEmployee">
 
-    <label>KaffeDiplom?</label>
+        <li><label>KaffeDiplom?</label></li>
     <input type="text" name="coffeeDiplom">
 
 
@@ -52,8 +84,10 @@
 
 
 
-    <input type="submit" value="go">
-</form>
+    <input type="submit" value="Opret">
+        </ul>
+    </form>
+</div>
 
 
 
