@@ -27,3 +27,16 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+input[type=submit]{
+    background-color: green;
+    color: white;
+    position: relative;
+    width: 4.5%;
+    left: 30%;
+    margin-top: -5%;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    border: #030303;
+}
