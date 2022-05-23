@@ -4,10 +4,57 @@
     <meta charset="UTF-8">
     <title>Driver index</title>
     <link rel="stylesheet" href="driver.css"/>
+    <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
 
+<nav>
+    <div class="menu">
+        <div class="logo">
+            <a href="#">Bakery By Hermann</a>
+        </div>
+        <ul>
+            <li><a href="#">Startside</a></li>
+            <li><a href="#">Bestilling</a></li>
+            <li><a href="/show-customer">Kunde</a></li>
+            <li><a href="/view-driver">Medarbejder</a></li>
+            <li><a href="#">Hjælp</a></li>
+
+        </ul>
+    </div>
+</nav>
+
 <table class="table-1">
+
+    <div id="HeadlineDriver"><h1>
+        Chauffør oplysninger
+    </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Kørekort nummer</th>
+        <th>Registrerings nummer</th>
+
+    </tr>
+
+    <tr th:each="driver :${driversList}" >
+        <td th:text="${driver.personId}"></td>
+        <td th:text="${driver.firstName}"></td>
+        <td th:text="${driver.driverLicenseNumber}"></td>
+        <td th:text="${driver.registrationNumber}"></td>
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table class="table-2">
 
     <div id="HeadlinePerson"><h1>
         Person oplysninger
@@ -46,7 +93,7 @@
 
 </table>
 
-<table class="table-2">
+<table class="table-3">
 
     <div id="HeadlineMedarbejder"><h1>
         Medarbejder oplysninger
@@ -82,35 +129,6 @@
 
 </table>
 
-<table class="table-3">
-
-    <div id="HeadlineDriver"><h1>
-        Chauffør oplysninger
-    </h1>
-    </div>
-
-    <thead>
-
-    <tr>
-
-        <th>Person id</th>
-        <th>Fornavn</th>
-        <th>Kørekort nummer</th>
-        <th>Registrerings nummer</th>
-
-    </tr>
-
-    <tr th:each="driver :${driversList}" >
-        <td th:text="${driver.personId}"></td>
-        <td th:text="${driver.firstName}"></td>
-        <td th:text="${driver.driverLicenseNumber}"></td>
-        <td th:text="${driver.registrationNumber}"></td>
-
-    </tr>
-
-    </thead>
-
-</table>
 
 <table class="table-4">
 

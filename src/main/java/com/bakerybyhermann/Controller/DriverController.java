@@ -44,7 +44,7 @@ public class DriverController {
     }
 
     @PostMapping("/update-driver")
-    public String updateCustomer(@ModelAttribute Driver driver){
+    public String updateDriver(@ModelAttribute Driver driver){
         driverService.updateById(driver);
         return "redirect:/view-driver";
     }
