@@ -1,0 +1,29 @@
+body{
+
+}
+
+.form-container{
+    position: relative;
+    left: 35%;
+}
+
+.form-container .gender-container{
+    display: flex;
+    margin: 1% 0;
+    width: 14%;
+}
+
+.form-container .gender-container #gender{
+    margin: 0 0 0 10%;
+    padding: 0 1%;
+}
+
+input {
+    width: 35%;
+    padding: 0.6%;
+    margin: 1% 0;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
