@@ -1,0 +1,32 @@
+table, th, td {
+    height: 20%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin:5%;
+}
+
+th {
+    background-color: #009879;
+    color: white;
+}
+
+tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
+    background-color: lightgray;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 1%;
+}
+a{
+    text-decoration: none;
+}
