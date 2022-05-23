@@ -36,16 +36,11 @@
 
         <label>Alder</label>
         <input type="text" name="age">
-        <div class="gender-container">
-            <label>Køn</label>
+        <div class="checkbox-container">
             <label id="gender">Mand</label>
             <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
             <label>Kvinde</label>
             <input type="checkbox" name="woman" th:checked="${woman}">
-
-        </div>
-
-        <div class="cashier-container">
 
             <label>Fuldtidsansat</label>
             <input type="checkbox" name="fullTimeEmployee" th:checked="${cashier?.fullTimeEmployee}">
@@ -55,6 +50,10 @@
             <input type="checkbox" name="coffeeDiplom" th:checked="${cashier?.fullTimeEmployee}">
 
         </div>
+
+
+
+
         <input type="submit" value="Bekræft">
 
     </form>

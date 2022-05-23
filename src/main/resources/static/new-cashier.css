@@ -6,16 +6,21 @@ body{
 
 .form-container{
     position: relative;
-    left: 35%;
+    left: 32.5%;
+    margin: 2%;
 }
 
 
 
-/*.form-container .gender-container{*/
-/*    display: flex;*/
-/*    margin: 1% 0;*/
-/*    width: 14%;*/
-/*}*/
+.form-container .gender-container{
+    display: flex;
+    margin: 1% 0;
+    width: 14%;
+}
+
+.form-container .gender-container input{
+    width: 50%;
+}
 
 /*.form-container .gender-container #gender{*/
 /*    margin: 0 0 0 10%;*/
@@ -28,23 +33,34 @@ body{
 /*}*/
 
 
-input {
+input[type=text] {
     width: 35%;
     padding: 0.6%;
     margin: 1% 0;
     display: flex;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
 }
+
+
+.checkbox-container {
+    margin-left: 2.5%;
+    display: flex;
+    gap: 1%;
+}
+
 
 input[type=submit]{
     background-color: green;
     color: white;
     position: relative;
-    width: 4.5%;
-    left: 30%;
-    margin-top: -5%;
+    width: 8.5%;
+    height: 36px;
+    border: none;
+    border-radius: 20px;
+    left: 13%;
+    margin-top: 5%;
     cursor: pointer;
 }
 input[type=submit]:hover{
