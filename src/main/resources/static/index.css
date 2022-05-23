@@ -50,6 +50,39 @@ nav .menu{
     color: black;
 }
 
+.dropdown-list {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: white;
+    padding: 16px 22px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #1b1b1b;
+    border-radius: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .img{
     background: url("/images/bakerybyhermann.jpg") no-repeat;
     width: 100%;

@@ -1,81 +1,40 @@
-<!-- <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Baker</title>
-</head>
-<body>
-
-<table>
-
-    <thead>
-
-    <tr>
-        <th>Person id</th>
-        <th>Baker id</th>
-        <th>Medarbejder Id</th>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
-        <th>Vejnavn</th>
-        <th>Vejnummer</th>
-        <th>Postnummer</th>
-        <th>By</th>
-        <th>Mobilnummer</th>
-        <th>E-mail</th>
-        <th>Alder</th>
-        <th>Køn</th>
-        <th>Fuldtidsansat</th>
-        <th>Års erfaring</th>
-
-    </tr>
-
-    <tr th:each="baker :${bakersList}" >
-        <td th:text="${baker.personId}"></td>
-        <td th:text="${baker.bakerId}"></td>
-        <td th:text="${baker.employeeId}"></td>
-        <td th:text="${baker.firstName}"></td>
-        <td th:text="${baker.lastName}" ></td>
-        <td th:text="${baker.address.streetName}"></td>
-        <td th:text="${baker.address.streetNumber}"></td>
-        <td th:text="${baker.address.zipCode}"></td>
-        <td th:text="${baker.address.city}"></td>
-        <td th:text="${baker.phoneNumber}"></td>
-        <td th:text="${baker.email}"></td>
-        <td th:text="${baker.age}"></td>
-        <td th:text="${baker.gender}"></td>
-        <td th:text="${baker.fullTimeEmployee}"></td>
-        <td th:text="${baker.yearsOfExperience}"></td>
-
-        <td>
-            <a href="/new-baker">Add</a>
-            <a th:href="@{'/update-baker/'+${baker.personId}}">Edit</a>
-            <a th:href="@{'/view-baker/'+${baker.personId}}">Delete</a>
-        </td>
-
-
-
-    </tr>
-
-    </thead>
-
-</table>
-
-</body>
-</html>
--->
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Baker</title>
      <link rel="stylesheet" href="baker.css"/>
+    <link rel="stylesheet" href="index.css"/>
+
 </head>
 <body>
+
+<nav>
+    <div class="menu">
+
+        <div class="logo">
+            <a href="#">Bakery By Hermann</a>
+        </div>
+
+        <ul>
+            <li><a href="/">Startside</a></li>
+            <li><a href="#">Bestilling</a></li>
+            <li><a href="/show-customer">Kunde</a></li>
+            <div class="dropdown">
+                <li><a href="#">Medarbejder</a></li>
+                <div class="dropdown-content">
+                    <a href="/baker">Bager</a>
+                    <a href="/cashier">Butiksansat</a>
+                    <a href="/driver">Chauffør</a>
+                </div>
+            </div>
+            <li><a href="#">Hjælp</a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
 
 <table class="table01">
 

@@ -18,7 +18,7 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-    @GetMapping("/view-driver")
+    @GetMapping("/driver")
     public String getDriver(Model model){
         model.addAttribute("driversList",driverService.fetchAll());
         return "driver/view-driver";

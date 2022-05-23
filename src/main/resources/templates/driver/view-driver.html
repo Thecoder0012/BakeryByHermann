@@ -10,18 +10,29 @@
 
 <nav>
     <div class="menu">
+
         <div class="logo">
             <a href="#">Bakery By Hermann</a>
         </div>
+
         <ul>
-            <li><a href="#">Startside</a></li>
+            <li><a href="/">Startside</a></li>
             <li><a href="#">Bestilling</a></li>
             <li><a href="/show-customer">Kunde</a></li>
-            <li><a href="/view-driver">Medarbejder</a></li>
+            <div class="dropdown">
+                <li><a href="#">Medarbejder</a></li>
+                <div class="dropdown-content">
+                    <a href="/baker">Bager</a>
+                    <a href="/cashier">Butiksansat</a>
+                    <a href="/driver">Chauffør</a>
+                </div>
+            </div>
             <li><a href="#">Hjælp</a></li>
 
         </ul>
+
     </div>
+
 </nav>
 
 <table class="table-1">
