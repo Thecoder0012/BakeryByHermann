@@ -27,6 +27,17 @@ td, th {
     text-align: center;
     padding: 1%;
 }
+th{
+    width: 20%;
+}
 a{
     text-decoration: none;
+}
+
+#update-cashier {
+
+}
+
+#delete-cashier {
+
 }
