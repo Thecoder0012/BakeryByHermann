@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
@@ -35,22 +35,26 @@
 
 </nav>
 
+<div id="HeadlineProductNew">
 <h1>Indtast produkt oplysninger</h1>
+</div>
 
+<div class="form-container">
 <div class="table-new">
 <form action="/new-product" method="post">
 
     <ul>
 
-    <li><label>Vare-navn</label></li>
+    <label>Vare-navn</label>
     <input type="text" name="productName">
-        <li><label>Pris</label></li>
+        <label>Pris</label>
     <input type="text" name="price">
 
     <input type="submit" value="Opret">
 
         </ul>
     </form>
+</div>
 </div>
 
 

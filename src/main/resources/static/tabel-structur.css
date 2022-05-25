@@ -1,7 +1,7 @@
 body {
     width: 100%;
     height: 100%;
-    background: #c7dee4;
+    background: powderblue;
     color: #030303;
 }
 
@@ -11,6 +11,14 @@ body {
     margin-left: 1%;
     margin-top: 2.5%;
     text-align: left;
+}
+
+#HeadlinePersonNew, #HeadlineDriverNew, #HeadlineCashierNew, #HeadlineProductNew {
+    font-family: fangsong;
+    font-size: 100%;
+    margin-left: 1%;
+    margin-top: 2.5%;
+    text-align: center;
 }
 
 .table-1, .table-2, .table-3, .table-4, .table-new {
@@ -23,11 +31,14 @@ body {
 
 .table-1, .table-2, .table-3, .table-4, .table-new {
     border-collapse: collapse;
+    width: 60%;
+    margin-top:2%;
 }
 
 th, td {
     border: 1px solid black;
     text-align: center;
+    padding: 1%;
 }
 
 th {
@@ -37,6 +48,69 @@ th {
 }
 
 th {
-    background-color: #004F54;
+    background-color: #009879;
     color: white;
+    width: 20%;
+}
+
+tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
+    background-color: lightgray;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+a{
+    text-decoration: none;
+}
+
+.form-container{
+    position: relative;
+    left: 35.5%;
+    margin: 2%;
+}
+
+.form-container .gender-container{
+    display: flex;
+    margin: 1% 0;
+    width: 14%;
+}
+
+.form-container .gender-container input{
+    width: 50%;
+}
+
+input[type=text] {
+    width: 35%;
+    padding: 0.6%;
+    margin: 1% 0;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+.checkbox-container {
+    margin-left: 2.5%;
+    display: flex;
+    gap: 1%;
+}
+
+
+input[type=submit]{
+    background-color: green;
+    color: white;
+    position: relative;
+    width: 8.5%;
+    height: 36px;
+    border: none;
+    border-radius: 20px;
+    left: 13%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    border: #030303;
 }

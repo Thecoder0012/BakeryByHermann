@@ -36,44 +36,58 @@
 
 </nav>
 
+<div id="HeadlineDriverNew">
 <h1>Indtast chauffør oplysninger</h1>
+</div>
+
+<div class="form-container">
 
 <div class="table-new">
+
 <form action="/new-driver" method="post">
 
     <ul>
-    <li><label>Fornavn</label></li>
+    <label>Fornavn</label>
     <input type="text" name="firstName">
-        <li><label>Efternavn</label></li>
+        <label>Efternavn</label>
     <input type="text" name="lastName">
-        <li><label>Vejnavn</label></li>
+        <label>Vejnavn</label>
     <input type="text" name="streetName">
-        <li><label>Vejnummer</label></li>
+        <label>Vejnummer</label>
     <input type="text" name="streetNumber">
-        <li><label>Postnummer</label></li>
+        <label>Postnummer</label>
     <input type="text" name="zipCode">
-        <li><label>Mobilnummer</label></li>
+        <label>Mobilnummer</label>
     <input type="text" name="phoneNumber">
-        <li><label>E-mail</label></li>
+        <label>E-mail</label>
     <input type="text" name="email">
-        <li><label>Kørekort nummer</label></li>
+        <label>Kørekort nummer</label>
     <input type="text" name="driverLicenseNumber">
-        <li><label>Registreringsnummer</label></li>
+        <label>Registreringsnummer</label>
     <input type="text" name="registrationNumber">
-        <li><label>Alder</label></li>
+        <label>Alder</label>
     <input type="text" name="age">
-        <li><label>Mand</label></li>
-    <input type="checkbox" name="man" th:checked="${driver?.gender}">
-        <li><label>Kvinde</label></li>
+
+        <div class="checkbox-container">
+        <label id="gender">Mand</label>
+    <input type="checkbox" name="gender" th:checked="${driver?.gender}">
+        <label>Kvinde</label>
     <input type="checkbox" name="woman" th:checked="${woman}">
-        <li><label>Fuldtidsansat</label></li>
-    <input type="text" name="fullTimeEmployee">
+        <label>Fuldtidsansat</label>
+            <input type="checkbox" name="fullTimeEmployee" th:checked="${cashier?.fullTimeEmployee}">
+</div>
 
     <input type="submit" value="Opret">
 
     </ul>
+
+
 </form>
+
 </div>
+
+</div>
+
 
 </body>
 </html>

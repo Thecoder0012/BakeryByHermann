@@ -35,41 +35,55 @@
 
 </nav>
 
-<h1>Indtast bager oplysninger</h1>
+<div id="HeadlineBakerNew">
+    <h1>
+        Bager oplysninger
+    </h1>
+
+</div>
+
+<div class="form-container">
 
 <div class="table-new">
     <form action="/new-baker" method="post">
 
         <ul>
-            <li><label>Fornavn</label></li>
+            <label>Fornavn</label>
             <input type="text" name="firstName">
-            <li><label>Efternavn</label></li>
+            <label>Efternavn</label>
             <input type="text" name="lastName">
-            <li><label>Vejnavn</label></li>
+            <label>Vejnavn</label>
             <input type="text" name="streetName">
-            <li><label>Vejnummer</label></li>
+            <label>Vejnummer</label>
             <input type="text" name="streetNumber">
-            <li><label>Postnummer</label></li>
+            <label>Postnummer</label>
             <input type="text" name="zipCode">
-            <li><label>Mobilnummer</label></li>
+            <label>Mobilnummer</label>
             <input type="text" name="phoneNumber">
-            <li><label>E-mail</label></li>
+            <label>E-mail</label>
             <input type="text" name="email">
-            <li><label>Alder</label></li>
+            <label>Alder</label>
             <input type="text" name="age">
-            <li><label>Mand</label></li>
-            <input type="checkbox" name="man" th:checked="${baker?.gender}">
-            <li><label>Kvinde</label></li>
-            <input type="checkbox" name="woman" th:checked="${woman}">
-            <li><label>Fuldtidsansat</label></li>
-            <input type="text" name="fullTimeEmployee">
-            <li><label>Årserfaring</label></li>
+            <label>Årserfaring</label>
             <input type="text" name="yearsOfExperience">
+
+            <div class="checkbox-container">
+            <label id="gender">Mand</label>
+            <input type="checkbox" name="gender" th:checked="${baker?.gender}">
+            <label>Kvinde</label>
+            <input type="checkbox" name="woman" th:checked="${woman}">
+            <label>Fuldtidsansat</label>
+                <input type="checkbox" name="fullTimeEmployee" th:checked="${cashier?.fullTimeEmployee}">
+
+            </div>
 
             <input type="submit" value="Opret">
 
+
+
         </ul>
     </form>
+</div>
 </div>
 
 </body>
