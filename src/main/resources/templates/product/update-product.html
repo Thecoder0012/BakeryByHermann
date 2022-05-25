@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div class="form-container">
+
 <form action = "/update-product" method ="post">
 
     <label>vare nummer</label>
@@ -17,10 +19,10 @@
     <label>Pris</label>
     <input type="text" name="price" th:value="${product.price}">
 
-    <input type="submit" value="go">
+    <input type="submit" value="Rediger">
 
 </form>
-
+</div>
 
 </body>
 </html>
