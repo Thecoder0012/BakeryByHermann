@@ -35,29 +35,33 @@
 
 </nav>
 
-<h1>Indtast kunde oplysninger</h1>
+<div id="HeadlineDriverNew">
+    <h1>Indtast kunde oplysninger</h1>
+</div>
 
-<div class="table-new">
+<div class="form-container">
+
+    <div class="table-new">
     <form action="/new-customer" method="post">
 
         <ul>
-            <li><label>Fornavn</label></li>
+            <label>Fornavn</label>
             <input type="text" name="firstName">
-            <li><label>Efternavn</label></li>
+            <label>Efternavn</label>
             <input type="text" name="lastName">
-            <li><label>Vejnavn</label></li>
+            <label>Vejnavn</label>
             <input type="text" name="streetName">
-            <li><label>Vejnummer</label></li>
+            <label>Vejnummer</label>
             <input type="text" name="streetNumber">
-            <li><label>Postnummer</label></li>
+            <label>Postnummer</label>
             <input type="text" name="zipCode">
-            <li><label>Mobilnummer</label></li>
+            <label>Mobilnummer</label>
             <input type="text" name="phoneNumber">
-            <li><label>E-mail</label></li>
+            <label>E-mail</label>
             <input type="text" name="email">
-            <li><label>Gentagne besøg</label></li>
+            <label>Gentagne besøg</label>
             <input type="text" name="repeatedVisits">
-            <li><label>Firmanavn</label></li>
+            <label>Firmanavn</label>
             <input type="text" name="companyName">
 
             <input type="submit" value="Opret">
@@ -65,8 +69,7 @@
         </ul>
     </form>
 </div>
-
-
+</div>
 
 </body>
 </html>
