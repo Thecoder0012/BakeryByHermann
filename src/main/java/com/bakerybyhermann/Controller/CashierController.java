@@ -72,4 +72,11 @@ public class CashierController {
         cashierService.updateById(cashier);
         return "redirect:/cashier";
     }
+
+
+    @GetMapping("/view-cashier/{cashierId}")
+    public String viewOne(@PathVariable("cashierId") int id, Model model){
+        model.addAttribute("oneCashier", cashierService.findById(id));
+        return "cashier/one-cashier";
+    }
 }

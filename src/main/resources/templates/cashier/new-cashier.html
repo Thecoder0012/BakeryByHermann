@@ -1,95 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Add</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/new-cashier.css" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
 
-<nav>
-    <div class="menu">
+<div class="form-container">
+    <form action="/cashier/new" method="post">
 
-        <div class="logo">
-            <a href="#">Bakery By Hermann</a>
+        <label>Fornavn</label>
+        <input type="text" name="firstName">
+
+        <label>Efternavn</label>
+        <input type="text" name="lastName">
+
+        <label>Vejnavn</label>
+        <input type="text" name="streetName">
+
+        <label>Vejnummer</label>
+        <input type="text" name="streetNumber">
+
+        <label>Postnummer</label>
+        <input type="text" name="zipCode">
+
+        <label>Mobilnummer</label>
+        <input type="text" name="phoneNumber">
+
+        <label>E-mail</label>
+        <input type="text" name="email">
+
+        <label>Alder</label>
+        <input type="text" name="age">
+        <div class="checkbox-container">
+            <label id="gender">Mand</label>
+            <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
+            <label>Kvinde</label>
+            <input type="checkbox" name="woman" th:checked="${woman}">
+
+            <label>Fuldtidsansat</label>
+            <input type="checkbox" name="fullTimeEmployee" th:checked="${cashier?.fullTimeEmployee}">
+
+
+            <label>Kaffe diplom</label>
+            <input type="checkbox" name="coffeeDiplom" th:checked="${cashier?.fullTimeEmployee}">
+
         </div>
 
-        <ul>
-            <li><a href="/">Startside</a></li>
-            <li><a href="#">Bestilling</a></li>
-            <li><a href="/show-customer">Kunde</a></li>
-            <div class="dropdown">
-                <li><a href="#">Medarbejder</a></li>
-                <div class="dropdown-content">
-                    <a href="/baker">Bager</a>
-                    <a href="/cashier">Butiksansat</a>
-                    <a href="/driver">Chauffør</a>
-                </div>
-            </div>
-            <li><a href="#">Hjælp</a></li>
-
-        </ul>
-
-    </div>
-
-</nav>
-
-<h1>Indtast butiksansat oplysninger</h1>
-
-<div class="table-new">
-<form action="/cashier/new" method="post">
-
-    <ul>
-        <li><label>Fornavn</label></li>
-    <input type="text" name="firstName">
-
-        <li><label>Efternavn</label></li>
-    <input type="text" name="lastName">
-
-        <li> <label>Vejnavn</label></li>
-    <input type="text" name="streetName">
-
-        <li><label>Vejnummer</label></li>
-    <input type="text" name="streetNumber">
-
-        <li><label>Postnummer</label></li>
-    <input type="text" name="zipCode">
-
-        <li><label>Mobilnummer</label></li>
-    <input type="text" name="phoneNumber">
-
-        <li><label>E-mail</label></li>
-    <input type="text" name="email">
-
-        <li><label>Alder</label></li>
-    <input type="text" name="age">
-
-        <li><label>Mand</label></li>
-    <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
-
-        <li><label>Kvinde</label></li>
-    <input type="checkbox" name="woman" th:checked="${woman}">
-
-
-        <li><label>FuldtidsAnsat?</label></li>
-    <input type="text" name="fullTimeEmployee">
-
-        <li><label>KaffeDiplom?</label></li>
-    <input type="text" name="coffeeDiplom">
 
 
 
+        <input type="submit" value="Bekræft">
 
-
-
-
-    <input type="submit" value="Opret">
-        </ul>
     </form>
 </div>
-
-
 
 </body>
 </html>

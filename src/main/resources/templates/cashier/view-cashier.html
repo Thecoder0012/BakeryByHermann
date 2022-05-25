@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link href="/view-cashier.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -36,18 +37,8 @@
 </nav>
 
 
-<table class="table-new">
+<table>
 
-    <div id="HeadlineCashier">
-
-        <div class="button-employees">
-            <button onclick="window.location.href='/cashier/new';">Opret ny butiksansat</button>
-        </div>
-
-        <h1>
-            Butiksansat oplysninger
-        </h1>
-    </div>
     <thead>
 
     <tr>
@@ -57,21 +48,18 @@
         <th>Vejnavn</th>
         <th>Vejnummer</th>
         <th>Postnummer</th>
-        <th>by</th>
+        <th>By</th>
         <th>Telefonnummer</th>
-        <th>email</th>
+        <th>Email</th>
         <th>CashierId</th>
         <th>Alder</th>
         <th>Køn</th>
         <th>Fuldtidsansat</th>
         <th>Kaffe diplom</th>
         <th>Actions</th>
-
-
-
-
     </tr>
 
+    <tbody>
     <tr th:each="cashier :${cashierEmployee}" >
         <td th:text="${cashier.personId}"></td>
         <td th:text="${cashier.firstName}"></td>
@@ -80,21 +68,31 @@
         <td th:text="${cashier.address.streetNumber}"></td>
         <td th:text="${cashier.address.zipCode}"></td>
         <td th:text="${cashier.address.city}"></td>
-        <td th:text="${cashier.phoneNumber}"></td>
+        <td th:text="${cashier.phoneNumber}?: _ ">No user</td>
         <td th:text="${cashier.email}"></td>
         <td th:text="${cashier.cashierId}" ></td>
         <td th:text="${cashier.age}"></td>
         <td th:text="${cashier.gender} ? 'Mand' : 'Kvinde'" />
-        <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'nej'" />
+        <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'Nej'" />
         <td th:text="${cashier.coffeeDiplom} ? 'Ja' : 'Nej'"></td>
         <td>
-            <a th:href="@{'/cashier-update/'+${cashier.cashierId}}">Edit</a>
-            <a  th:href="@{'/cashier/'+${cashier.cashierId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Delete</a>
-<!--            <a href="/new-customer">Add</a>-->
+            <a th:href="@{'/cashier-update/'+${cashier.cashierId}}">
+                <button id="update-cashier">Opdater</button> </a>
+
+            <a th:href="@{'/cashier/'+${cashier.cashierId}}"
+               onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
+                <button id="delete-cashier" >Slet</button> </a>
+
+            <a th:href="@{'/view-cashier/'+${cashier.cashierId}}">
+                <button id="view-cashier">Se medarbejder</button> </a>
+
+            <!--            <a href="/new-customer">Add</a>-->
         </td>
 
 
     </tr>
+
+</tbody>
 
     </thead>
 
