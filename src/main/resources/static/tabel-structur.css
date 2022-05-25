@@ -5,7 +5,7 @@ body {
     color: #030303;
 }
 
-#HeadlinePerson, #HeadlineMedarbejder, #HeadlineDriver, #HeadlineAddress, #HeadlineBaker, #HeadlineCustomer, #HeadlineCashier {
+#headline-person, #headline-employee, #headline-driver, #headline-adress, #headline-baker, #headline-customer, #headline-cashier {
     font-family: fangsong;
     font-size: 100%;
     margin-left: 1%;
@@ -13,7 +13,7 @@ body {
     text-align: left;
 }
 
-#HeadlinePersonNew, #HeadlineDriverNew, #HeadlineCashierNew, #HeadlineProductNew, #HeadlineBakerNew {
+#headline-new {
     font-family: fangsong;
     font-size: 100%;
     margin-left: 1%;

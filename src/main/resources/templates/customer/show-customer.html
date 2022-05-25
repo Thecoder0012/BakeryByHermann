@@ -39,7 +39,7 @@
 
 <table>
 
-    <div id="HeadlineCustomer">
+    <div id="headline-customer">
 
         <div class="button-employees">
             <button onclick="window.location.href='/new-customer';">Opret ny kunde</button>
@@ -53,16 +53,8 @@
     <thead>
 
         <tr>
-            <th>person id</th>
             <th>Kunde id</th>
             <th>Fornavn</th>
-            <th>Efternavn</th>
-            <th>Vejnavn</th>
-            <th>Vejnummer</th>
-            <th>Postnummer</th>
-            <th>By</th>
-            <th>Mobilnummer</th>
-            <th>E-mail</th>
             <th>Gentagne besøg</th>
             <th>Firmanavn</th>
             <th>Rediger</th>
@@ -71,21 +63,82 @@
         </tr>
 
     <tr th:each="customer :${customersList}" >
-        <td th:text="${customer.personId}"></td>
         <td th:text="${customer.customerId}"></td>
         <td th:text="${customer.firstName}"></td>
-        <td th:text="${customer.lastName}" ></td>
-        <td th:text="${customer.address.streetName}"></td>
-        <td th:text="${customer.address.streetNumber}"></td>
-        <td th:text="${customer.address.zipCode}"></td>
-        <td th:text="${customer.address.city}"></td>
-        <td th:text="${customer.phoneNumber}"></td>
-        <td th:text="${customer.email}"></td>
         <td th:text="${customer.repeatedVisits}"></td>
         <td th:text="${customer.companyName}"></td>
 
         <td><a th:href="@{'/update-customer/'+${customer.personId}}">Rediger</a></td>
         <td> <a th:href="@{'/customer/'+${customer.personId}}">Slet</a></td>
+
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table>
+    <div id="headline-person">
+        <h1>
+            Person oplysninger
+        </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+        <th>Person id</th>
+        <th>Kunde id</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+        <th>Mobilnummer</th>
+        <th>E-mail</th>
+
+    </tr>
+
+    <tr th:each="customer :${customersList}" >
+        <td th:text="${customer.personId}"></td>
+        <td th:text="${customer.customerId}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}" ></td>
+        <td th:text="${customer.phoneNumber}"></td>
+        <td th:text="${customer.email}"></td>
+
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table>
+    <div id="headline-adress">
+        <h1>
+            Adresse oplysninger
+        </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Vejnavn</th>
+        <th>Vejnummer</th>
+        <th>Postnummer</th>
+        <th>By</th>
+
+
+    </tr>
+
+    <tr th:each="customer :${customersList}" >
+        <td th:text="${customer.personId}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.address.streetName}"></td>
+        <td th:text="${customer.address.streetNumber}"></td>
+        <td th:text="${customer.address.zipCode}"></td>
+        <td th:text="${customer.address.city}"></td>
 
 
     </tr>
