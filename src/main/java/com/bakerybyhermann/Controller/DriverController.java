@@ -33,7 +33,7 @@ public class DriverController {
     public String createDriver(@ModelAttribute Driver driver, @ModelAttribute Address address){
         driver.setAddress(address);
         driverService.addNewDriver(driver, address);
-        return "redirect:/view-driver";
+        return "redirect:/driver";
     }
 
     @GetMapping("/update-driver/{driverId}")
