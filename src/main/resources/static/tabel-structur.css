@@ -13,7 +13,7 @@ body {
     text-align: left;
 }
 
-#HeadlinePersonNew, #HeadlineDriverNew, #HeadlineCashierNew, #HeadlineProductNew {
+#HeadlinePersonNew, #HeadlineDriverNew, #HeadlineCashierNew, #HeadlineProductNew, #HeadlineBakerNew {
     font-family: fangsong;
     font-size: 100%;
     margin-left: 1%;
@@ -21,7 +21,7 @@ body {
     text-align: center;
 }
 
-.table-1, .table-2, .table-3, .table-4, .table-new {
+table {
     font-size: 100%;
     font-family: auto;
     margin-left: 0.5%;
@@ -29,7 +29,7 @@ body {
     width: 80%;
 }
 
-.table-1, .table-2, .table-3, .table-4, .table-new {
+table {
     border-collapse: collapse;
     width: 60%;
     margin-top:2%;

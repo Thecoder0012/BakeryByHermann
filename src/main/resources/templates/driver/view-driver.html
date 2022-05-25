@@ -56,6 +56,8 @@
         <th>Fornavn</th>
         <th>Kørekort nummer</th>
         <th>Registrerings nummer</th>
+        <th>Rediger</th>
+        <th>Slet</th>
 
     </tr>
 
@@ -64,6 +66,9 @@
         <td th:text="${driver.firstName}"></td>
         <td th:text="${driver.driverLicenseNumber}"></td>
         <td th:text="${driver.registrationNumber}"></td>
+
+        <td><a th:href="@{'/update-driver/'+${driver.personId}}">Rediger</a></td>
+        <td><a th:href="@{'/driver/'+${driver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
 
     </tr>
 
@@ -86,8 +91,7 @@
         <th>Chauffør id</th>
         <th>Fornavn</th>
         <th>Efternavn</th>
-        <th>Rediger</th>
-        <th>Slet</th>
+
 
     </tr>
 
@@ -98,9 +102,6 @@
         <td th:text="${driver.firstName}"></td>
         <td th:text="${driver.lastName}" ></td>
 
-
-        <td><a th:href="@{'/update-driver/'+${driver.personId}}">Rediger</a></td>
-        <td><a th:href="@{'/driver/'+${driver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
 
 
     </tr>

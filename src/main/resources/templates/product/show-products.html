@@ -42,7 +42,7 @@
     <div id="HeadlineProduct">
 
         <div class="button-employees">
-            <button onclick="window.location.href='/new-product';">Opret ny chauffør</button>
+            <button onclick="window.location.href='/new-product';">Opret nyt produkt</button>
         </div>
 
         <h1>
@@ -55,6 +55,8 @@
         <th>Vare-nummer</th>
         <th>Vare</th>
         <th>Pris</th>
+        <th>Rediger</th>
+        <th>Slet</th>
     </tr>
 
     <tr th:each="product :${productsList}" >
@@ -62,11 +64,9 @@
         <td th:text="${product.productName}"></td>
         <td th:text="${product.price}"></td>
 
-        <td>
-            <a th:href="@{'/update-product/'+${product.productId}}">Edit</a>
-            <a th:href="@{'/product/'+${product.productId}}">Delete</a>
-            <a href="/new-product">Add</a>
-        </td>
+        <td><a th:href="@{'/update-product/'+${product.productId}}">Rediger</a></td>
+        <td><a th:href="@{'/product/'+${product.productId}}">Slet</a></td>
+
 
     </tr>
     </thead>

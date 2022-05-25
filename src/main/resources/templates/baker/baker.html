@@ -42,12 +42,15 @@
 
         <div class="button-employees">
         <button onclick="window.location.href='/new-baker';">Opret ny bager</button>
+
+            <h1>
+                Bager oplysninger
+            </h1>
+
         </div>
 
 
-    <h1>
-        Bager oplysninger
-    </h1>
+
 
     </div>
 
@@ -58,6 +61,8 @@
         <th>Person id</th>
         <th>Fornavn</th>
         <th>Års erfaring</th>
+        <th>Rediger</th>
+        <th>Slet</th>
 
     </tr>
 
@@ -65,6 +70,9 @@
         <td th:text="${baker.personId}"></td>
         <td th:text="${baker.firstName}"></td>
         <td th:text="${baker.yearsOfExperience}"></td>
+
+        <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>
+        <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
 
     </tr>
 
@@ -87,8 +95,6 @@
         <th>Bager id</th>
         <th>Fornavn</th>
         <th>Efternavn</th>
-        <th>Rediger</th>
-        <th>Slet</th>
 
     </tr>
 
@@ -99,8 +105,7 @@
         <td th:text="${baker.firstName}"></td>
         <td th:text="${baker.lastName}" ></td>
 
-        <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>
-        <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
+
 
     </tr>
 
