@@ -83,15 +83,14 @@ public class DriverRepo {
     }
 
     public Driver findById(int id) {
-
-        String sql = "SELECT person_tbl.person_id as personId, driver_id, first_name,last_name,street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city,  " +
-                "phone_number,e_mail as email, driver_license_number, registration_number, employee_tbl.employee_id, age, gender, fulltime_employee\n" +
+        String sql = "SELECT driver_id, person_tbl.person_id as personId,employee_tbl.employee_id,first_name,last_name," +
+                "street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city," +
+                "phone_number,e_mail as email,age,gender,employee_tbl.fulltime_employee,driver_license_number,registration_number\n" +
                 "FROM person_tbl\n" +
                 "INNER JOIN employee_tbl ON person_tbl.person_id = employee_tbl.person_id\n" +
                 "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
-                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n" +
-                "INNER JOIN driver_tbl ON employee_tbl.employee_id = driver_tbl.employee_id\n" +
-                "WHERE person_tbl.person_id = ?";
+                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n " +
+                "INNER JOIN  driver_tbl ON employee_tbl.employee_id = driver_tbl.employee_id WHERE driver_id = ?";
 
         RowMapper rowMapper = new DriverMapper();
 
@@ -144,3 +143,12 @@ public class DriverRepo {
     }
 
 }
+
+//        String sql = "SELECT person_tbl.person_id as personId, driver_id, first_name,last_name,street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city,  " +
+//                "phone_number,e_mail as email, driver_license_number, registration_number, employee_tbl.employee_id, age, gender, fulltime_employee\n" +
+//                "FROM person_tbl\n" +
+//                "INNER JOIN employee_tbl ON person_tbl.person_id = employee_tbl.person_id\n" +
+//                "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
+//                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n" +
+//                "INNER JOIN driver_tbl ON employee_tbl.employee_id = driver_tbl.employee_id\n" +
+//                "WHERE person_tbl.person_id = ?";

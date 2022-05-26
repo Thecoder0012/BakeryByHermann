@@ -89,16 +89,19 @@ public class BakerRepo {
         return address.getAddressId();
     }
 
+
+
     public Baker findById(int id) {
 
-        String sql = "SELECT person_tbl.person_id as personId, baker_id, first_name,last_name,street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city,  " +
-                "phone_number,e_mail as email, years_of_experience, employee_tbl.employee_id, age, gender, fulltime_employee\n" +
+        String sql = "SELECT baker_id, person_tbl.person_id as personId,employee_tbl.employee_id,first_name,last_name," +
+                "street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city," +
+                "phone_number,e_mail as email,age,gender,employee_tbl.fulltime_employee,years_of_experience\n" +
                 "FROM person_tbl\n" +
                 "INNER JOIN employee_tbl ON person_tbl.person_id = employee_tbl.person_id\n" +
                 "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
-                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n" +
-                "INNER JOIN baker_tbl ON employee_tbl.employee_id = baker_tbl.employee_id\n" +
-                "WHERE person_tbl.person_id = ?";
+                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n " +
+                "INNER JOIN  baker_tbl ON employee_tbl.employee_id = baker_tbl.employee_id WHERE baker_id = ?";
+
 
         RowMapper rowMapper = new BakerMapper();
 
@@ -162,3 +165,12 @@ public class BakerRepo {
 }
 
 
+
+//    String sql = "SELECT person_tbl.person_id as personId, baker_id, first_name,last_name,street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city,  " +
+//            "phone_number,e_mail as email, years_of_experience, employee_tbl.employee_id, age, gender, fulltime_employee\n" +
+//            "FROM person_tbl\n" +
+//            "INNER JOIN employee_tbl ON person_tbl.person_id = employee_tbl.person_id\n" +
+//            "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
+//            "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code\n" +
+//            "INNER JOIN baker_tbl ON employee_tbl.employee_id = baker_tbl.employee_id\n" +
+//            "WHERE person_tbl.person_id = ?";

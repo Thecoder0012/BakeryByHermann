@@ -3,91 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link rel="stylesheet" href="../view-employee.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="layout.css"/>
+
+    <!--    <link rel="stylesheet" href="tabel-structur.css"/>-->
+
 
 </head>
 <body>
 
-<nav>
-    <div class="menu">
+<header>
+    <nav>
+        <div class="nav-bar">
 
-        <div class="logo">
-            <a href="#">Bakery By Hermann</a>
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
         </div>
 
-        <ul>
-            <li><a href="/">Startside</a></li>
-            <li><a href="#">Bestilling</a></li>
-            <li><a href="/show-customer">Kunde</a></li>
-            <div class="dropdown">
-                <li><a href="#">Medarbejder</a></li>
-                <div class="dropdown-content">
-                    <a href="/baker">Bager</a>
-                    <a href="/cashier">Butiksansat</a>
-                    <a href="/driver">Chauffør</a>
-                </div>
-            </div>
-            <li><a href="#">Hjælp</a></li>
-
-        </ul>
-
-    </div>
-
-</nav>
+    </nav>
+</header>
 
 
 <table>
+
+    <h1>
+        Butiksansat oplysninger
+    </h1>
 
     <thead>
 
     <tr>
         <th>Personid</th>
-        <th>Navn</th>
-        <th>Efternavn</th>
-        <th>Vejnavn</th>
-        <th>Vejnummer</th>
-        <th>Postnummer</th>
-        <th>By</th>
-        <th>Telefonnummer</th>
-        <th>Email</th>
-        <th>CashierId</th>
-        <th>Alder</th>
-        <th>Køn</th>
+        <th>Fornavn</th>
         <th>Fuldtidsansat</th>
         <th>Kaffe diplom</th>
-        <th>Actions</th>
+        <th>Vis arbejder info</th>
     </tr>
 
     <tbody>
     <tr th:each="cashier :${cashierEmployee}" >
         <td th:text="${cashier.personId}"></td>
         <td th:text="${cashier.firstName}"></td>
-        <td th:text="${cashier.lastName}" ></td>
-        <td th:text="${cashier.address.streetName}"></td>
-        <td th:text="${cashier.address.streetNumber}"></td>
-        <td th:text="${cashier.address.zipCode}"></td>
-        <td th:text="${cashier.address.city}"></td>
-        <td th:text="${cashier.phoneNumber}?: _ ">No user</td>
-        <td th:text="${cashier.email}"></td>
-        <td th:text="${cashier.cashierId}" ></td>
-        <td th:text="${cashier.age}"></td>
-        <td th:text="${cashier.gender} ? 'Mand' : 'Kvinde'" />
-        <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'Nej'" />
+        <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'Nej'"/>
         <td th:text="${cashier.coffeeDiplom} ? 'Ja' : 'Nej'"></td>
+
+
         <td>
-            <a th:href="@{'/cashier-update/'+${cashier.cashierId}}">
-                <button id="update-cashier">Opdater</button> </a>
-
-            <a th:href="@{'/cashier/'+${cashier.cashierId}}"
-               onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
-                <button id="delete-cashier" >Slet</button> </a>
-
             <a th:href="@{'/view-cashier/'+${cashier.cashierId}}">
-                <button id="view-cashier">Se medarbejder</button> </a>
-
-            <!--            <a href="/new-customer">Add</a>-->
+                <button class="view-employee">Vis</button> </a>
         </td>
+
 
 
     </tr>
@@ -97,7 +81,6 @@
     </thead>
 
 </table>
-
 
 </body>
 </html>

@@ -46,13 +46,20 @@ public class DriverController {
     @PostMapping("/update-driver")
     public String updateDriver(@ModelAttribute Driver driver){
         driverService.updateById(driver);
-        return "redirect:/view-driver";
+        return "redirect:/driver";
     }
 
     @GetMapping("/driver/{driverId}")
     public String deleteDriver(@PathVariable("driverId") int driverId){
         driverService.deleteDriver(driverId);
         return "redirect:/view-driver";
+    }
+
+
+    @GetMapping("/view-driver/{oneDriver}")
+    public String viewOne(@PathVariable("oneDriver") int id, Model model){
+        model.addAttribute("oneDriver", driverService.findById(id));
+        return "driver/one-driver";
     }
 
 }

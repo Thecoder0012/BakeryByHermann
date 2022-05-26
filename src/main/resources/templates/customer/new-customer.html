@@ -4,36 +4,42 @@
     <meta charset="UTF-8">
     <title>new-customer</title>
     <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link rel="stylesheet" href="layout.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <div class="menu">
+<header>
+    <nav>
+        <div class="nav-bar">
 
-        <div class="logo">
-            <a href="#">Bakery By Hermann</a>
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li class="kunde-active"><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
         </div>
 
-        <ul>
-            <li><a href="/">Startside</a></li>
-            <li><a href="#">Bestilling</a></li>
-            <li><a href="/show-customer">Kunde</a></li>
-            <div class="dropdown">
-                <li><a href="#">Medarbejder</a></li>
-                <div class="dropdown-content">
-                    <a href="/baker">Bager</a>
-                    <a href="/cashier">Butiksansat</a>
-                    <a href="/driver">Chauffør</a>
-                </div>
-            </div>
-            <li><a href="#">Hjælp</a></li>
+    </nav>
+</header>
 
-        </ul>
 
-    </div>
-
-</nav>
+<table>
 
 <div id="headline-new">
     <h1>Indtast kunde oplysninger</h1>

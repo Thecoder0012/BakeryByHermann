@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Driver index</title>
-    <link rel="stylesheet" href="view-employee.css"/>
+    <title>Baker</title>
     <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="view-employee.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -40,45 +41,43 @@
 
 <table>
 
-    <div id="headline-driver">
 
         <div class="button-employees">
-            <button onclick="window.location.href='/new-driver';">Opret ny chauffør</button>
+       <a href="/new-baker"><button>Opret ny bager</button></a>
+
+
+
         </div>
 
-        <h1>
-        Chauffør oplysninger
+    <h1>
+        Bager oplysninger
     </h1>
-    </div>
-
     <thead>
 
     <tr>
 
         <th>Person id</th>
         <th>Fornavn</th>
-        <th>Kørekort nummer</th>
-        <th>Registrerings nummer</th>
+        <th>Års erfaring</th>
         <th>Vis arbejder info</th>
+
+    </tr>
+
+    <tr th:each="baker :${bakersList}" >
+        <td th:text="${baker.personId}"></td>
+        <td th:text="${baker.firstName}"></td>
+        <td th:text="${baker.yearsOfExperience}"></td>
+
+<!--        <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>-->
+<!--        <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>-->
+        <td>
+            <a th:href="@{'/view-baker/'+${baker.bakerId}}">
+                <button class="view-employee">Vis</button> </a>
+        </td>
     </tr>
 
     </thead>
-<tbody>
-
-    <tr th:each="driver :${driversList}">
-        <td th:text="${driver.personId}"></td>
-        <td th:text="${driver.firstName}"></td>
-        <td th:text="${driver.driverLicenseNumber}"></td>
-        <td th:text="${driver.registrationNumber}"></td>
-        <td>
-            <a th:href="@{'/view-driver/'+${driver.driverId}}">
-                <button class="view-employee">Vis</button></a>
-        </td>
-
-    </tr>
-
-</tbody>
 </table>
-
 </body>
 </html>
+

@@ -60,14 +60,13 @@ public class CashierController {
     @GetMapping("/cashier-update/{cashierId}")
     public String editCashier(@PathVariable("cashierId") int cashierId,Model model){
         Cashier cashier = cashierService.findById(cashierId);
-        boolean woman = false;
-        model.addAttribute("woman", woman);
+        model.addAttribute("woman", false);
         model.addAttribute("cashier",cashier);
         return "cashier/update-cashier";
     }
 
 //     update get
-    @PostMapping("/cashier-update")
+    @PostMapping("/cashier")
     public String editCashier(@ModelAttribute Cashier cashier){
         cashierService.updateById(cashier);
         return "redirect:/cashier";

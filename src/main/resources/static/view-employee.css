@@ -1,11 +1,15 @@
+body{
+    background: wheat;
+}
 table, th, td {
     height: 20%;
+
 }
 
 table {
     border-collapse: collapse;
     width: 60%;
-    margin:5%;
+    margin-left:20%;
 }
 
 th {
@@ -26,12 +30,18 @@ td, th {
     border: 1px solid black;
     text-align: center;
     padding: 1%;
+    font-family: 'Open Sans',sans Serif;
+
 }
 th{
     width: 20%;
 }
 a{
     text-decoration: none;
+}
+
+h1{
+    margin-left: 20%;
 }
 
 #update-cashier {

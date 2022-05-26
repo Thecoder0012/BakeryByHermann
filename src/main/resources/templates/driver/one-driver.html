@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/view-employee.css"/>
+    <link rel="stylesheet" href="/layout.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="nav-bar">
+
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+
+
+<table>
+
+    <h1>Bager oplysninger</h1>
+
+    <thead>
+
+    <tr>
+
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Kørekort nummer</th>
+        <th>Registrerings nummer</th>
+        <th>Rediger</th>
+        <th>Slet</th>
+    </tr>
+
+    <tr>
+        <td th:text="${oneDriver.personId}"></td>
+        <td th:text="${oneDriver.firstName}"></td>
+        <td th:text="${oneDriver.driverLicenseNumber}"></td>
+        <td th:text="${oneDriver.registrationNumber}"></td>
+
+        <td><a th:href="@{'/update-driver/'+${oneDriver.driverId}}">Rediger</a></td>
+        <td><a th:href="@{'/driver/'+${oneDriver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table>
+
+    <div id="headline-person"><h1>
+        Person oplysninger
+    </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+        <th>Person id</th>
+        <th>Medarbejder Id</th>
+        <th>Chauffør id</th>
+        <th>Fornavn</th>
+        <th>Efternavn</th>
+
+    </tr>
+
+    <tr>
+        <td th:text="${oneDriver.personId}"></td>
+        <td th:text="${oneDriver.employeeId}"></td>
+        <td th:text="${oneDriver.driverId}"></td>
+        <td th:text="${oneDriver.firstName}"></td>
+        <td th:text="${oneDriver.lastName}" ></td>
+
+
+
+    </tr>
+
+    </thead>
+
+</table>
+
+<table>
+
+    <div id="headline-employee"><h1>
+        Medarbejder oplysninger
+    </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Alder</th>
+        <th>Mand</th>
+        <th>Fuldtidsansat</th>
+        <th>E-mail</th>
+        <th>Mobilnummer</th>
+    </tr>
+
+    <tr>
+
+        <td th:text="${oneDriver.personId}"></td>
+        <td th:text="${oneDriver.firstName}"></td>
+        <td th:text="${oneDriver.age}"></td>
+        <td th:text="${oneDriver.gender} ? 'Mand' : 'Kvinde'" />
+        <td th:text="${oneDriver.fullTimeEmployee} ? 'Ja' : 'nej'" />
+        <td th:text="${oneDriver.email}"></td>
+        <td th:text="${oneDriver.phoneNumber}"></td>
+
+
+    </tr>
+
+    </thead>
+
+</table>
+
+
+<table>
+
+    <div id="headline-adress"><h1>
+        Addresse oplysninger
+    </h1>
+    </div>
+
+    <thead>
+
+    <tr>
+
+        <th>Person id</th>
+        <th>Fornavn</th>
+        <th>Vejnavn</th>
+        <th>Vejnummer</th>
+        <th>Postnummer</th>
+        <th>By</th>
+
+    </tr>
+
+    <tr>
+        <td th:text="${oneDriver.personId}"></td>
+        <td th:text="${oneDriver.firstName}"></td>
+        <td th:text="${oneDriver.address.streetName}"></td>
+        <td th:text="${oneDriver.address.streetNumber}"></td>
+        <td th:text="${oneDriver.address.zipCode}"></td>
+        <td th:text="${oneDriver.address.city}"></td>
+
+    </tr>
+
+
+    </thead>
+
+</table>
+
+</body>
+</html>

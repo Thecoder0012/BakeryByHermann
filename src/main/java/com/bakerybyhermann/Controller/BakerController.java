@@ -21,7 +21,7 @@ public class BakerController {
     @GetMapping("/baker")
     public String getBaker(Model model) {
         model.addAttribute("bakersList", bakerService.fetchAll());
-        return "baker/baker";
+        return "baker/view-baker";
     }
 
     @GetMapping("/new-baker")
@@ -60,6 +60,12 @@ public class BakerController {
     public String deleteBaker(@PathVariable("bakerId") int bakerId){
         bakerService.deleteBaker(bakerId);
         return "redirect:/baker";
+    }
+
+    @GetMapping("/view-baker/{bakerId}")
+    public String viewOne(@PathVariable("bakerId") int id, Model model){
+        model.addAttribute("oneBaker", bakerService.findById(id));
+        return "baker/one-baker";
     }
 
 }

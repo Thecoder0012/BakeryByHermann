@@ -1,98 +1,10 @@
-nav{
-    position: initial;
-    background: #1b1b1b;
-    width: 100%;
-    padding: 10px 0;
-    z-index: 12;
+body{
+    background-size: 100% 1650%;
+    background-repeat: no-repeat;
+    background-image: url("/images/bakerybyhermann.jpg");
 }
 
-nav .menu{
-    max-width: 1250px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
-
-.menu .logo a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.menu ul{
-    display: inline-flex;
-}
-
-.menu ul li{
-    list-style: none;
-    margin-left: 7px;
-}
-
-.menu ul li:first-child{
-    margin-left: 0px;
-}
-
-.menu ul li a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.menu ul li a:hover{
-    background: #fff;
-    color: black;
-}
-
-.dropdown-list {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    color: white;
-    padding: 16px 22px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #1b1b1b;
-    border-radius: 12px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.img{
-    background: url("/images/bakerybyhermann.jpg") no-repeat;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.img::before{
+.img-container::before{
     content: '';
     position: absolute;
     height: 100%;
@@ -100,7 +12,8 @@ nav .menu{
     background: rgba(0, 0, 0, 0.4);
 }
 
-.center{
+
+.center-container{
     position: absolute;
     top: 52%;
     left: 50%;
@@ -110,50 +23,49 @@ nav .menu{
     text-align: center;
 }
 
-.center .title{
-    color: #fff;
-    font-size: 55px;
-    font-weight: 600;
-}
 
-.center .sub-title{
+.center-container .header{
     color: #fff;
+    font-family: 'Open Sans',sans serif;
     font-size: 52px;
     font-weight: 600;
 }
 
-.center .buttons button{
-    height: 130px;
-    width: 185px;
-    border-radius: 35px;
-    border: none;
-    margin: 30px 75px;
-    border: 2pc solid white;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 0 10px;
+button {
+    border-radius: 10px;
+    background-color: transparent;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: 'Open Sans',sans Serif;
+    border:white 1px solid;
+    transition: all 0.5s;
+    padding: 1%;
+    width: 20%;
     cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
+    margin: 3%;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
 }
 
-.center .buttons button:first-child{
-    color: rosybrown;
-    background: white;
+
+button:after {
+    content: '\2192';
+    position: absolute;
+    opacity: 0;
+    top: 14px;
+    right: 5%;
 }
 
-.buttons button:first-child:hover{
-    background: white;
-    color: black;
+button:hover{
+    padding-right: 40px;
+    padding-left:8px;
 }
 
-.center .buttons button:last-child{
-    color: rosybrown;
-    background: white;
+button:hover:after {
+    opacity: 1;
+    right: 3%;
+    top: 25%;
 }
-
-.buttons button:last-child:hover{
-    background: white;
-    color: black;
-}
-
