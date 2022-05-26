@@ -10,7 +10,7 @@
 <body>
 
 
-<form action = "/cashier" method ="post">
+<form action = "/update-cashier" method ="post">
 
     <label>id</label>
     <input type="text" name="personId" th:value="${cashier.personId}" readonly>
@@ -47,6 +47,9 @@
     <input type="submit" value="go">
 
 </form>
+
+<a th:href="@{'/view-cashier/'+${cashier?.cashierId}}">
+    <button class="view-employee">Tilbage</button></a>
 
 
 

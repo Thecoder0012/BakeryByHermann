@@ -3,6 +3,7 @@ package com.bakerybyhermann.Controller;
 
 import com.bakerybyhermann.Model.Address;
 import com.bakerybyhermann.Model.Baker;
+import com.bakerybyhermann.Model.Cashier;
 import com.bakerybyhermann.Service.BakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class BakerController {
@@ -44,17 +47,13 @@ public class BakerController {
         return "baker/update-baker";
     }
 
-    /*@PostMapping("/update-baker")
-    public String updateCustomer(@ModelAttribute Baker baker){
-        bakerService.updateById(baker.getPersonId(), baker);
-        return "redirect:/baker";
-    }*/
-
-    @PostMapping("/update-baker")
-    public String updateBaker(@ModelAttribute Baker baker){
+    @PostMapping(value = "/update-baker")
+    public String updateBaker(@ModelAttribute Baker baker, HttpServletRequest request) {
+        String referer = request.getHeader("Referer");
         bakerService.updateById(baker);
-        return "redirect:/baker";
+        return "redirect:" + referer;
     }
+
 
     @GetMapping("/baker/{bakerId}")
     public String deleteBaker(@PathVariable("bakerId") int bakerId){
