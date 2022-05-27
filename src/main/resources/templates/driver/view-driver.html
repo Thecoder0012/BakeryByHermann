@@ -37,19 +37,17 @@
 
     </nav>
 </header>
-
+<div class="new-employee-container">
+    <p>Registrer ny chauffør i systemet og se chauffør informationer</p>
+    <a href="/new-baker">
+        <button class="new-employee">Opret ny chauffør</button>
+    </a>
+</div>
 <table>
 
-    <div id="headline-driver">
-
-        <div class="button-employees">
-            <button onclick="window.location.href='/new-driver';">Opret ny chauffør</button>
-        </div>
-
-        <h1>
+    <h1>
         Chauffør oplysninger
     </h1>
-    </div>
 
     <thead>
 
@@ -63,7 +61,7 @@
     </tr>
 
     </thead>
-<tbody>
+    <tbody>
 
     <tr th:each="driver :${driversList}">
         <td th:text="${driver.personId}"></td>
@@ -72,12 +70,13 @@
         <td th:text="${driver.registrationNumber}"></td>
         <td>
             <a th:href="@{'/view-driver/'+${driver.driverId}}">
-                <button class="view-employee">Vis</button></a>
+                <button class="view-employee">Vis</button>
+            </a>
         </td>
 
     </tr>
 
-</tbody>
+    </tbody>
 </table>
 
 </body>

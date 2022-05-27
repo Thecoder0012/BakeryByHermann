@@ -64,8 +64,9 @@
         <td th:text="${oneDriver.driverLicenseNumber}"></td>
         <td th:text="${oneDriver.registrationNumber}"></td>
 
-        <td><a th:href="@{'/update-driver/'+${oneDriver.driverId}}">Rediger</a></td>
-        <td><a th:href="@{'/driver/'+${oneDriver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>
+        <td><a th:href="@{'/update-driver/'+${oneDriver.driverId}}"><button class="update-employee">Rediger</button></a></td>
+        <td><a th:href="@{'/driver/'+${oneDriver.driverId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
+            <button class="delete-employee">Slet</button></a></td>
 
     </tr>
 

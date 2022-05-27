@@ -51,3 +51,84 @@ h1{
 #delete-cashier {
 
 }
+
+.view-employee {
+    background-color: #3283ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 50%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.view-employee:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}
+
+
+.new-employee {
+    background-color: #198754;
+    color: white;
+    border-radius: 5px;
+    width: 8%;
+    right: 23%;
+    font-size: 1em;
+    height: 6%;
+    border: none;
+    position: absolute;
+    top: 25%;
+    cursor: pointer;
+}
+
+.new-employee:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}
+
+.new-employee-container{
+    width: 100%;
+    height: 80px;
+}
+
+.new-employee-container p{
+    font-size: 2.5em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+
+.update-employee {
+    background-color: #3283ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 50%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.update-employee:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}
+
+.delete-employee {
+    background-color: #DC3545;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-employee:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}

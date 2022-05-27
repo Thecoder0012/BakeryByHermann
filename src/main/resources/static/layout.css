@@ -92,9 +92,10 @@ ul li.kunde-active a{
 }
 
 .dropdown-content a:hover {
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
-    color: black;
+    color: white;
+
 }
 
 .dropdown:hover .dropdown-content {

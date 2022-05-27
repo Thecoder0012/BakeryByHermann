@@ -45,13 +45,13 @@ public class CashierController {
     }
 
     // create get
-    @GetMapping("/cashier/new")
+    @GetMapping("/new-cashier")
     public String createCashier(){
         return "cashier/new-cashier";
     }
 
     // create post
-    @PostMapping("/cashier/new")
+    @PostMapping("/new-cashier")
     public String createCashier(@ModelAttribute Cashier cashier, @ModelAttribute Address address){
         cashier.setAddress(address);
         cashierService.addNew(cashier, address);
