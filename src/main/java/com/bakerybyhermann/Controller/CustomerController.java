@@ -54,4 +54,10 @@ public class CustomerController {
         customerService.updateById(customer.getPersonId(), customer);
         return "redirect:/";
     }
+
+    @GetMapping("/view-customer/{customerId}")
+    public String viewOne(@PathVariable("customerId") int id, Model model){
+        model.addAttribute("oneCustomer", customerService.findById(id));
+        return "customer/one-customer";
+    }
 }

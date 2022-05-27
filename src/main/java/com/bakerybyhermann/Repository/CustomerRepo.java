@@ -100,12 +100,13 @@ public class CustomerRepo {
 
     public Customer findById(int id) {
 
-        String sql = "SELECT customer_tbl.customer_id , person_tbl.person_id as personId,first_name,last_name," + "street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city," +
+        String sql = "SELECT customer_tbl.customer_id , person_tbl.person_id as personId,first_name,last_name," +
+                "street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city," +
                 "phone_number,e_mail as email,repeated_visits,company_name\n" +
                 "FROM person_tbl\n" +
                 "INNER JOIN customer_tbl ON person_tbl.person_id = customer_tbl.person_id\n" +
                 "INNER JOIN address_tbl ON person_tbl.address_id = address_tbl.address_id\n" +
-                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code WHERE person_tbl.person_id = ?";
+                "INNER JOIN  zip_code_tbl ON address_tbl.zip_code = zip_code_tbl.zip_code WHERE customer_tbl.customer_id = ?";
 
         RowMapper rowMapper = new CustomerMapper();
 

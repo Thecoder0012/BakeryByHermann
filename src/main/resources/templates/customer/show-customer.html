@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Customer Home</title>
-    <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="../view-customer.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link rel="stylesheet" href="layout.css"/>
 </head>
 <body>
 
@@ -37,20 +37,15 @@
 
     </nav>
 </header>
-
+    <div class="customer-container">
+    <p>Registrer ny kunde i systemet og se kunde informationer</p>
+    <a href="/new-customer"><button class="new-customer">Opret ny kunde</button></a>
+    </div>
 
 <table>
-
-    <div id="headline-customer">
-
-        <div class="button-employees">
-            <button onclick="window.location.href='/new-customer';">Opret ny kunde</button>
-        </div>
-
         <h1>
             Kunde oplysninger
         </h1>
-    </div>
 
     <thead>
 
@@ -59,8 +54,8 @@
             <th>Fornavn</th>
             <th>Gentagne besøg</th>
             <th>Firmanavn</th>
-            <th>Rediger</th>
-            <th>Slet</th>
+            <th>Vis kunde info</th>
+
 
         </tr>
 
@@ -69,43 +64,10 @@
         <td th:text="${customer.firstName}"></td>
         <td th:text="${customer.repeatedVisits}"></td>
         <td th:text="${customer.companyName}"></td>
-
-        <td><a th:href="@{'/update-customer/'+${customer.personId}}">Rediger</a></td>
-        <td> <a th:href="@{'/customer/'+${customer.personId}}">Slet</a></td>
-
-
-    </tr>
-
-    </thead>
-
-</table>
-
-<table>
-    <div id="headline-person">
-        <h1>
-            Person oplysninger
-        </h1>
-    </div>
-
-    <thead>
-
-    <tr>
-        <th>Person id</th>
-        <th>Kunde id</th>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
-        <th>Mobilnummer</th>
-        <th>E-mail</th>
-
-    </tr>
-
-    <tr th:each="customer :${customersList}" >
-        <td th:text="${customer.personId}"></td>
-        <td th:text="${customer.customerId}"></td>
-        <td th:text="${customer.firstName}"></td>
-        <td th:text="${customer.lastName}" ></td>
-        <td th:text="${customer.phoneNumber}"></td>
-        <td th:text="${customer.email}"></td>
+        <td>
+            <a th:href="@{'/view-customer/'+${customer.customerId}}">
+                <button class="view-customer">Vis</button> </a>
+        </td>
 
 
     </tr>
@@ -114,40 +76,7 @@
 
 </table>
 
-<table>
-    <div id="headline-adress">
-        <h1>
-            Adresse oplysninger
-        </h1>
-    </div>
 
-    <thead>
-
-    <tr>
-        <th>Person id</th>
-        <th>Fornavn</th>
-        <th>Vejnavn</th>
-        <th>Vejnummer</th>
-        <th>Postnummer</th>
-        <th>By</th>
-
-
-    </tr>
-
-    <tr th:each="customer :${customersList}" >
-        <td th:text="${customer.personId}"></td>
-        <td th:text="${customer.firstName}"></td>
-        <td th:text="${customer.address.streetName}"></td>
-        <td th:text="${customer.address.streetNumber}"></td>
-        <td th:text="${customer.address.zipCode}"></td>
-        <td th:text="${customer.address.city}"></td>
-
-
-    </tr>
-
-    </thead>
-
-</table>
 
 </body>
 </html>
