@@ -71,9 +71,9 @@
 
     <div class="checkbox-container">
         <label class="gender">Mand</label>
-        <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
+        <input type="checkbox" name="gender" th:checked="${cashier.gender}">
         <label>Kvinde</label>
-        <input type="checkbox" name="woman" th:value="${woman}" th:checked="${woman}">
+        <input type="checkbox" name="woman" th:checked="${woman}">
 
         <label>Fuldtidsansat</label>
         <input type="checkbox" name="fullTimeEmployee"  th:checked="${cashier?.fullTimeEmployee}">
