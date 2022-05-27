@@ -38,6 +38,7 @@ public class DriverController {
     @GetMapping("/update-driver/{driverId}")
     public String updateDriver(@PathVariable("driverId") int id, Model model) {
         Driver driver = driverService.findById(id);
+        model.addAttribute("woman", false);
         model.addAttribute("driver", driver);
         return "driver/update-driver";
     }

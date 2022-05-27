@@ -3,40 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Driver</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link href="/add-edit-employee.css" rel="stylesheet">
+    <link rel="stylesheet" href="/layout.css"/>
 </head>
 <body>
 
-<nav>
-    <div class="menu">
+<header>
+    <nav>
+        <div class="nav-bar">
 
-        <div class="logo">
-            <a href="#">Bakery By Hermann</a>
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
         </div>
 
-        <ul>
-            <li><a href="/">Startside</a></li>
-            <li><a href="#">Bestilling</a></li>
-            <li><a href="/show-customer">Kunde</a></li>
-            <div class="dropdown">
-                <li><a href="#">Medarbejder</a></li>
-                <div class="dropdown-content">
-                    <a href="/baker">Bager</a>
-                    <a href="/cashier">Butiksansat</a>
-                    <a href="/driver">Chauffør</a>
-                </div>
-            </div>
-            <li><a href="#">Hjælp</a></li>
+    </nav>
+</header>
 
-        </ul>
 
-    </div>
-
-</nav>
-
-<div id="headline-update">
-<h1>Indtast chaufførens nye oplysninger</h1>
+<div class="header">
+    <h1>Indtast venligst chaufførens nye oplysninger</h1>
 </div>
 
 <div class="form-container">
@@ -64,16 +67,19 @@
     <input type="text" name="email" th:value="${driver.email}">
         <label>Alder</label>
     <input type="text" name="age" th:value="${driver.age}">
-        <label>Køn</label>
-    <input type="text" name="gender" th:value="${driver.gender}">
-        <label>Firmanavn</label>
-    <input type="text" name="fullTimeEmployee" th:value="${driver.fullTimeEmployee}">
-        <label>Kørekort nummer</label>
+    <label>Kørekortnummer</label>
     <input type="text" name="driverLicenseNumber" th:value="${driver.driverLicenseNumber}">
-        <label>Registreringsnummer</label>
+    <label>Registreringsnummer</label>
     <input type="text" name="registrationNumber" th:value="${driver.registrationNumber}">
 
-
+    <div class="checkbox-container">
+        <label id="gender">Mand</label>
+        <input type="checkbox" name="gender" th:checked="${driver?.gender}">
+        <label>Kvinde</label>
+        <input type="checkbox" name="woman" th:checked="${woman}">
+        <label>Fuldtidsansat</label>
+        <input type="checkbox" name="fullTimeEmployee" th:checked="${driver?.fullTimeEmployee}">
+    </div>
     <input type="submit" value="Opdater">
 
     </form>
@@ -81,7 +87,7 @@
         <a th:href="@{'/view-driver/'+${driver?.driverId}}">
             <button class="view-employee">Tilbage</button></a>
 
-</div>
+
 </div>
 
 </body>

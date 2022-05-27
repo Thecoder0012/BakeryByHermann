@@ -4,34 +4,16 @@ body{
 
 }
 
+.header{
+    display: flex;
+    justify-content: center;
+}
+
 .form-container{
     position: relative;
     left: 32.5%;
     margin: 2%;
 }
-
-
-
-.form-container .gender-container{
-    display: flex;
-    margin: 1% 0;
-    width: 14%;
-}
-
-.form-container .gender-container input{
-    width: 50%;
-}
-
-/*.form-container .gender-container #gender{*/
-/*    margin: 0 0 0 10%;*/
-/*    padding: 0 1%;*/
-/*}*/
-
-/*.form-container .cashier-container{*/
-/*    display: flex;*/
-/*    width: 15%;*/
-/*}*/
-
 
 input[type=text] {
     width: 35%;

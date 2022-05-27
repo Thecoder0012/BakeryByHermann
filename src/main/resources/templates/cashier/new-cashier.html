@@ -5,14 +5,46 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/new-cashier.css" rel="stylesheet">
+    <link href="/add-edit-employee.css" rel="stylesheet">
     <link rel="stylesheet" href="layout.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
 
-<h1>Indtast venligst den butiksansattes oplysninger</h1>
+<header>
+    <nav>
+        <div class="nav-bar">
+
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+
+<div class="header">
+    <h1>Indtast venligst den butiksansattes oplysninger</h1>
+</div>
 <div class="form-container">
     <form action="/new-cashier" method="post">
 
@@ -40,7 +72,7 @@
         <label>Alder</label>
         <input type="text" name="age">
         <div class="checkbox-container">
-            <label id="gender">Mand</label>
+            <label class="gender">Mand</label>
             <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
             <label>Kvinde</label>
             <input type="checkbox" name="woman" th:checked="${woman}">
@@ -50,7 +82,7 @@
 
 
             <label>Kaffe diplom</label>
-            <input type="checkbox" name="coffeeDiplom" th:checked="${cashier?.fullTimeEmployee}">
+            <input type="checkbox" name="coffeeDiplom" th:checked="${cashier?.coffeeDiplom}">
 
         </div>
 

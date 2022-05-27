@@ -1,0 +1,42 @@
+body{
+
+    background: powderblue;
+
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+    position: relative;
+    left: 32.5%;
+    margin: 2%;
+}
+
+input[type=text] {
+    width: 35%;
+    padding: 0.6%;
+    margin: 1% 0;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    background-color: green;
+    color: white;
+    position: relative;
+    width: 8.5%;
+    height: 36px;
+    border: none;
+    border-radius: 20px;
+    left: 13%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    border: #030303;
+}

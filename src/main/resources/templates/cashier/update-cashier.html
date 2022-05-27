@@ -3,16 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
-    <link href="/new-cashier.css" rel="stylesheet">
-    <!--    <link rel="stylesheet" href="layout.css"/>-->
-<!--    <link rel="stylesheet" href="tabel-structur.css"/>-->
+    <link href="/add-edit-employee.css" rel="stylesheet">
+    <link rel="stylesheet" href="/layout.css"/>
 </head>
 <body>
 
+<header>
+    <nav>
+        <div class="nav-bar">
+
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="#">Hjælp</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+
+
+<div class="header">
+    <h1>Indtast venligst de nye oplysninger</h1>
+</div>
+
+<div class="form-container">
 
 <form action = "/update-cashier" method ="post">
 
-    <label>id</label>
+    <label>Person id</label>
     <input type="text" name="personId" th:value="${cashier.personId}" readonly>
     <label>Fornavn</label>
     <input type="text" name="firstName" th:value="${cashier.firstName}" >
@@ -34,24 +69,31 @@
     <label>Alder</label>
     <input type="text" name="age" th:value="${cashier.age}">
 
-    <label>Køn</label>
-    <input type="text" name="gender" th:value="${cashier.gender}">
+    <div class="checkbox-container">
+        <label class="gender">Mand</label>
+        <input type="checkbox" name="gender" th:checked="${cashier?.gender}">
+        <label>Kvinde</label>
+        <input type="checkbox" name="woman" th:value="${woman}" th:checked="${woman}">
 
-    <label>Fuldtidsansat?</label>
-    <input type="text" name="fullTimeEmployee" th:value="${cashier.fullTimeEmployee}">
-
-    <label>Kaffediplom</label>
-    <input type="text" name="coffeeDiplom" th:value="${cashier.coffeeDiplom}">
+        <label>Fuldtidsansat</label>
+        <input type="checkbox" name="fullTimeEmployee"  th:checked="${cashier?.fullTimeEmployee}">
 
 
-    <input type="submit" value="go">
+        <label>Kaffe diplom</label>
+        <input type="checkbox" name="coffeeDiplom" th:checked="${cashier?.coffeeDiplom}">
+
+    </div>
+
+    <input type="submit" value="Rediger">
 
 </form>
+
+
 
 <a th:href="@{'/view-cashier/'+${cashier?.cashierId}}">
     <button class="view-employee">Tilbage</button></a>
 
-
+</div>
 
 </body>
 </html>

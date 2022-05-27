@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class CustomerController {
 
@@ -33,7 +35,7 @@ public class CustomerController {
     public String createCustomer(@ModelAttribute Customer customer, @ModelAttribute Address address){
         customer.setAddress(address);
         customerService.addNew(customer, address);
-        return "redirect:/";
+        return "redirect:/show-customer";
     }
 
     @GetMapping("/customer/{customerId}")
@@ -50,9 +52,10 @@ public class CustomerController {
     }
 
     @PostMapping("/update-customer")
-    public String updateCustomer(@ModelAttribute Customer customer){
+    public String updateCustomer(@ModelAttribute Customer customer, HttpServletRequest request){
+        String referer = request.getHeader("Referer");
         customerService.updateById(customer.getPersonId(), customer);
-        return "redirect:/";
+        return "redirect:"+referer;
     }
 
     @GetMapping("/view-customer/{customerId}")
