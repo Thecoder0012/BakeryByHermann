@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #eee;
+    }
+
+    .container {
+        position: absolute;
+        left: 38%;
+    }
+
+
+    input {
+        width: 170%;
+        height: 45px;
+        color: black;
+        border-radius: 5px;
+        border: 1px solid grey;
+    }
+
+    input[placeholder] {
+        font-size: 1em;
+        text-indent: 9px;
+    }
+
+    input[type=submit] {
+        width: 172%;
+        background: #3283ff;
+        color: white;
+        font-size: 1.3em;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+        transform: translateY(-2px);
+        background-color: #0069d9;
+        border-color: #0062cc;
+        transition: 0.2s all;
+    }
+
+    .login-error {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        width: 154%;
+        height: 17px;
+        font-size: 1em;
+        padding: 9%;
+    }
+
+    .user-logout {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        width: 154%;
+        height: 17px;
+        font-size: 1em;
+        padding: 9%;
+    }
+</style>
+
+<div class="container">
+    <form class="login-container" method="post" th:action="@{/login}">
+        <h1>Indtast dit login</h1>
+        <div th:if="${param.error}" class="login-error">
+            Forkert login
+        </div>
+        <div th:if="${param.logout}" class="user-logout">
+            Du er logget ud!
+        </div>
+        <p>
+            <input type="text" name="username" placeholder="Brugernavn" required>
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Adgangskode"
+                   required>
+        </p>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+</body>
+</html>

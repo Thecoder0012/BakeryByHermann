@@ -28,7 +28,7 @@
                         <a href="/driver">Chauffør</a>
                     </div>
                 </div>
-                <li><a href="#">Hjælp</a></li>
+                <li><a href=/logout>Log ud</a></li>
 
             </ul>
 
@@ -80,12 +80,12 @@
         <label>Fuldtidsansat</label>
         <input type="checkbox" name="fullTimeEmployee" th:checked="${driver?.fullTimeEmployee}">
     </div>
-    <input type="submit" value="Opdater">
+    <input type="submit" value="Bekræft">
 
     </form>
 
         <a th:href="@{'/view-driver/'+${driver?.driverId}}">
-            <button class="view-employee">Tilbage</button></a>
+            <button class="back-button">Tilbage</button></a>
 
 
 </div>
