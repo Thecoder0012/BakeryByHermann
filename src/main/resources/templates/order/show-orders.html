@@ -9,15 +9,11 @@
 <div style="float: left">
     <table>
         <tr>
-            <th></th>
             <th>Virum</th>
         </tr>
         <tr th:each="order :${ordersVirum}">
             <td>
-                <span th:text="${order.orderId}"></span>
-            </td>
-            <td>
-                <span th:text="${order.pickupDateAndTime}"></span>
+                <span th:text="${order.orderId+' '+order.pickupDateAndTime}"></span>
                 <br>
                 <span th:text="${order.productList}"></span>
             </td>
@@ -28,15 +24,11 @@
 <div >
     <table>
         <tr>
-            <th></th>
             <th>Nærum</th>
         </tr>
         <tr th:each="order :${ordersNaerum}">
             <td>
-                <span th:text="${order.orderId}"></span>
-            </td>
-            <td>
-                <span th:text="${order.pickupDateAndTime}"></span>
+                <span th:text="${order.orderId+' '+order.pickupDateAndTime}"></span>
                 <br>
                 <span th:text="${order.productList}"></span>
             </td>

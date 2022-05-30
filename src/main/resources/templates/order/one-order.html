@@ -7,16 +7,17 @@
 <body>
 <div style="border: 1px solid black">
     <div>
-        <label th:text="${'Bestillings nummer: '+oneOrder.orderId}"></label>
+        <span th:text="${'Bestillings nummer: '+oneOrder.orderId}"></span>
         <br>
-        <label th:text="${'Bestillings dato: '+oneOrder.orderDate}"></label>
+        <span th:text="${'Bestillings dato: '+oneOrder.orderDate}"></span>
         <br>
-        <label th:text="${'Bestilt i afdeling: '+oneOrder.orderLocation.shortName}"></label>
+        <span th:text="${'Bestilt i afdeling: '+oneOrder.orderLocation.shortName}"></span>
         <br>
-        <label th:text="${'Ekspideret af: '+oneOrder.cashier.firstName}"></label>
+        <span th:text="${'Ekspideret af: '+oneOrder.cashier.firstName}"></span>
     </div>
     <div>
-        <label th:text="${'Kundenavn: '+oneOrder.customer.firstName +' '+oneOrder.customer.lastName}"></label>
+        <span th:text="${'Kundenavn: '+oneOrder.customer.firstName}"></span>
+        <span th:text="${' '+oneOrder.customer.lastName}"></span>
         <br>
         <label th:text="${'Kunde tlf: '+oneOrder.customer.phoneNumber}"></label>
     </div>
@@ -41,23 +42,20 @@
                 <th>Antal</th>
                 <th>Sub-pris</th>
             </tr>
-            <tr>
-                <td>hallo</td>
-                <td>hallo</td>
-                <td>sdsf</td>
-                <td>sfdsfs</td>
-                <td>sdfsf</td>
-            </tr>
-            <!--
             <tr th:each="productIn : ${oneOrder.productList}">
-                <td th:text="${productIn.product.productId}">fuck</td>
+                <td th:text="${productIn.product.productId}"></td>
                 <td th:text="${productIn.product.productName}"></td>
                 <td th:text="${productIn.product.price}"></td>
                 <td th:text="${productIn.quantity}"></td>
-                <td>hallo hallo</td>
+                <td th:text="${productIn.quantity*productIn.product.price}"></td>
             </tr>
-                -->
+
+
         </table>
+        <div>
+            <span th:text="${'Total price '+oneOrder.totalPrice}"></span>
+
+        </div>
     </div>
 </div>
 

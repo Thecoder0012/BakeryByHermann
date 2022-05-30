@@ -29,13 +29,16 @@ public class OrderService {
         orderRepo.addNew(o);
     }
     public void addToList(ProductList p){
-        System.out.println("Inside Service ");
         orderRepo.addToList(p);
     }
 
 
     public Order findById (int id){
-        return orderRepo.findById(id);
+        Order order = orderRepo.findById(id);
+            int orderId = order.getOrderId();
+            List<ProductList> inList = orderRepo.fetchProducts(orderId);
+            order.setProductList(inList);
+        return order;
     }
 
     public void updateById (int id, Order order){}

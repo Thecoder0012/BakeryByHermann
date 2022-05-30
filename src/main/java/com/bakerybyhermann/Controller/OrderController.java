@@ -118,7 +118,7 @@ public class OrderController {
 
     @PostMapping("/new-orderlist")
     public String addToList(@ModelAttribute ProductList p, Model model){
-        System.out.println(p.getProduct().getProductName());
+        //System.out.println(p.getProduct().getProductName());
 
         model.addAttribute("productsList", productService.fetchAll());
         String[] toProductList = p.getProduct().getProductName().split(" ");
@@ -134,7 +134,17 @@ public class OrderController {
 
     @GetMapping("/show-orders/{orderId}")
     public String viewOne(@PathVariable("orderId") int id, Model model){
-        model.addAttribute("oneOrder", orderService.findById(id));
+        Order order = orderService.findById(id);
+        List<ProductList> productLists = order.getProductList();
+        int totalPrice = 0;
+        for (int i = 0; i < productLists.size(); i++) {
+            int quantity = productLists.get(i).getQuantity();
+            int productPrice = productLists.get(i).getProduct().getPrice();
+            totalPrice = totalPrice + productPrice * quantity;
+        }
+        order.setTotalPrice(totalPrice);
+
+        model.addAttribute("oneOrder", order);
         return "order/one-order";
     }
 }
