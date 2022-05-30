@@ -118,6 +118,8 @@ public class OrderController {
 
     @PostMapping("/new-orderlist")
     public String addToList(@ModelAttribute ProductList p, Model model){
+        System.out.println(p.getProduct().getProductName());
+
         model.addAttribute("productsList", productService.fetchAll());
         String[] toProductList = p.getProduct().getProductName().split(" ");
         for (int i = 0; i < productService.fetchAll().size(); i++) {
