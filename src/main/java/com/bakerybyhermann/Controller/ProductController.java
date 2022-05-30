@@ -29,26 +29,26 @@ public class ProductController {
     }
 
     @PostMapping("/new-product")
-    public String createCustomer(@ModelAttribute Product product){
+    public String newProduct(@ModelAttribute Product product){
         productService.addNew(product);
         return "redirect:/show-product";
     }
 
     @GetMapping("/update-product/{id}")
-    public String updateCustomer(@PathVariable("id") int id, Model model){
+    public String updateProduct(@PathVariable("id") int id, Model model){
         Product product = productService.findById(id);
         model.addAttribute("product", product);
         return "product/update-product";
     }
 
     @PostMapping("/update-product")
-    public String updateCustomer(@ModelAttribute Product product){
+    public String updateProduct(@ModelAttribute Product product){
         productService.updateById(product.getProductId(), product);
         return "redirect:/show-product";
     }
 
     @GetMapping("/product/{Id}")
-    public String deleteCustomer(@PathVariable("Id") int id){
+    public String deleteProduct(@PathVariable("Id") int id){
         productService.delteById(id);
         return "redirect:/show-product";
     }

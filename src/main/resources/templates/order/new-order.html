@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Order</title>
+</head>
+<body>
+
+<form action="/new-order" method="post">
+    <div>
+        <label>Nuværende lokation:</label>
+        <select name="orderLocation.shortName">
+            <option th:each="department :${departmentList}" th:text="${department.shortName}"></option>
+        </select>
+    </div>
+
+    <div>
+        <label>Afhentning lokation</label>
+        <select name="pickupLocation.shortName">
+            <option th:each="department :${departmentList}" th:text="${department.shortName}"></option>
+        </select>
+    </div>
+
+    <div>
+        <label>Afhentning tidspunkt</label>
+            <input type="datetime-local" name="pickupDateAndTime">
+        <!--<input type="datetime-local" name="pickupDateAndTime">-->
+    </div>
+
+    <div>
+        <label>Vælg kund</label>
+        <select name="customer.firstName">
+            <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName + ' ' +  customer.phoneNumber}" ></option>
+        </select>
+        <label>Eller opret en ny kunde</label>
+    </div>
+
+    <div>
+        <label>Ekspideret af:</label>
+
+        <select name="cashier.firstName" >
+            <option th:each="cashier :${cashierEmployee}" th:text="${cashier.firstName}"></option>
+        </select>
+    </div>
+
+    <div>
+        <label>Betalt</label>
+        <input type="radio" name="payed" value="true">
+        <label>ikke betalt</label>
+        <input type="radio" name="payed" value="false">
+    </div>
+    <div>
+        <label>Special ordre</label>
+        <input type="radio" name="specialOrder" value="true">
+        <label>ikke special ordre</label>
+        <input type="radio" name="specialOrder" value="false">
+    </div>
+
+
+    <input type="submit" value="go">
+</form>
+
+
+
+
+
+
+
+
+    <div>
+        <label>Betalt</label>
+        <input type="radio" name="payed" value="true">
+        <label>ikke betalt</label>
+        <input type="radio" name="payed" value="false">
+    </div>
+    <div>
+        <label>Special ordre</label>
+        <input type="radio" name="specialOrder" value="true">
+        <label>ikke special ordre</label>
+        <input type="radio" name="specialOrder" value="false">
+    </div>
+
+    <!--
+    <div>
+        <input option type="checkbox" th:each="product :${productsList}" th:text="${product.productName}">
+    </div>
+    -->
+
+    <div>
+        <table>
+            <tr>
+                <th>Vælg product</th>
+                <th>Pris</th>
+                <th>Antal</th>
+
+                <th></th>
+            </tr>
+            <tr  th:each="product :${productsList}">
+                <form action="new-order" method="post">
+                <td th:text="${product.productName}">
+                </td>
+                <td  th:text="${product.price}"></td>
+                <td>
+                    <input type="number" min="0" max="30">
+                </td>
+                </form>
+                <td>
+                    <button>Tilføje til ordren</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+   <!-- <div>
+        <table>
+            <tr>
+                <th>product</th>
+                <th>Antal</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+
+            </tr>
+        </table>
+    </div>-->
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Order</title>
+</head>
+<body>
+<div>
+    <label>Vælg produkt</label>
+</div>
+<div>
+    <form action="/new-orderlist" method="post">
+        <select name="product.productName">
+            <option th:each="product :${productsList}" th:text="${product.productName+' '+product.price}"></option>
+        </select>
+
+        <input type="number" min="0" max="30" name="quantity">
+
+        <input type="submit" value="Vælg og tilføje yderligere">
+    </form>
+</div>
+<div>
+    <button>Vælg og tilføje yderligere</button>
+    <button>Vælg og gå til kvittering</button>
+</div>
+
+
+</body>
+</html>
