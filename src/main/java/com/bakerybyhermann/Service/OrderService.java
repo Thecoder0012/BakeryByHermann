@@ -35,7 +35,7 @@ public class OrderService {
 
 
     public Order findById (int id){
-        return null;
+        return orderRepo.findById(id);
     }
 
     public void updateById (int id, Order order){}

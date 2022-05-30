@@ -124,7 +124,42 @@ public class OrderRepo {
     }
 
     public Order findById (int id){
-        return null;
+        String sql = "SELECT order_id, order_date, " +
+                "order_department_id, dpo.location as order_loc_name, dpo.short_name as order_loc_short, " +
+                "addt.street_name as od_loc_street, addt.street_number as od_loc_streetNum, \n" +
+                "addt.zip_code as odloc_zip, dpozt.city as odloc_city,  " +
+                "delivery_department_id, dpl.location as pick_loc_name, dpl.short_name as pick_loc_short, " +
+                "addtl.street_name as pick_street, addtl.street_number as pick_streetNum,\n" +
+                "addtl.zip_code as pick_zip,  dplzt.city as pick_city, pickup_time, \n" +
+                "ao.customer_id as cust_id, pt.first_name as cus_name, pt.last_name as cus_lname, " +
+                "pt.phone_number as cus_phone, pt.e_mail as cus_mail, att.street_name as cus_street,  " +
+                "att.street_number as cus_streetnum,  att.zip_code as cus_zip, zt.city as cus_city,\n" +
+                "ao.cashier_id as cash_id, ptch.first_name as cash_name," +
+                " ptch.last_name as cash_lname, ptch.phone_number as cash_phone, " +
+                "ptch.e_mail cash_mail, " +
+                "attch.street_name as cash_street, attch.street_number as cash_streetnum, " +
+                "attch.zip_code cash_zip, ztch.city as cash_city,\n" +
+                "payment_status, special_status, total_price \n" +
+                " FROM active_orders ao " +
+                "JOIN department_tbl dpo ON ao.order_department_id = dpo.department_id\n" +
+                "JOIN address_tbl addt ON addt.address_id = dpo.address_id\n" +
+                "JOIN zip_code_tbl dpozt ON dpozt.zip_code = addt.zip_code\n" +
+                "JOIN department_tbl dpl ON ao.delivery_department_id = dpl.department_id\n" +
+                "JOIN address_tbl addtl ON addtl.address_id = dpl.address_id\n" +
+                "JOIN zip_code_tbl dplzt ON dplzt.zip_code = addtl.zip_code\n" +
+                "JOIN customer_tbl ct ON ao.customer_id = ct.customer_id\n" +
+                "JOIN person_tbl pt ON ct.person_id = pt.person_id\n" +
+                "JOIN address_tbl att ON att.address_id = pt.address_id\n" +
+                "JOIN zip_code_tbl zt ON zt.zip_code = att.zip_code\n" +
+                "JOIN cashier_tbl cht ON ao.cashier_id = cht.cashier_id\n" +
+                "                JOIN employee_tbl emt ON emt.employee_id = cht.employee_id\n" +
+                "                JOIN person_tbl ptch ON ptch.person_id = emt.person_id\n" +
+                "                JOIN address_tbl attch ON attch.address_id = ptch.address_id\n" +
+                "                JOIN zip_code_tbl ztch ON attch.zip_code = ztch.zip_code" +
+                " WHERE order_id = ?";
+
+        RowMapper rowMapper = new OrderMapper();
+        return (Order) jdbcTemplate.queryForObject(sql, rowMapper, id);
     }
 
     public void updateById (int id, Order order){}

@@ -56,73 +56,8 @@
         <input type="radio" name="specialOrder" value="false">
     </div>
 
-
     <input type="submit" value="go">
 </form>
-
-
-
-
-
-
-
-
-    <div>
-        <label>Betalt</label>
-        <input type="radio" name="payed" value="true">
-        <label>ikke betalt</label>
-        <input type="radio" name="payed" value="false">
-    </div>
-    <div>
-        <label>Special ordre</label>
-        <input type="radio" name="specialOrder" value="true">
-        <label>ikke special ordre</label>
-        <input type="radio" name="specialOrder" value="false">
-    </div>
-
-    <!--
-    <div>
-        <input option type="checkbox" th:each="product :${productsList}" th:text="${product.productName}">
-    </div>
-    -->
-
-    <div>
-        <table>
-            <tr>
-                <th>Vælg product</th>
-                <th>Pris</th>
-                <th>Antal</th>
-
-                <th></th>
-            </tr>
-            <tr  th:each="product :${productsList}">
-                <form action="new-order" method="post">
-                <td th:text="${product.productName}">
-                </td>
-                <td  th:text="${product.price}"></td>
-                <td>
-                    <input type="number" min="0" max="30">
-                </td>
-                </form>
-                <td>
-                    <button>Tilføje til ordren</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-   <!-- <div>
-        <table>
-            <tr>
-                <th>product</th>
-                <th>Antal</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td></td>
-
-            </tr>
-        </table>
-    </div>-->
 
 </body>
 </html>

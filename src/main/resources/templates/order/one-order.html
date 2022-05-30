@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show order</title>
+</head>
+<body>
+<div style="border: 1px solid black">
+    <div>
+        <label th:text="${'Bestillings nummer: '+oneOrder.orderId}"></label>
+        <br>
+        <label th:text="${'Bestillings dato: '+oneOrder.orderDate}"></label>
+        <br>
+        <label th:text="${'Bestilt i afdeling: '+oneOrder.orderLocation.shortName}"></label>
+        <br>
+        <label th:text="${'Ekspideret af: '+oneOrder.cashier.firstName}"></label>
+    </div>
+    <div>
+        <label th:text="${'Kundenavn: '+oneOrder.customer.firstName +' '+oneOrder.customer.lastName}"></label>
+        <br>
+        <label th:text="${'Kunde tlf: '+oneOrder.customer.phoneNumber}"></label>
+    </div>
+    <div>
+        <label>Afhentning</label>
+        <br>
+        <label th:text="${'Lokation: '+oneOrder.pickupLocation.shortName}"></label>
+        <br>
+        <label th:text="${'Dato og tid: '+oneOrder.pickupDateAndTime}"></label>
+    </div>
+    <div>
+        <label th:text="${'Betalt: '+oneOrder.payed}"></label>
+        <br>
+        <label th:text="${'Special bestilling: '+oneOrder.specialOrder}"></label>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Vare-nr.</th>
+                <th>Vare</th>
+                <th>Vare pris</th>
+                <th>Antal</th>
+                <th>Sub-pris</th>
+            </tr>
+            <tr>
+                <td>hallo</td>
+                <td>hallo</td>
+                <td>sdsf</td>
+                <td>sfdsfs</td>
+                <td>sdfsf</td>
+            </tr>
+            <!--
+            <tr th:each="productIn : ${oneOrder.productList}">
+                <td th:text="${productIn.product.productId}">fuck</td>
+                <td th:text="${productIn.product.productName}"></td>
+                <td th:text="${productIn.product.price}"></td>
+                <td th:text="${productIn.quantity}"></td>
+                <td>hallo hallo</td>
+            </tr>
+                -->
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

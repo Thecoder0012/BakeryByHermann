@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.lang.reflect.Array;
@@ -54,7 +55,7 @@ public class OrderController {
         }
 
         model.addAttribute("ordersVirum", listsList.get(0));
-        model.addAttribute("ordersNaerum", listsList.get(1));
+        model2.addAttribute("ordersNaerum", listsList.get(1));
         return "order/show-orders";
     }
 
@@ -74,12 +75,8 @@ public class OrderController {
 
     @PostMapping("/new-order")
     public String newOrder (@ModelAttribute Order o, Model model){
-        System.out.println("Entering POST");
-        //System.out.println("CONTROLLER TEST: " + o.getPickupDateAndTime());
 
         model.addAttribute("productsList", productService.fetchAll());
-
-
 
         for (int i = 0; i < departmentService.fetchAll().size(); i++) {
             if (departmentService.fetchAll().get(i).getShortName().equalsIgnoreCase(o.getOrderLocation().getShortName())){
@@ -118,30 +115,24 @@ public class OrderController {
         System.out.println("Redirecting...");
         return "order/new-orderlist";
     }
-/*
-    @GetMapping("/new-orderlist")
-    public String getAddToList(Model model){
-        model.addAttribute("productsList", productService.fetchAll());
-        return "order/new-orderlist";
-    }
-*/
+
     @PostMapping("/new-orderlist")
     public String addToList(@ModelAttribute ProductList p, Model model){
         model.addAttribute("productsList", productService.fetchAll());
-        System.out.println("POST newOrderList");
-
         String[] toProductList = p.getProduct().getProductName().split(" ");
         for (int i = 0; i < productService.fetchAll().size(); i++) {
             if (productService.fetchAll().get(i).getProductName().equalsIgnoreCase(toProductList[0])){
                 p.setProduct(productService.fetchAll().get(i));
             }
         }
-        System.out.println(p.getProduct().getProductName());
-        System.out.println(p.getProduct().getPrice());
-        //System.out.println(p.getSubTotal());
-        System.out.println("Id is: "+ p.getProduct().getProductId());
-        System.out.println(p.getQuantity());
         orderService.addToList(p);
+        //lav evt en else statement
         return "order/new-orderlist";
+    }
+
+    @GetMapping("/show-orders/{orderId}")
+    public String viewOne(@PathVariable("orderId") int id, Model model){
+        model.addAttribute("oneOrder", orderService.findById(id));
+        return "order/one-order";
     }
 }
