@@ -1,0 +1,94 @@
+body{
+    background-color: powderblue;
+}
+
+table, td {
+    height: 20%;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 65%;
+    margin: 27% 0 0 18%;
+    border-spacing: 5px;
+}
+
+th {
+    background-color: #009879;
+    color: white;
+}
+
+tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
+    background-color: lightgray;
+}
+
+
+
+td, th {
+    text-align: center;
+    padding: 1%;
+    font-family: 'Open Sans',sans Serif;
+
+}
+th{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.total-price{
+  margin: 5% 0 0 69%;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.top-header-order-info{
+    position: absolute;
+    right: 20%;
+    width: 27%;
+    height: 25%;
+    top: 38%;
+    font-weight: 700;
+    font-size: 1.1em;
+    border: 1px solid;
+    border-radius: 10px;
+    text-indent: 10px;
+
+}
+
+.order-customer-info{
+    line-height: 5px;
+}
+
+.pick-up-info{
+    line-height: 5px;
+}
+
+.other-order-info{
+    line-height: 5px;
+}
+
+.order-customer-container{
+    margin:5%;
+}
+
+.order-container{
+    display: flex;
+    flex-direction: column;
+    width: 27%;
+    height: 25%;
+    position: relative;
+    left: 20%;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-indent: 10px;
+    position: absolute;
+    top: 38%;
+}
+
+.header-info-container{
+    text-align: center;
+    font-size: 1.5em;
+}
