@@ -16,4 +16,13 @@ public class DepartmentService {
     public List<Department> fetchAll () {
         return departmentRepo.fetchAll();
     }
+
+    public int[] departmentIds (){
+        int departmentsCount = fetchAll().size();
+        int[] departmentIds = new int[departmentsCount];
+        for (int i = 0; i < departmentsCount; i++) {
+            departmentIds[i] = fetchAll().get(i).getDepartmentId();
+        }
+        return departmentIds;
+    }
 }

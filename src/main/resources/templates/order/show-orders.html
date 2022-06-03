@@ -2,35 +2,92 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bakery by Herman</title>
+    <link rel="stylesheet" href="../view-orders.css"/>
+    <link rel="stylesheet" href="/layout.css"/>
 </head>
 <body>
+<header>
+    <nav>
+        <div class="nav-bar">
 
-<div style="float: left">
-    <table>
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li><a href="#">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li class="medarbejder-active"><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href=/logout>Log ud</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+<div class="locationFrame" style="float: left">
+    <table class="ordersTable">
         <tr>
-            <th>Virum</th>
+            <th class="locationName">Virum</th>
         </tr>
-        <tr th:each="order :${ordersVirum}">
-            <td>
-                <span th:text="${order.orderId+' '+order.pickupDateAndTime}"></span>
-                <br>
-                <span th:text="${order.productList}"></span>
+        <tr th:each="order :${ordersVirum}" >
+            <td >
+                <table>
+                    <tr>
+                        <th th:text="${order.pickupDateAndTime}"></th>
+                    </tr>
+                    <tr th:each="inList :${order.productList}" >
+                        <td th:text="${inList}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button>produced</button>
+                            <button>delivered</button>
+                            <button>picked-up</button>
+                            <button>more details</button>
+                        </td>
+                    </tr>
+                </table>
+
             </td>
         </tr>
     </table>
 </div>
 
-<div >
-    <table>
+<div class="locationFrame" style="float: left">
+    <table class="ordersTable">
         <tr>
-            <th>Nærum</th>
+            <th class="locationName">Nærum</th>
         </tr>
         <tr th:each="order :${ordersNaerum}">
-            <td>
-                <span th:text="${order.orderId+' '+order.pickupDateAndTime}"></span>
-                <br>
-                <span th:text="${order.productList}"></span>
+            <td class="innerCell" >
+                <table>
+                    <tr>
+                        <th class="orderInfo" th:text="${order.pickupDateAndTime}"></th>
+                    </tr>
+                    <tr th:each="inList :${order.productList}" >
+                        <td class="orderContent" th:text="${inList}"></td>
+                    </tr>
+                    <tr>
+                    <td>
+                        <button>produced</button>
+                        <button>delivered</button>
+                        <button>picked-up</button>
+                        <button>more details</button>
+                    </td>
+                </tr>
+                </table>
             </td>
         </tr>
     </table>

@@ -1,9 +1,6 @@
 package com.bakerybyhermann.Controller;
 
-import com.bakerybyhermann.Model.Cashier;
-import com.bakerybyhermann.Model.Department;
-import com.bakerybyhermann.Model.Order;
-import com.bakerybyhermann.Model.ProductList;
+import com.bakerybyhermann.Model.*;
 import com.bakerybyhermann.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,34 +31,47 @@ public class OrderController {
     @GetMapping("/show-orders")
     public String showOrders (Model model, Model model2){
 
-        List<Order> orders = orderService.fetchAll();
+        int[] departmentIds = departmentService.departmentIds();
+        //This is an int Array containing every departments unique id number.
 
-        List<Department> departments = departmentService.fetchAll();
-        int departmentsCount = departments.size();
+        int departmentsCount = departmentIds.length;
+        //This represent the amount of departments at our disposal.
 
-        List<List<Order>> listsList = new ArrayList<>();
+        ArrayList<ArrayList<Order>> ordersSorted =
+                orderService.fetchAllSorted(departmentsCount,departmentIds);
+        //This is an ArrayList, contains ArrayLists, representing each department we have.
+        //In each nested-ArrayList, it contains objects of an Order.
+
+/*
+        ArrayList<Order> orders = (ArrayList<Order>) orderService.fetchAll();
+        //Service skal fetchAll, dele orders i deres represtive lister, og aflevere en liste
+        //over lister der indeholder bestillingerne
+        ArrayList<Department> departments = (ArrayList<Department>) departmentService.fetchAll();
+        //int departmentsCount = departments.size();
+
+        ArrayList<ArrayList<Order>> listsList = new ArrayList<>();
         for (int i = 0; i < departmentsCount; i++) {
             listsList.add(new ArrayList<Order>());
         }
+
+        //int[] departmentIds = departmentService.departmentIds();
 
         for (int i = 0; i < listsList.size(); i++) {
             for (int j = 0; j < orders.size(); j++) {
                 if (orders.get(j).getPickupLocation().getDepartmentId()
                         ==departments.get(i).getDepartmentId()){
-                    //System.out.println("Order "+j+" is stored in list "+i);
+                    System.out.println("Order "+j+" is stored in list "+i);
                     listsList.get(i).add(orders.get(j));
                 }
             }
-        }
+        }*/
 
-        model.addAttribute("ordersVirum", listsList.get(0));
-        model2.addAttribute("ordersNaerum", listsList.get(1));
+        model.addAttribute("ordersVirum", ordersSorted.get(0));
+        model.addAttribute("ordersNaerum", ordersSorted.get(1));
         return "order/show-orders";
+        //vi har brugt ArrayLists fordi...
     }
 
-    //SKal vi ha Lists som class fields?
-    //Hvis ja, så her eller i service
-    //alle loops osv. skal de være i controller eller service?
 
 
     @GetMapping("/new-order")
@@ -78,41 +88,50 @@ public class OrderController {
 
         model.addAttribute("productsList", productService.fetchAll());
 
-        for (int i = 0; i < departmentService.fetchAll().size(); i++) {
-            if (departmentService.fetchAll().get(i).getShortName().equalsIgnoreCase(o.getOrderLocation().getShortName())){
-                o.setOrderLocation(departmentService.fetchAll().get(i));
+        ArrayList<Department> departments = (ArrayList<Department>) departmentService.fetchAll();
+
+        //Set order-location
+        for (int i = 0; i < departments.size(); i++) {
+            Department department = departments.get(i);
+            if (department.getShortName().equalsIgnoreCase(o.getOrderLocation().getShortName())){
+                o.setOrderLocation(department);
             }
         }
-        for (int i = 0; i < departmentService.fetchAll().size(); i++) {
-            if (departmentService.fetchAll().get(i).getShortName().equalsIgnoreCase(o.getPickupLocation().getShortName())){
-                o.setPickupLocation(departmentService.fetchAll().get(i));
+        //Set pick-up-location
+        for (int i = 0; i < departments.size(); i++) {
+            Department department = departments.get(i);
+            if (department.getShortName().equalsIgnoreCase(o.getPickupLocation().getShortName())){
+                o.setPickupLocation(department);
             }
         }
 
-        for (int i = 0; i < cashierService.fetchAll().size(); i++) {
-            if (cashierService.fetchAll().get(i).getFirstName().equalsIgnoreCase(o.getCashier().getFirstName())){
-                o.setCashier(cashierService.fetchAll().get(i));
+        ArrayList<Cashier> cashiers = (ArrayList<Cashier>) cashierService.fetchAll();
+
+        //Set Cashier
+        for (int i = 0; i < cashiers.size(); i++) {
+            if (cashiers.get(i).getFirstName().equalsIgnoreCase(o.getCashier().getFirstName())){
+                o.setCashier(cashiers.get(i));
             }
         }
 
+        ArrayList<Customer> customers = (ArrayList<Customer>) customerService.fetchAll();
+
+        //Set Customer
         String[] toGetFirstName = o.getCustomer().getFirstName().split(" ");
         System.out.println(toGetFirstName[0]);
         System.out.println(toGetFirstName[1]);
         System.out.println(toGetFirstName[2]);
         int customerPhone = Integer.valueOf(toGetFirstName[2]);
-        System.out.println(customerPhone);
 
-        for (int i = 0; i < customerService.fetchAll().size(); i++) {
-            System.out.println(customerService.fetchAll().get(i).getCustomerId());
-            if (customerService.fetchAll().get(i).getFirstName().equalsIgnoreCase(toGetFirstName[0]) &&
-            customerService.fetchAll().get(i).getLastName().equalsIgnoreCase(toGetFirstName[1]) &&
-            customerService.fetchAll().get(i).getPhoneNumber()==customerPhone){
-                o.setCustomer(customerService.fetchAll().get(i));
+        for (int i = 0; i < customers.size(); i++) {
+            if (customers.get(i).getFirstName().equalsIgnoreCase(toGetFirstName[0]) &&
+                    customers.get(i).getLastName().equalsIgnoreCase(toGetFirstName[1]) &&
+                    customers.get(i).getPhoneNumber()==customerPhone){
+                o.setCustomer(customers.get(i));
             }
         }
 
         orderService.addNew(o);
-        System.out.println("Redirecting...");
         return "order/new-orderlist";
     }
 
@@ -127,6 +146,7 @@ public class OrderController {
                 p.setProduct(productService.fetchAll().get(i));
             }
         }
+
         orderService.addToList(p);
         //lav evt en else statement
         return "order/new-orderlist";

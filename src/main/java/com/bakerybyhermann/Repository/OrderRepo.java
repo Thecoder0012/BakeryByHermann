@@ -60,7 +60,8 @@ public class OrderRepo {
                 "                JOIN employee_tbl emt ON emt.employee_id = cht.employee_id\n" +
                 "                JOIN person_tbl ptch ON ptch.person_id = emt.person_id\n" +
                 "                JOIN address_tbl attch ON attch.address_id = ptch.address_id\n" +
-                "                JOIN zip_code_tbl ztch ON attch.zip_code = ztch.zip_code";
+                "                JOIN zip_code_tbl ztch ON attch.zip_code = ztch.zip_code " +
+                "ORDER BY pickup_time";
 
         RowMapper rowMapper = new OrderMapper();
         return jdbcTemplate.query(sql, rowMapper);
@@ -76,6 +77,15 @@ public class OrderRepo {
     public void addToList(ProductList p){
         String sql = "INSERT INTO in_list (order_id, product_id, quantity) VALUES (?,?,?)";
         jdbcTemplate.update(sql, getorderId(), p.getProduct().getProductId(), p.getQuantity());
+    }
+
+    public void setTotalPrice(){
+        //get productListList = o.getProductList()
+        //get order id
+        //update
+        String sqlUpdateTotalPrice = "UPDATE active_orders SET total_price ? WHERE order_id = ?";
+        //jdbcTemplate.update(sqlUpdateTotalPrice, p.getQuantity()*p.getProduct().getPrice(), getorderId());
+
     }
 
     public void addNew (Order o){
