@@ -1,0 +1,59 @@
+body{
+    background-color: powderblue;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.create-order-container{
+    background: beige;
+    border-radius: 15px;
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    left: 37%;
+    top: 20%;
+    width: 26%;
+    height: 75%;
+    text-indent: 10px;
+    line-height: 2.5em;
+}
+
+
+.checkbox-container {
+    margin-left: 0.5%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+select{
+    display: flex;
+    font-size: 1.1em;
+    width: 40%;
+    margin-left: 2%;
+}
+
+input{
+    display: flex;
+    width: 35%;
+    margin-left: 2%;
+}
+
+input[type=submit]{
+    background-color: green;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    height: 36px;
+    border: none;
+    border-radius: 20px;
+    margin: 5% 0 0 33%;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    background-color: darkgreen;
+    border-color: #c3e6cb;
+}
