@@ -3,12 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>New Order</title>
+    <link rel="stylesheet" href="/layout.css"/>
+    <link rel="stylesheet" href="/add-edit-order.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+
+
 </head>
 <body>
 
+
+
+<header>
+    <nav>
+        <div class="nav-bar">
+
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li class="bestilling-active"><a href="show-orders">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href=/logout>Log ud</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+<div class="header">
+    <h1>Indtast venligst bestillings info</h1>
+</div>
+
 <form action="/new-order" method="post">
+    <div class="create-order-container">
     <div>
-        <label>Nuværende lokation:</label>
+        <label>Bestillings-lokation:</label>
         <select name="orderLocation.shortName">
             <option th:each="department :${departmentList}" th:text="${department.shortName}"></option>
         </select>
@@ -22,41 +64,41 @@
     </div>
 
     <div>
-        <label>Afhentning tidspunkt</label>
-            <input type="datetime-local" name="pickupDateAndTime">
-        <!--<input type="datetime-local" name="pickupDateAndTime">-->
-    </div>
-
-    <div>
         <label>Vælg kund</label>
         <select name="customer.firstName">
-            <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName + ' ' +  customer.phoneNumber}" ></option>
+            <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName}" ></option>
         </select>
-        <label>Eller opret en ny kunde</label>
     </div>
 
     <div>
-        <label>Ekspideret af:</label>
+        <label>Ekspederet af:</label>
 
         <select name="cashier.firstName" >
             <option th:each="cashier :${cashierEmployee}" th:text="${cashier.firstName}"></option>
         </select>
     </div>
 
-    <div>
+        <div>
+            <label>Afhentnings tidspunkt</label>
+            <input type="datetime-local" name="pickupDateAndTime">
+        </div>
+
+
+    <div class="checkbox-container">
         <label>Betalt</label>
         <input type="radio" name="payed" value="true">
-        <label>ikke betalt</label>
+        <label>Ikke betalt</label>
         <input type="radio" name="payed" value="false">
-    </div>
-    <div>
+
         <label>Special ordre</label>
         <input type="radio" name="specialOrder" value="true">
-        <label>ikke special ordre</label>
+        <label>Ikke speciel ordre</label>
         <input type="radio" name="specialOrder" value="false">
     </div>
 
-    <input type="submit" value="go">
+    <input class="create-order-button" type="submit" value="Opret">
+
+    </div>
 </form>
 
 </body>
