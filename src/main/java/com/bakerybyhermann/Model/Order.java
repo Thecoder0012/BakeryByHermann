@@ -134,5 +134,8 @@ public class Order implements Comparable<Order>{
 
         else return 0;
     }
+    /*
+    boolean: produced, delivered, picked-up
+     */
 }
 

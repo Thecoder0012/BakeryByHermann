@@ -68,7 +68,7 @@
                 <a th:href="@{'/show-orders/'+${order.orderId}}">
                 <table class="orderFontStyle">
                     <tr>
-                        <th class="orderInfo" th:text="${order.pickupDateAndTime}"></th>
+                        <th class="orderInfo" th:text="${order.orderId+' - '+order.pickupDateAndTime}"></th>
                     </tr>
                     <tr th:each="inList :${order.productList}" >
                         <td class="orderContent" th:text="${inList}"></td>

@@ -99,7 +99,13 @@ public class OrderService {
 
     public void updateById (int id, Order order){}
 
-    public void deleteById (int id){}
+    public void archiveOrder (int id, Order o){
+        orderRepo.archiveOrder(id, o);
+    }
+
+    public void deleteById (int id){
+        orderRepo.deleteById(id);
+    }
 }
 
 /*

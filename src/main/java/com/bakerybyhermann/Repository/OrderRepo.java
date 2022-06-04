@@ -174,5 +174,47 @@ public class OrderRepo {
 
     public void updateById (int id, Order order){}
 
-    public void deleteById (int id){}
+    public void archiveOrder(int id, Order o) {
+        String sqlArchiveOrder = "INSERT INTO archive_tbl (order_id, customer_name, customer_lname, " +
+                "customer_phone, order_date, pickup_time, total_price, delivery_department_shortname) " +
+                "VALUES (?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sqlArchiveOrder, o.getOrderId(), o.getCustomer().getFirstName(),
+                o.getCustomer().getLastName(), o.getCustomer().getPhoneNumber(), o.getOrderDate(),
+                o.getPickupDateAndTime(), o.getTotalPrice(), o.getPickupLocation().getShortName());
+
+        int ii = o.getProductList().size();
+
+        String sqlInlistArchive = "INSERT INTO archive_inlist (order_id, product_name, product_price," +
+                "quantity) VALUES (?,?,?,?)";
+
+        for (int i = 0; i < ii; i++) {
+
+            jdbcTemplate.update(sqlInlistArchive, o.getOrderId(),
+                    o.getProductList().get(i).getProduct().getProductName(),
+                    o.getProductList().get(i).getProduct().getPrice(),
+                    o.getProductList().get(i).getQuantity());
+
+        }
+
+        deleteById(id);
+
+
+    }
+
+    public void deleteById (int id){
+        String sqlInlist = "DELETE FROM in_list where order_id = ?";
+        jdbcTemplate.update(sqlInlist, id);
+
+        System.out.println("PRODUCTS REMOVED for order "+ id);
+
+        String sqlActiveDelete = "DELETE FROM active_orders where order_id = ?";
+        jdbcTemplate.update(sqlActiveDelete, id);
+
+        System.out.println("Order "+id+" Is removed");
+
+
+
+    }
+
+
 }

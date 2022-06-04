@@ -72,9 +72,6 @@ public class OrderController {
         //vi har brugt ArrayLists fordi...
     }
 
-
-
-
     @GetMapping("/new-order")
     public String getNewOrder(Model model, Model model2, Model model3, Model model4){
         model.addAttribute("cashierEmployee",cashierService.fetchAll());
@@ -167,5 +164,20 @@ public class OrderController {
 
         model.addAttribute("oneOrder", order);
         return "order/one-order";
+    }
+
+   @GetMapping("/one-order/{orderId}")
+    public String archiveOrder (@PathVariable ("orderId") int orderId, Model model){
+        model.addAttribute("order", orderService.findById(orderId));
+        orderService.archiveOrder(orderId, orderService.findById(orderId));
+       System.out.println("INSIDE ONE-ORDER/ORDERID");
+        return "redirect:/show-orders";
+    }
+
+    @GetMapping("/order/{orderId}")
+    public String cancelOrder (@PathVariable ("orderId") int orderId){
+        orderService.deleteById(orderId);
+        //System.out.println("Order "+orderId+" is deleted");
+        return "redirect:/show-orders";
     }
 }
