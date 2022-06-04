@@ -66,7 +66,7 @@
     <div>
         <label>Vælg kund</label>
         <select name="customer.firstName">
-            <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName}" ></option>
+            <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName + ' ' + customer.phoneNumber}" ></option>
         </select>
     </div>
 

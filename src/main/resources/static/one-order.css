@@ -14,13 +14,13 @@ body{
 
 .top-header-order-info{
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     padding: 5% 5%;
     width: 90%;
 }
 .order-main-info{
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 }
 .order-customer-info{
     display: flex;
@@ -52,7 +52,7 @@ body{
 .total-price{
     font-weight: bold;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     padding: 5% 5%;
     width: 90%
 }

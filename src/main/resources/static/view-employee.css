@@ -1,6 +1,7 @@
 body{
-    background: wheat;
-}
+    background-size: 100% 350%;
+    background-repeat: no-repeat;
+    background-image: url("/images/bakerybyhermann.jpg");}
 table, th, td {
     height: 20%;
 
