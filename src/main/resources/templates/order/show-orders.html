@@ -42,24 +42,17 @@
             <th class="locationName">Virum</th>
         </tr>
         <tr th:each="order :${ordersVirum}" >
-            <td >
-                <table>
-                    <tr>
-                        <th th:text="${order.pickupDateAndTime}"></th>
-                    </tr>
-                    <tr th:each="inList :${order.productList}" >
-                        <td th:text="${inList}"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button>produced</button>
-                            <button>delivered</button>
-                            <button>picked-up</button>
-                            <button>more details</button>
-                        </td>
-                    </tr>
-                </table>
-
+            <td class="innerCell" >
+                <a th:href="@{'/show-orders/'+${order.orderId}}">
+                    <table class="orderFontStyle">
+                        <tr>
+                            <th class="orderInfo" th:text="${order.pickupDateAndTime}"></th>
+                        </tr>
+                        <tr th:each="inList :${order.productList}" >
+                            <td class="orderContent" th:text="${inList}"></td>
+                        </tr>
+                    </table>
+                </a>
             </td>
         </tr>
     </table>
@@ -72,29 +65,34 @@
         </tr>
         <tr th:each="order :${ordersNaerum}">
             <td class="innerCell" >
-                <table>
+                <a th:href="@{'/show-orders/'+${order.orderId}}">
+                <table class="orderFontStyle">
                     <tr>
                         <th class="orderInfo" th:text="${order.pickupDateAndTime}"></th>
                     </tr>
                     <tr th:each="inList :${order.productList}" >
                         <td class="orderContent" th:text="${inList}"></td>
                     </tr>
-                    <tr>
-                    <td>
-                        <button>produced</button>
-                        <button>delivered</button>
-                        <button>picked-up</button>
-                        <button>more details</button>
-                    </td>
-                </tr>
                 </table>
+                </a>
             </td>
         </tr>
     </table>
 </div>
 
 <!--
-
+                    <tr>
+                         <td>
+                             <a th:href="@{'/view-cashier/'+${cashier.cashierId}}">
+                                 <button class="view-employee">Vis</button> </a>
+                         </td>
+                     <td>
+                         <button class="orderBtn buttonOne">produced</button>
+                         <button class="orderBtn buttonTwo">delivered</button>
+                         <button class="orderBtn buttonThree">picked-up</button>
+                         <button class="orderBtn buttonFour">more details</button>
+                     </td>
+                </tr>
 <table>
     <tr>
         <th>id</th>

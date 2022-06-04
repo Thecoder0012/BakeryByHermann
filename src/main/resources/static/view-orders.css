@@ -9,7 +9,8 @@
 .ordersTable{
     border: 0px solid black;
     width: 90%;
-    margin-inline-start: auto}
+    margin-inline-start: auto;
+}
 
 #innerCell tr:nth-of-type(even){
     background-color: rgba(175,175,76,0.44);
@@ -21,6 +22,10 @@
     border-bottom: groove cornflowerblue;
     padding-bottom: 2%;
 }
+.innerCell:hover {
+    background-color: rgba(175, 175, 76, 0.2);
+
+}
 
 .orderInfo{
     text-align: left;
@@ -29,4 +34,33 @@
 
 .orderContent {
     padding-bottom: 4%;
+}
+
+.orderBtn {
+    height: 15%;
+    width: 15%;
+    margin-inline-start: auto;
+}
+
+.buttonOne {
+    background-color: #6dc96d;
+    padding: 17px 0px;
+    border-radius: 10px;
+    border: 1px groove #7ab17a;
+    transition-duration: 0.4s;
+}
+.buttonOne:hover {
+    background-color: #457f45;
+
+}
+
+a {
+    color: #010613;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #011115;
+    text-decoration:none;
+    cursor:pointer;
 }
