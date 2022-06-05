@@ -3,27 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>New Order</title>
+    <link rel="stylesheet" href="/layout.css"/>
+    <link rel="stylesheet" href="/add-order-list.css"/>
+
 </head>
 <body>
-<div>
-    <label>Vælg produkt</label>
-</div>
-<div>
+
+<header>
+    <nav>
+        <div class="nav-bar">
+
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Startside</a></li>
+                <li class="bestilling-active"><a href="show-orders">Bestilling</a></li>
+                <li><a href="/show-customer">Kunde</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Medarbejder</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href=/logout>Log ud</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+
+
     <form action="/new-orderlist" method="post">
+        <div class="create-order-container">
+
+            <div class="wrapper">
+            <h2>Vælg produkt</h2>
         <select name="product.productName">
-            <option th:each="product :${productsList}" th:text="${product.productName+' '+product.price}"></option>
+            <option th:each="product :${productsList}" th:text="${product.productName+' '+product.price + ' kr'}"></option>
         </select>
+            <h2>Antal:</h2>
+            <input type="number" min="0" max="30" name="quantity">
 
-        <input type="number" min="0" max="30" name="quantity">
+            </div>
 
-        <input type="submit" value="Vælg og tilføje yderligere">
+            <input class="create-order-button" type="submit" value="Vælg og opret kvittering">
+        </div>
+
     </form>
-</div>
-<div>
-    <a href="/">
-    <button>Vælg og gå til kvittering</button>
-    </a>
-</div>
 
 
 </body>
