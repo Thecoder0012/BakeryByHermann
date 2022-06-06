@@ -71,7 +71,7 @@ body{
     height: 100%;
 }
 
-.view-one-customer{
+.view-one{
     display: flex;
     justify-content: center;
     padding: 5% 5%;
@@ -84,7 +84,7 @@ body{
     padding-top: 7%;
 }
 
-.view-one-customer tr, td{
+.view-one tr, td{
     padding: 3% 2%;
 }
 
