@@ -41,8 +41,132 @@
     </nav>
 </header>
 
+<div class="orderSheet">
 
-<table>
+    <h3 th:text="${oneCashier.firstName + ' ' + oneCashier.lastName}"></h3>
+
+    <table class="view-one">
+        <tr>
+            <td>
+                Person id
+            </td>
+
+            <td th:text="${oneCashier.personId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Adresse
+            </td>
+
+            <td th:text="${oneCashier.address.streetName + ' ' + oneCashier.address.streetNumber}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                By
+            </td>
+
+            <td th:text="${oneCashier.address.zipCode + ' ' + oneCashier.address.city}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Tlf nr
+            </td>
+
+            <td th:text="${oneCashier.phoneNumber}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                E-mail
+            </td>
+
+            <td th:text="${oneCashier.email}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Medarbejder id
+            </td>
+
+            <td th:text="${oneCashier.employeeId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Alder
+            </td>
+
+            <td th:text="${oneCashier.age}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Køn
+            </td>
+
+            <td th:text="${oneCashier.gender} ? 'Mand' : 'Kvinde'" />
+        </tr>
+
+        <tr>
+            <td>
+                Fuldtidsansat
+            </td>
+
+            <td th:text="${oneCashier.fullTimeEmployee} ? 'Ja' : 'nej'" />
+        </tr>
+
+        <tr>
+            <td>
+                Butiksansat id
+            </td>
+
+            <td th:text="${oneCashier.bakerId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Kaffediplom
+            </td>
+
+            <td th:text="${oneCashier.coffeeDiplom} ? 'Ja' : 'Nej'"></td>
+        </tr>
+
+
+    </table>
+
+
+    <div class="order-manage">
+        <div class="mange-button">
+            <a th:href="@{'/cashier-update/'+${oneCashier.cashierId}}">
+                <button>Redigere</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <a th:href="@{'/cashier/'+${oneCashier.cashierId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
+                <button>Slet</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <button>Print</button>
+        </div>
+
+        <div class="mange-button">
+            <a href="/view-cashier">
+                <button>Tilbage</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--<table>
 
 <h1>Butiksansat oplysninger</h1>
     <thead>
@@ -183,6 +307,7 @@
     </tbody>
 
 </table>
+-->
 
 
 
