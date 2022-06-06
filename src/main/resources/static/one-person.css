@@ -1,0 +1,32 @@
+body{
+    background-image: url("/images/bakerybyhermann.jpg");
+
+}
+
+.personSheet {
+    background-color: snow;
+    background-blend-mode: color;
+    border: 1px solid black;
+    width: 50%;
+    height: 90%;
+    margin: auto auto;
+    max-width: 150%;
+}
+
+.view-one{
+    display: flex;
+    justify-content: center;
+    padding: 5% 5%;
+    max-width: 150%;
+    height: 100%;
+}
+
+.personSheet h3{
+    text-align: center;
+    padding-top: 7%;
+}
+
+.view-one tr, td{
+    padding: 3% 2%;
+    max-width: 150%;
+}

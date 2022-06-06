@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>new department</title>
+    <title>update department</title>
     <link rel="stylesheet" href="add-edit-department.css"/>
-    <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="/layout.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -40,29 +40,39 @@
 </header>
 
 <div class="header">
-    <h1>Indtast venligst afdelingens oplysninger</h1>
+    <h1>Indtast venligst de nye afdelings oplysninger</h1>
 </div>
 
 <div class="form-container">
 
-    <form action="/new-department" method="post">
+    <form action = "/update-department" method ="post">
 
-
-        <label>Afdelingens navn</label>
-        <input type="text" name="locationName">
-        <label>Afdelingens forkortelse</label>
-        <input type="text" name="shortName">
+        <label>Person id</label>
+        <input type="text" name="departmentId" th:value="${department.departmentId}" readonly>
+        <label>Fornavn</label>
+        <input type="text" name="firstName" th:value="${department.locationName}">
+        <label>Efternavn</label>
+        <input type="text" name="lastName" th:value="${department.shortName}">
         <label>Vejnavn</label>
-        <input type="text" name="streetName">
+        <input type="text" name="address.streetName" th:value="${department.address.streetName}">
         <label>Vejnummer</label>
-        <input type="text" name="streetNumber">
+        <input type="text" name="address.streetNumber" th:value="${department.address.streetNumber}">
         <label>Postnummer</label>
-        <input type="text" name="zipCode">
+        <input type="text" name="address.zipCode" th:value="${department.address.zipCode}">
+        <label>By</label>
+        <input type="text" name="address.city" th:value="${department.address.city}" readonly>
 
 
-        <input type="submit" value="Opret">
+        <input type="submit" value="Bekræft">
+
     </form>
+
+    <a th:href="@{'/view-customer/'+${department.departmentId}}">
+        <button class="back-button">Tilbage</button> </a>
+
+
 </div>
+
 
 </body>
 </html>

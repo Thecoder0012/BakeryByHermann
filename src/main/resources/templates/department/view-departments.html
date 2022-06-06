@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>view departments</title>
     <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="view-department.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
 </head>
@@ -18,7 +19,7 @@
             </div>
 
             <ul>
-                <li class="afdeling-active"><a href="/">Afdelinger</a></li>
+                <li class="afdeling-active"><a href="/departments">Afdelinger</a></li>
                 <div class="dropdown">
                     <li><a href="/">Ansatte</a></li>
                     <div class="dropdown-content">
@@ -38,6 +39,58 @@
 
     </nav>
 </header>
+
+<div class="department-container">
+    <p>Registrer ny afdeling i systemet og se afdelingernes informationer</p>
+    <a href="/new-department">
+        <button class="new-department">Opret ny afdeling</button>
+    </a>
+
+<table>
+
+    <h1>
+        Afdelingernes oplysninger
+    </h1>
+
+    <thead>
+
+    <tr>
+
+        <th>Afdelings id</th>
+        <th>Afdelingens navn</th>
+        <th>Afdelingens forkortelse</th>
+        <th>Adresse</th>
+        <th>By</th>
+        <th>Redigere</th>
+        <th>Slet</th>
+    </tr>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="department :${departmentsList}">
+        <td th:text="${department.departmentId}"></td>
+        <td th:text="${department.locationName}"></td>
+        <td th:text="${department.shortName}"></td>
+        <td th:text="${department.address.streetName + ' ' + department.address.streetNumber}"></td>
+        <td th:text="${department.address.zipCode + ' ' + department.address.city}"></td>
+        <td>
+            <a th:href="@{'/update-department/'+${department.departmentId}}">
+                <button class="view-department">Redigere</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/department/'+${department.departmentId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
+                <button class="view-department">Slet</button>
+            </a>
+        </td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+    </div>
 
 </body>
 </html>
