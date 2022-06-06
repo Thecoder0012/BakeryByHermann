@@ -3,10 +3,7 @@ body{
     background-repeat: no-repeat;
     background-image: url("/images/bakerybyhermann.jpg");}
 
-table, th, td {
-    height: 20%;
 
-}
 
 table {
     border-collapse: collapse;
@@ -17,6 +14,7 @@ table {
 th {
     background-color: black;
     color: white;
+
 }
 
 /*tr:nth-child(even) { !*  hver evig eneste lige kolonne får disse regler under*!*/
@@ -33,15 +31,13 @@ td{
 
 
 td, th {
-    border: 1px solid black;
+    border: 0.5px solid black;
     text-align: center;
     padding: 1%;
     font-family: 'Open Sans',sans Serif;
 
 }
-th{
-    width: 20%;
-}
+
 a{
     text-decoration: none;
 }

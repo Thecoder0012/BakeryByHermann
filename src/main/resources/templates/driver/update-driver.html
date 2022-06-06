@@ -74,10 +74,10 @@
     <input type="text" name="registrationNumber" th:value="${driver.registrationNumber}">
 
     <div class="checkbox-container">
-        <label id="gender">Mand</label>
-        <input type="checkbox" name="gender" th:checked="${driver?.gender}">
+        <label class="gender">Mand</label>
+        <input type="radio" name="gender" value="true" th:field="*{driver.gender}">
         <label>Kvinde</label>
-        <input type="checkbox" name="woman" th:checked="${woman}">
+        <input type="radio" name="gender" value="false"th:field="*{driver.gender}">
         <label>Fuldtidsansat</label>
         <input type="checkbox" name="fullTimeEmployee" th:checked="${driver?.fullTimeEmployee}">
     </div>
