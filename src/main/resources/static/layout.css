@@ -67,10 +67,11 @@ nav .nav-bar{
     z-index: 1;
 }
 
-ul li.home-active a,
+ul li.afdeling-active a,
 ul li.medarbejder-active a,
 ul li.kunde-active a,
-bestilling-active a {
+ul li.bestilling-active a,
+ul li.product-active a{
     border: 1px white solid;
 }
 

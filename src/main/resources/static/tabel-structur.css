@@ -1,116 +1,116 @@
-body {
-    width: 100%;
-    height: 100%;
-    background: powderblue;
-    color: #030303;
-}
+/*body {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: powderblue;*/
+/*    color: #030303;*/
+/*}*/
 
-#headline-person, #headline-employee, #headline-driver, #headline-adress, #headline-baker, #headline-customer, #headline-cashier {
-    font-family: fangsong;
-    font-size: 100%;
-    margin-left: 1%;
-    margin-top: 2.5%;
-    text-align: left;
-}
+/*#headline-person, #headline-employee, #headline-driver, #headline-adress, #headline-baker, #headline-customer, #headline-cashier {*/
+/*    font-family: fangsong;*/
+/*    font-size: 100%;*/
+/*    margin-left: 1%;*/
+/*    margin-top: 2.5%;*/
+/*    text-align: left;*/
+/*}*/
 
-#headline-new {
-    font-family: fangsong;
-    font-size: 100%;
-    margin-left: 1%;
-    margin-top: 2.5%;
-    text-align: center;
-}
+/*#headline-new {*/
+/*    font-family: fangsong;*/
+/*    font-size: 100%;*/
+/*    margin-left: 1%;*/
+/*    margin-top: 2.5%;*/
+/*    text-align: center;*/
+/*}*/
 
-table {
-    font-size: 100%;
-    font-family: auto;
-    margin-left: 0.5%;
-    margin-top: 1%;
-    width: 80%;
-}
+/*table {*/
+/*    font-size: 100%;*/
+/*    font-family: auto;*/
+/*    margin-left: 0.5%;*/
+/*    margin-top: 1%;*/
+/*    width: 80%;*/
+/*}*/
 
-table {
-    border-collapse: collapse;
-    width: 60%;
-    margin-top:2%;
-}
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    width: 60%;*/
+/*    margin-top:2%;*/
+/*}*/
 
-th, td {
-    border: 1px solid black;
-    text-align: center;
-    padding: 1%;
-}
+/*th, td {*/
+/*    border: 1px solid black;*/
+/*    text-align: center;*/
+/*    padding: 1%;*/
+/*}*/
 
-th {
-    border: 1px solid black;
-    height: 50px;
-    padding: 1px 25px;
-}
+/*th {*/
+/*    border: 1px solid black;*/
+/*    height: 50px;*/
+/*    padding: 1px 25px;*/
+/*}*/
 
-th {
-    background-color: #009879;
-    color: white;
-    width: 20%;
-}
+/*th {*/
+/*    background-color: #009879;*/
+/*    color: white;*/
+/*    width: 20%;*/
+/*}*/
 
-tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
-    background-color: lightgray;
-}
+/*tr:nth-child(even) { !*  hver evig eneste lige kolonne får disse regler under*!*/
+/*    background-color: lightgray;*/
+/*}*/
 
-table tr:hover {
-    background-color: #ddd;
-}
+/*table tr:hover {*/
+/*    background-color: #ddd;*/
+/*}*/
 
-a{
-    text-decoration: none;
-}
+/*a{*/
+/*    text-decoration: none;*/
+/*}*/
 
-.form-container{
-    position: relative;
-    left: 35.5%;
-    margin: 2%;
-}
+/*.form-container{*/
+/*    position: relative;*/
+/*    left: 35.5%;*/
+/*    margin: 2%;*/
+/*}*/
 
-.form-container .gender-container{
-    display: flex;
-    margin: 1% 0;
-    width: 14%;
-}
+/*.form-container .gender-container{*/
+/*    display: flex;*/
+/*    margin: 1% 0;*/
+/*    width: 14%;*/
+/*}*/
 
-.form-container .gender-container input{
-    width: 50%;
-}
+/*.form-container .gender-container input{*/
+/*    width: 50%;*/
+/*}*/
 
-input[type=text] {
-    width: 35%;
-    padding: 0.6%;
-    margin: 1% 0;
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-
-.checkbox-container {
-    margin-left: 2.5%;
-    display: flex;
-    gap: 1%;
-}
+/*input[type=text] {*/
+/*    width: 35%;*/
+/*    padding: 0.6%;*/
+/*    margin: 1% 0;*/
+/*    display: flex;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 10px;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
 
-input[type=submit]{
-    background-color: green;
-    color: white;
-    position: relative;
-    width: 8.5%;
-    height: 36px;
-    border: none;
-    border-radius: 20px;
-    left: 13%;
-    margin-top: 5%;
-    cursor: pointer;
-}
-input[type=submit]:hover{
-    border: #030303;
-}
+/*.checkbox-container {*/
+/*    margin-left: 2.5%;*/
+/*    display: flex;*/
+/*    gap: 1%;*/
+/*}*/
+
+
+/*input[type=submit]{*/
+/*    background-color: green;*/
+/*    color: white;*/
+/*    position: relative;*/
+/*    width: 8.5%;*/
+/*    height: 36px;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*    left: 13%;*/
+/*    margin-top: 5%;*/
+/*    cursor: pointer;*/
+/*}*/
+/*input[type=submit]:hover{*/
+/*    border: #030303;*/
+/*}*/
