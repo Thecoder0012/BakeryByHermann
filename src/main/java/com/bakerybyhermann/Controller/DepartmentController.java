@@ -34,7 +34,7 @@ public class DepartmentController {
     public String createDepartment(@ModelAttribute Department department, @ModelAttribute Address address){
         department.setAddress(address);
         departmentService.addNew(department, address);
-        return "redirect:/view-departments";
+        return "redirect:/departments";
     }
 
     @GetMapping("/update-department/{id}")
