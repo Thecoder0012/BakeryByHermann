@@ -67,10 +67,10 @@
             <input type="text" name="yearsOfExperience">
 
             <div class="checkbox-container">
-            <label id="gender">Mand</label>
-            <input type="checkbox" name="gender" th:checked="${baker?.gender}">
-            <label>Kvinde</label>
-            <input type="checkbox" name="woman" th:checked="${woman}">
+                <label class="gender">Mand</label>
+                <input type="radio" name="gender" value="true">
+                <label>Kvinde</label>
+                <input type="radio" name="gender" value="false">
             <label>Fuldtidsansat</label>
                 <input type="checkbox" name="fullTimeEmployee" th:checked="${cashier?.fullTimeEmployee}">
 

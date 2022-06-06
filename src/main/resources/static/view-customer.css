@@ -1,9 +1,7 @@
 body{
-    background: wheat;
-}
-table, th, td {
-    height: 20%;
-
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url("/images/bakerybyhermann.jpg");
 }
 
 table {
@@ -13,13 +11,10 @@ table {
 }
 
 th {
-    background-color: #009879;
+    background-color: black;
     color: white;
 }
 
-tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
-    background-color: lightgray;
-}
 
 table tr:hover {
     background-color: #ddd;
@@ -33,6 +28,11 @@ td, th {
     font-family: 'Open Sans',sans Serif;
 
 }
+
+td{
+    background-color: lightgray;
+}
+
 th{
     width: 20%;
 }
@@ -42,6 +42,7 @@ a{
 
 h1{
     margin-left: 20%;
+    color: white;
 }
 
 .view-customer {
@@ -56,8 +57,11 @@ h1{
 }
 
 .view-customer:hover {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    background-color: #0069d9;
+    border-color: #0062cc;
+    transition: 0.2s all;
 }
 
 
@@ -66,13 +70,20 @@ h1{
     color: white;
     border-radius: 5px;
     width: 8%;
-    right: 23%;
+    right: 22%;
     font-size: 1em;
     height: 6%;
     border: none;
     position: absolute;
     top: 25%;
     cursor: pointer;
+}
+
+.new-customer:hover{
+    transform: translateY(-2px);
+    background-color: #107044;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .employee:hover {
@@ -86,6 +97,7 @@ h1{
 }
 
 .customer-container p{
+    color: white;
     font-size: 2.5em;
     font-weight: 700;
     display: flex;

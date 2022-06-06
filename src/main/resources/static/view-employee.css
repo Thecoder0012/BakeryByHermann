@@ -1,7 +1,8 @@
 body{
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url("/images/bakerybyhermann.jpg");}
+    background-image: url("/images/bakerybyhermann.jpg");
+}
 
 
 
@@ -59,8 +60,11 @@ h1{
 }
 
 .view-employee:hover {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
+    background-color: #0069d9;
+    border-color: #0062cc;
+    transition: 0.2s all;
 }
 
 
@@ -69,13 +73,19 @@ h1{
     color: white;
     border-radius: 5px;
     width: 8%;
-    right: 23%;
+    right: 22%;
     font-size: 1em;
     height: 6%;
     border: none;
     position: absolute;
     top: 25%;
     cursor: pointer;
+}
+.new-employee:hover{
+    transform: translateY(-2px);
+    background-color: #107044;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .employee:hover {

@@ -33,19 +33,32 @@ input[type=submit]{
     height: 36px;
     border: none;
     border-radius: 20px;
+    font-size: 1em;
     left: 13%;
     margin-top: 5%;
     cursor: pointer;
 }
 input[type=submit]:hover{
-    border: #030303;
+    transform: translateY(-2px);
+    background-color: #107044;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 .back-button{
     background-color: #DC3545;
     width: 7%;
+    height: 36px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
+    font-size: 1em;
     position: absolute;
-    bottom: 1%;;
+    bottom: 0%;
+}
+
+.back-button:hover{
+    background-color: #b92936;
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: all 0.3s;
 }
