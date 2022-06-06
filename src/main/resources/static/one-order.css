@@ -73,22 +73,3 @@ body{
     height: 100%;
 }
 
-.view-one{
-    display: flex;
-    justify-content: center;
-    padding: 5% 5%;
-    max-width: 150%;
-    /*width: 115%;*/
-    height: 100%;
-}
-
-.orderSheet h3{
-    text-align: center;
-    padding-top: 7%;
-}
-
-.view-one tr, td{
-    padding: 3% 2%;
-    max-width: 150%;
-}
-

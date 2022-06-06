@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Kunde</title>
-    <link rel="stylesheet" href="/one-order.css"/>
+    <link rel="stylesheet" href="/one-person.css"/>
     <link rel="stylesheet" href="/layout.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -18,7 +18,7 @@
             </div>
 
             <ul>
-                <li><a href="/">Afdelinger</a></li>
+                <li><a href="/departments">Afdelinger</a></li>
                 <div class="dropdown">
                     <li><a href="/">Ansatte</a></li>
                     <div class="dropdown-content">
@@ -39,7 +39,7 @@
     </nav>
 </header>
 
-<div class="orderSheet">
+<div class="personSheet">
 
     <h3 th:text="${oneCustomer.firstName + ' ' + oneCustomer.lastName}"></h3>
 
