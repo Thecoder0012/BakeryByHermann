@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="layout.css"/>
 
-    <!--    <link rel="stylesheet" href="tabel-structur.css"/>-->
 
 
 </head>
@@ -59,6 +58,7 @@
     <tr>
         <th>Personid</th>
         <th>Fornavn</th>
+        <th>Efternavn</th>
         <th>Fuldtidsansat</th>
         <th>Kaffe diplom</th>
         <th>Vis arbejder info</th>
@@ -68,6 +68,7 @@
     <tr th:each="cashier :${cashierEmployee}" >
         <td th:text="${cashier.personId}"></td>
         <td th:text="${cashier.firstName}"></td>
+        <td th:text="${cashier.lastName}"></td>
         <td th:text="${cashier.fullTimeEmployee} ? 'Ja' : 'Nej'"/>
         <td th:text="${cashier.coffeeDiplom} ? 'Ja' : 'Nej'"></td>
 

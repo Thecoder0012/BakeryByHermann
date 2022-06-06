@@ -55,6 +55,7 @@
 
         <th>Person id</th>
         <th>Fornavn</th>
+        <th>Efternavn</th>
         <th>Års erfaring</th>
         <th>Vis arbejder info</th>
 
@@ -63,6 +64,7 @@
     <tr th:each="baker :${bakersList}" >
         <td th:text="${baker.personId}"></td>
         <td th:text="${baker.firstName}"></td>
+        <td th:text="${baker.lastName}"></td>
         <td th:text="${baker.yearsOfExperience}"></td>
 
 <!--        <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>-->

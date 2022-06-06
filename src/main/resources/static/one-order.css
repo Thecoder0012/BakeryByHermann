@@ -10,6 +10,8 @@ body{
     width: 50%;
     height: 90%;
     margin: auto auto;
+    max-width: 150%;
+
 }
 
 .top-header-order-info{
@@ -75,7 +77,8 @@ body{
     display: flex;
     justify-content: center;
     padding: 5% 5%;
-    width: 115%;
+    max-width: 150%;
+    /*width: 115%;*/
     height: 100%;
 }
 
@@ -86,5 +89,6 @@ body{
 
 .view-one tr, td{
     padding: 3% 2%;
+    max-width: 150%;
 }
 

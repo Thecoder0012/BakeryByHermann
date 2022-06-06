@@ -1,7 +1,8 @@
 body{
-    background-size: 100% 350%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-image: url("/images/bakerybyhermann.jpg");}
+
 table, th, td {
     height: 20%;
 
@@ -14,16 +15,20 @@ table {
 }
 
 th {
-    background-color: #009879;
+    background-color: black;
     color: white;
 }
 
-tr:nth-child(even) { /*  hver evig eneste lige kolonne får disse regler under*/
-    background-color: lightgray;
-}
+/*tr:nth-child(even) { !*  hver evig eneste lige kolonne får disse regler under*!*/
+/*    background-color: lightgray;*/
+/*}*/
 
 table tr:hover {
     background-color: #ddd;
+}
+
+td{
+    background-color: lightgray;
 }
 
 
@@ -43,6 +48,7 @@ a{
 
 h1{
     margin-left: 20%;
+    color: white;
 }
 
 .view-employee {
@@ -91,7 +97,10 @@ h1{
     font-weight: 700;
     display: flex;
     justify-content: center;
+    color: white;
+
 }
+
 
 
 .update-employee {

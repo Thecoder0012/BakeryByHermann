@@ -56,6 +56,7 @@
 
         <th>Person id</th>
         <th>Fornavn</th>
+        <th>Efternavn</th>
         <th>Kørekort nummer</th>
         <th>Registrerings nummer</th>
         <th>Vis arbejder info</th>
@@ -67,6 +68,7 @@
     <tr th:each="driver :${driversList}">
         <td th:text="${driver.personId}"></td>
         <td th:text="${driver.firstName}"></td>
+        <td th:text="${driver.lastName}"></td>
         <td th:text="${driver.driverLicenseNumber}"></td>
         <td th:text="${driver.registrationNumber}"></td>
         <td>
