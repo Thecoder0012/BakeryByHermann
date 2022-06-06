@@ -71,3 +71,20 @@ body{
     height: 100%;
 }
 
+.view-one-customer{
+    display: flex;
+    justify-content: center;
+    padding: 5% 5%;
+    width: 115%;
+    height: 100%;
+}
+
+.orderSheet h3{
+    text-align: center;
+    padding-top: 7%;
+}
+
+.view-one-customer tr, td{
+    padding: 3% 2%;
+}
+

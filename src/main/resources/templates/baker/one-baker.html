@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/view-employee.css"/>
+    <link rel="stylesheet" href="/one-order.css"/>
     <link rel="stylesheet" href="/layout.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
@@ -41,9 +41,134 @@
     </nav>
 </header>
 
+</div>
+
+<div class="orderSheet">
+
+    <h3 th:text="${oneBaker.firstName + ' ' + oneBaker.lastName}"></h3>
+
+    <table class="view-one-baker">
+        <tr>
+            <td>
+                Person id
+            </td>
+
+            <td th:text="${oneBaker.personId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Adresse
+            </td>
+
+            <td th:text="${oneBaker.address.streetName + ' ' + oneBaker.address.streetNumber}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                By
+            </td>
+
+            <td th:text="${oneBaker.address.zipCode + ' ' + oneBaker.address.city}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Tlf nr
+            </td>
+
+            <td th:text="${oneBaker.phoneNumber}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                E-mail
+            </td>
+
+            <td th:text="${oneBaker.email}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Medarbejder id
+            </td>
+
+            <td th:text="${oneBaker.employeeId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Alder
+            </td>
+
+            <td th:text="${oneBaker.age}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Køn
+            </td>
+
+            <td th:text="${oneBaker.gender} ? 'Mand' : 'Kvinde'" />
+        </tr>
+
+        <tr>
+            <td>
+                Fuldtidsansat
+            </td>
+
+            <td th:text="${oneBaker.fullTimeEmployee} ? 'Ja' : 'nej'" />
+        </tr>
+
+        <tr>
+            <td>
+                Bager id
+            </td>
+
+            <td th:text="${oneBaker.bakerId}"></td>
+        </tr>
+
+        <tr>
+            <td>
+                Årserfaring
+            </td>
+
+            <td th:text="${oneBaker.yearsOfExperience}"></td>
+        </tr>
 
 
-<table>
+    </table>
+
+
+    <div class="order-manage">
+        <div class="mange-button">
+            <a th:href="@{'/update-baker/'+${oneBaker.bakerId}}">
+                <button>Redigere</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <a th:href="@{'/baker/'+${oneBaker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">
+                <button>Slet</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <button>Print</button>
+        </div>
+
+        <div class="mange-button">
+            <a href="/view-baker">
+                <button>Tilbage</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--<table>
 
     <h1>Bager oplysninger</h1>
 
@@ -177,6 +302,7 @@
     </thead>
 
 </table>
+-->
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/view-customer.css"/>
+    <link rel="stylesheet" href="/one-order.css"/>
     <link rel="stylesheet" href="/layout.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -39,7 +39,105 @@
     </nav>
 </header>
 
-<h1>
+<div class="orderSheet">
+
+    <h3 th:text="${oneCustomer.firstName + ' ' + oneCustomer.lastName}"></h3>
+
+<table class="view-one-customer">
+    <tr>
+        <td>
+            Person id
+        </td>
+
+        <td th:text="${oneCustomer.personId}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            Adresse
+        </td>
+
+        <td th:text="${oneCustomer.address.streetName + ' ' + oneCustomer.address.streetNumber}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            By
+        </td>
+
+        <td th:text="${oneCustomer.address.zipCode + ' ' + oneCustomer.address.city}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            Tlf nr
+        </td>
+
+        <td th:text="${oneCustomer.phoneNumber}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            E-mail
+        </td>
+
+        <td th:text="${oneCustomer.email}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            Kunde id
+        </td>
+
+        <td th:text="${oneCustomer.customerId}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            Gentagende besøg
+        </td>
+
+        <td th:text="${oneCustomer.repeatedVisits}"></td>
+    </tr>
+
+    <tr>
+        <td>
+            Firmanavn
+        </td>
+
+        <td th:text="${oneCustomer.companyName}"></td>
+    </tr>
+</table>
+
+    <div class="order-manage">
+        <div class="mange-button">
+            <a th:href="@{'/update-customer/'+${oneCustomer.customerId}}">
+                <button>Redigere</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <a th:href="@{'/customer/'+${oneCustomer.customerId}}">
+                <button>Slet</button>
+            </a>
+        </div>
+
+        <div class="mange-button">
+            <button>Print</button>
+        </div>
+
+        <div class="mange-button">
+            <a href="/show-customer">
+                <button>Tilbage</button>
+            </a>
+        </div>
+
+    </div>
+
+    </div>
+
+
+<!--<h1>
     Kunde oplysninger</h1>
 <table>
 
@@ -135,7 +233,7 @@
     </thead>
 
 </table>
-
+-->
 
 
 
