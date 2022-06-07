@@ -3,7 +3,6 @@ package com.bakerybyhermann.Controller;
 
 import com.bakerybyhermann.Model.Address;
 import com.bakerybyhermann.Model.Baker;
-import com.bakerybyhermann.Model.Cashier;
 import com.bakerybyhermann.Service.BakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,12 +27,12 @@ public class BakerController {
     }
 
     @GetMapping("/new-baker")
-    public String createBaker(){
+    public String createBaker() {
         return "baker/new-baker";
     }
 
     @PostMapping("/new-baker")
-    public  String createBaker(@ModelAttribute Baker baker, @ModelAttribute Address address){
+    public String createBaker(@ModelAttribute Baker baker, @ModelAttribute Address address) {
         baker.setAddress(address);
         bakerService.addNewBaker(baker, address);
         return "redirect:/baker";
@@ -41,7 +40,7 @@ public class BakerController {
 
 
     @GetMapping("/update-baker/{bakerId}")
-    public String updateBaker(@PathVariable("bakerId") int id, Model model){
+    public String updateBaker(@PathVariable("bakerId") int id, Model model) {
         Baker baker = bakerService.findById(id);
         model.addAttribute("baker", baker);
         return "baker/update-baker";
@@ -56,13 +55,13 @@ public class BakerController {
 
 
     @GetMapping("/baker/{bakerId}")
-    public String deleteBaker(@PathVariable("bakerId") int bakerId){
+    public String deleteBaker(@PathVariable("bakerId") int bakerId) {
         bakerService.deleteBaker(bakerId);
         return "redirect:/baker";
     }
 
     @GetMapping("/view-baker/{bakerId}")
-    public String viewOne(@PathVariable("bakerId") int id, Model model){
+    public String viewOne(@PathVariable("bakerId") int id, Model model) {
         model.addAttribute("oneBaker", bakerService.findById(id));
         return "baker/one-baker";
     }

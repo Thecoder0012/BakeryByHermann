@@ -13,13 +13,18 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/*
+Dette er en repository klasse, som vi bruger til at tale med databasen.
+ */
 @Repository
 public class CustomerRepo {
 
+    // Her opretter vi en instans af en JdbcTemplate klasse.
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-//Alt hvad der bruges i fetchAll
+
+    //Alt hvad der bruges i fetchAll
     public List<Customer> fetchAll() {
 
         String sql = "SELECT customer_tbl.customer_id, person_tbl.person_id as personId,first_name,last_name," + "street_name as streetName,street_number as streetNumber,address_tbl.zip_code,city," +
@@ -47,15 +52,6 @@ public class CustomerRepo {
         RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
         Person person = jdbcTemplate.queryForObject(sql, rowMapper);
         return person.getPersonId();
-    }
-
-    public String getPersonCity(int zip){ //slettes i sidste fase
-        String sql = "SELECT address_id,street_name,street_number,\n" +
-                "                zip_code_tbl.zip_code, zip_code_tbl.city \n" +
-                "                FROM address_tbl,  zip_code_tbl ORDER BY address_id DESC LIMIT 1";
-        RowMapper<Address> rowMapper = new BeanPropertyRowMapper<>(Address.class);
-        Address address = jdbcTemplate.queryForObject(sql, rowMapper);
-        return address.getCity();
     }
 
     public void addNew(Customer customer, Address address) {
@@ -119,13 +115,13 @@ public class CustomerRepo {
 
 //Alt hvad der bruges i delete
 
-    public void delete(int customerId) {
+    public void delete(int personId) {
         String sql = "DELETE customer_tbl,person_tbl,address_tbl FROM customer_tbl \n" +
                 "INNER JOIN person_tbl ON customer_tbl.person_id = person_tbl.person_id \n" +
                 "INNER JOIN address_tbl on person_tbl.address_id = address_tbl.address_id\n" +
                 "WHERE customer_tbl.person_id = ?";
 
-        jdbcTemplate.update(sql, customerId);
+        jdbcTemplate.update(sql, personId);
     }
 
 }

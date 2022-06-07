@@ -67,8 +67,6 @@
         <td th:text="${baker.lastName}"></td>
         <td th:text="${baker.yearsOfExperience}"></td>
 
-<!--        <td><a th:href="@{'/update-baker/'+${baker.personId}}">Rediger</a></td>-->
-<!--        <td><a th:href="@{'/baker/'+${baker.bakerId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')">Slet</a></td>-->
         <td>
             <a th:href="@{'/view-baker/'+${baker.bakerId}}">
                 <button class="view-employee">Vis</button> </a>

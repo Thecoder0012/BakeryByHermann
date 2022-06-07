@@ -26,14 +26,6 @@ public class CashierController {
     @GetMapping("/cashier")
     public String getCashier(Model model){
         List<Cashier> cashierList = cashierService.fetchAll();
-//        for (int i = 0; i<cashierList.size(); i++){
-//            if (cashierList.get(i).isGender()){
-//                cashier.setGender(Boolean.parseBoolean("Mand"));
-//            }else{
-//                cashier.setGender(Boolean.parseBoolean("Kvinde"));
-//            }
-//        }
-
         model.addAttribute("cashierEmployee",cashierList);
         return "cashier/view-cashier";
     }

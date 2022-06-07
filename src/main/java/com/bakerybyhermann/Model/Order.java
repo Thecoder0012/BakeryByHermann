@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-public class Order implements Comparable<Order>{
+public class Order{
 
     private int orderId;//auto increment
     private LocalDate orderDate;//auto
@@ -127,13 +127,6 @@ public class Order implements Comparable<Order>{
         this.totalPrice = totalPrice;
     }
 
-    @Override
-    public int compareTo(Order o) {
-        if(!pickupDateAndTime.equalsIgnoreCase(o.pickupDateAndTime))
-            return pickupDateAndTime.compareTo(o.pickupDateAndTime);
-
-        else return 0;
-    }
     /*
     boolean: produced, delivered, picked-up
      */

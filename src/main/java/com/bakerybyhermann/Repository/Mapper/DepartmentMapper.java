@@ -25,7 +25,6 @@ public class DepartmentMapper implements RowMapper {
         address.setCity(rs.getString("city"));
 
         department.setAddress(address);
-        //System.out.println("MAPPER ROW");
         return department;
     }
 }

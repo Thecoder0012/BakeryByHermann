@@ -105,45 +105,5 @@
     </table>
 </div>
 
-<!--
-                    <tr>
-                         <td>
-                             <a th:href="@{'/view-cashier/'+${cashier.cashierId}}">
-                                 <button class="view-employee">Vis</button> </a>
-                         </td>
-                     <td>
-                         <button class="orderBtn buttonOne">produced</button>
-                         <button class="orderBtn buttonTwo">delivered</button>
-                         <button class="orderBtn buttonThree">picked-up</button>
-                         <button class="orderBtn buttonFour">more details</button>
-                     </td>
-                </tr>
-<table>
-    <tr>
-        <th>id</th>
-        <th>afhentningstid</th>
-        <th>afhent.lokation</th>
-    </tr>
-    <tr th:each="order :${ordersVirum}">
-        <td th:text="${order.orderId}"></td>
-        <td th:text="${order.pickupDateAndTime}"></td>
-        <td th:text="${order.pickupLocation.shortName}"></td>
-    </tr>
-</table>
-
-<table>
-    <tr>
-        <th>id</th>
-        <th>afhentningstid</th>
-        <th>afhent.lokation</th>
-    </tr>
-    <tr th:each="order :${ordersNaerum}">
-        <td th:text="${order.orderId}"></td>
-        <td th:text="${order.pickupDateAndTime}"></td>
-        <td th:text="${order.pickupLocation.shortName}"></td>
-    </tr>
-</table>
--->
-
 </body>
 </html>

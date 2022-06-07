@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+/*
+Dette er vores serviceklasse, som er den mellemlaget mellem controller og repository.
+Her kalder vi metoderne fra repository, som sendes videre til controlleren.
+*/
 
+@Service
 public class CustomerService {
 
     @Autowired

@@ -20,15 +20,6 @@ public class Product {
     public Product() {
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
     public int getProductId() {
         return productId;
     }
