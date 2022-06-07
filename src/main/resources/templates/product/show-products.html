@@ -5,6 +5,7 @@
     <title>Products</title>
     <link rel="stylesheet" href="layout.css"/>
 
+
 </head>
 <body>
 
@@ -39,7 +40,7 @@
 </header>
 
 
-<table>
+<table class="product-table"> <!--Har givet en class og navn til tabeller. Style er under layout.css-->
 
     <div id="headline-products">
 
@@ -47,7 +48,7 @@
             <button onclick="window.location.href='/new-product';">Opret nyt produkt</button>
         </div>
 
-        <h1>
+        <h1 class="Headline-product"> <!-- har givet den en klasse, for at centrer den i css-->
             Produkt oplysninger
         </h1>
     </div>
@@ -57,7 +58,7 @@
         <th>Vare-nummer</th>
         <th>Vare</th>
         <th>Pris</th>
-        <th>Rediger</th>
+        <th>Rediger </th>
         <th>Slet</th>
     </tr>
 
@@ -66,8 +67,8 @@
         <td th:text="${product.productName}"></td>
         <td th:text="${product.price}"></td>
 
-        <td><a th:href="@{'/update-product/'+${product.productId}}">Rediger</a></td>
-        <td><a th:href="@{'/product/'+${product.productId}}">Slet</a></td>
+        <td><a class="button-update" th:href="@{'/update-product/'+${product.productId}}">Rediger</a></td> <!-- css -->
+        <td><a class="button-delete" th:href="@{'/product/'+${product.productId}}">Slet</a></td>           <!-- css -->
 
 
     </tr>

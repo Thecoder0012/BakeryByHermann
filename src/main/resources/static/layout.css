@@ -105,3 +105,72 @@ ul li.product-active a{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.Headline-product{
+    margin-left: 40%;
+
+}
+
+.product-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.button-employees{
+    background-color: #198754;
+    color: white;
+    border-radius: 8px;
+    width: 8%;
+    right: 23%;
+    font-size: 1em;
+    height: 6%;
+    border: none;
+    position: absolute;
+    top: 25%;
+    cursor: pointer;
+}
+
+.button-update{
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.button-delete{
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+

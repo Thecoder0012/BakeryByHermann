@@ -10,21 +10,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerService {
 
+public class CustomerService {
 
     @Autowired
     CustomerRepo customerRepo;
 
     public List<Customer> fetchAll(){
+
         return customerRepo.fetchAll();
     }
 
     public void addNew(Customer customer, Address address) {
+
         customerRepo.addNew(customer, address);
     }
 
     public Customer findById(int id){
+
         return customerRepo.findById(id);
     }
 
@@ -33,6 +36,7 @@ public class CustomerService {
     }
 
     public void delete(int customerId){
+
         customerRepo.delete(customerId);
     }
 

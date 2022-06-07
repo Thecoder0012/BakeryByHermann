@@ -77,12 +77,14 @@ public class CustomerRepo {
     public void updateById(int id, Customer c) {
 
         String sqlAddress = "UPDATE address_tbl SET street_name = ?, street_number = ?, zip_code = ? WHERE address_id = ?";
-        jdbcTemplate.update(sqlAddress, c.getAddress().getStreetName(), c.getAddress().getStreetNumber(), c.getAddress().getZipCode(), getUpdateAddressId(id));
+        jdbcTemplate.update(sqlAddress, c.getAddress().getStreetName(), c.getAddress().getStreetNumber(), c.getAddress().getZipCode(),
+                getUpdateAddressId(id));
 
         String sqlCustomer = "UPDATE customer_tbl SET repeated_visits = ?, company_name = ? WHERE person_id = ?";
         jdbcTemplate.update(sqlCustomer, c.getRepeatedVisits(), c.getCompanyName(), id);
 
-        String sqlPerson = "UPDATE person_tbl SET first_name = ?, last_name = ?, phone_number = ?,e_mail = ? WHERE person_tbl.person_id = ?";
+        String sqlPerson = "UPDATE person_tbl SET first_name = ?, last_name = ?, phone_number = ?,e_mail = ? " +
+                "WHERE person_tbl.person_id = ?";
         jdbcTemplate.update(sqlPerson, c.getFirstName(), c.getLastName(), c.getPhoneNumber(),c.getEmail(), id);
 
     }
