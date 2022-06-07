@@ -49,7 +49,7 @@
                 <a th:href="@{'/show-orders/'+${order.orderId}}">
                     <table class="orderFontStyle">
                         <tr>
-                            <th class="orderInfo" th:text="${order.pickupDateAndTime}"></th>
+                            <th class="orderInfo" th:text="${order.orderId+' - '+order.pickupDateAndTime}"></th>
                         </tr>
                         <tr th:each="inList :${order.productList}" >
                             <td class="orderContent" th:text="${inList}"></td>
@@ -77,6 +77,28 @@
                         <td class="orderContent" th:text="${inList}"></td>
                     </tr>
                 </table>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="locationFrame" style="float: left">
+    <table class="ordersTable">
+        <tr>
+            <th class="locationName">Jægersborg</th>
+        </tr>
+        <tr th:each="order :${ordersjaegersborg}">
+            <td class="innerCell" >
+                <a th:href="@{'/show-orders/'+${order.orderId}}">
+                    <table class="orderFontStyle">
+                        <tr>
+                            <th class="orderInfo" th:text="${order.orderId+' - '+order.pickupDateAndTime}"></th>
+                        </tr>
+                        <tr th:each="inList :${order.productList}" >
+                            <td class="orderContent" th:text="${inList}"></td>
+                        </tr>
+                    </table>
                 </a>
             </td>
         </tr>

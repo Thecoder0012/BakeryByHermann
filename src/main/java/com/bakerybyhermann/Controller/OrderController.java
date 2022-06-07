@@ -45,7 +45,7 @@ public class OrderController {
 
         model.addAttribute("ordersVirum", ordersSorted.get(0));
         model.addAttribute("ordersNaerum", ordersSorted.get(1));
-        //model.addAttribute("ordersjaegersborg", ordersSorted.get(2));
+        model.addAttribute("ordersjaegersborg", ordersSorted.get(2));
         return "order/show-orders";
         //vi har brugt ArrayLists fordi...
     }

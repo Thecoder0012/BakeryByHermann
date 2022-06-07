@@ -21,7 +21,7 @@
             <label>Ændre afhentning lokation fra</label>
             <label  th:text="${order.pickupLocation.shortName +' til:'}"></label>
             <select name="pickupLocation.shortName">
-                <option th:each="department :${departmentList}" th:text="${department.shortName}"  th:field="*{order.pickupLocation.shortName}"></option>
+                <option th:each="department :${departmentList}" th:text="${department.shortName}"></option>
             </select>
         </div>
 
