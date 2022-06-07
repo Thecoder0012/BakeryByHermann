@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bakery By Hermann</title>
+    <link rel="stylesheet" href="index.css"/>
+
+</head>
+<body>
+
+<form action="/update-order" method="post">
+    <div class="create-order-container">
+<!--        <div>-->
+<!--            <label>Bestillings-lokation:</label>-->
+<!--            <select name="orderLocation.shortName" th:value="order.orderLocation.shortName">-->
+<!--                <option th:each="department :${departmentList}" th:text="${department.shortName}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+        <div>
+            <label>Ændre afhentning lokation fra</label>
+            <label  th:text="${order.pickupLocation.shortName +' til:'}"></label>
+            <select name="pickupLocation.shortName">
+                <option th:each="department :${departmentList}" th:text="${department.shortName}"  th:field="*{order.pickupLocation.shortName}"></option>
+            </select>
+        </div>
+
+<!--        <div>-->
+<!--            <label>Vælg kunde</label>-->
+<!--            <select name="customer.firstName">-->
+<!--                <option th:each="customer :${customerList}"  th:text="${customer.firstName + ' ' + customer.lastName + ' ' + customer.phoneNumber}" ></option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+        <div>
+            <label>Ekspederet af:</label>
+
+            <select name="cashier.firstName" >
+                <option th:each="cashier :${cashierEmployee}" th:text="${cashier.firstName}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label>Ændre afhentnings tidspunkt fra</label>
+            <label  th:text="${order.pickupDateAndTime +' til:'}"></label>
+            <input type="datetime-local" name="pickupDateAndTime">
+        </div>
+
+
+        <div class="checkbox-container">
+            <label>Betalt</label>
+            <input type="radio" name="payed" value="true" th:field="*{order.payed}">
+            <label>Ikke betalt</label>
+            <input type="radio" name="payed" value="false" th:field="*{order.payed}">
+
+            <label>Special ordre</label>
+            <input type="radio" name="specialOrder" value="true" th:field="*{order.specialOrder}">
+            <label>Ikke speciel ordre</label>
+            <input type="radio" name="specialOrder" value="false" th:field="*{order.specialOrder}">
+        </div>
+
+        <input class="create-order-button" type="submit" value="Bekræft">
+
+    </div>
+</form>
+
+</body>
+</html>

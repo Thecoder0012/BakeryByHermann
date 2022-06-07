@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class OrderController {
     CustomerService customerService;
 
     @GetMapping("/show-orders")
-    public String showOrders (Model model, Model model2){
+    public String showOrders (Model model){
 
         int[] departmentIds = departmentService.departmentIds();
         //This is an int Array containing every departments unique id number.
@@ -42,32 +43,9 @@ public class OrderController {
         //This is an ArrayList, contains ArrayLists, representing each department we have.
         //In each nested-ArrayList, it contains objects of an Order.
 
-/*
-        ArrayList<Order> orders = (ArrayList<Order>) orderService.fetchAll();
-        //Service skal fetchAll, dele orders i deres represtive lister, og aflevere en liste
-        //over lister der indeholder bestillingerne
-        ArrayList<Department> departments = (ArrayList<Department>) departmentService.fetchAll();
-        //int departmentsCount = departments.size();
-
-        ArrayList<ArrayList<Order>> listsList = new ArrayList<>();
-        for (int i = 0; i < departmentsCount; i++) {
-            listsList.add(new ArrayList<Order>());
-        }
-
-        //int[] departmentIds = departmentService.departmentIds();
-
-        for (int i = 0; i < listsList.size(); i++) {
-            for (int j = 0; j < orders.size(); j++) {
-                if (orders.get(j).getPickupLocation().getDepartmentId()
-                        ==departments.get(i).getDepartmentId()){
-                    System.out.println("Order "+j+" is stored in list "+i);
-                    listsList.get(i).add(orders.get(j));
-                }
-            }
-        }*/
-
         model.addAttribute("ordersVirum", ordersSorted.get(0));
         model.addAttribute("ordersNaerum", ordersSorted.get(1));
+        //model.addAttribute("ordersjaegersborg", ordersSorted.get(2));
         return "order/show-orders";
         //vi har brugt ArrayLists fordi...
     }
@@ -135,7 +113,6 @@ public class OrderController {
 
     @PostMapping("/new-orderlist")
     public String addToList(@ModelAttribute ProductList p, Model model){
-        //System.out.println(p.getProduct().getProductName());
 
         model.addAttribute("productsList", productService.fetchAll());
         String[] toProductList = p.getProduct().getProductName().split(" ");
@@ -144,9 +121,8 @@ public class OrderController {
                 p.setProduct(productService.fetchAll().get(i));
             }
         }
-
         orderService.addToList(p);
-        //lav evt en else statement
+
         return "order/new-orderlist";
     }
 
@@ -166,11 +142,36 @@ public class OrderController {
         return "order/one-order";
     }
 
+
+    @GetMapping("/update-order/{id}")
+    public String updateOrder (@PathVariable ("id") int id, Model model, Model model2, Model model3, Model model4){
+        model.addAttribute("order", orderService.findById(id));
+        model2.addAttribute("cashierEmployee",cashierService.fetchAll());
+        model3.addAttribute("departmentList", departmentService.fetchAll());
+        model4.addAttribute("customerList", customerService.fetchAll());
+        return "order/update-order";
+    }
+
+    @PostMapping("/update-order")
+    public String updateOrder (@ModelAttribute Order o){
+        ArrayList<Department> departments = (ArrayList<Department>) departmentService.fetchAll();
+        //Set pick-up-location
+        for (int i = 0; i < departments.size(); i++) {
+            Department department = departments.get(i);
+            if (department.getShortName().equalsIgnoreCase(o.getPickupLocation().getShortName())){
+                o.setPickupLocation(department);
+            }
+        }
+        System.out.println("ENTER UPDATE POST "+ o.getPickupDateAndTime().replace('T', ' ') + " "+ o.getPickupLocation().getLocationName());
+        orderService.updateById(o.getOrderId(), o);
+        return "redirect:/";
+    }
+
+
    @GetMapping("/one-order/{orderId}")
     public String archiveOrder (@PathVariable ("orderId") int orderId, Model model){
         model.addAttribute("order", orderService.findById(orderId));
         orderService.archiveOrder(orderId, orderService.findById(orderId));
-       System.out.println("INSIDE ONE-ORDER/ORDERID");
         return "redirect:/show-orders";
     }
 

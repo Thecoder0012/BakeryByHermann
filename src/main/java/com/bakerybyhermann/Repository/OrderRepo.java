@@ -172,7 +172,12 @@ public class OrderRepo {
         return (Order) jdbcTemplate.queryForObject(sql, rowMapper, id);
     }
 
-    public void updateById (int id, Order order){}
+    public void updateById (int id, Order order){
+        System.out.println("New date amd time: " + order.getPickupDateAndTime().replace('T', ' '));
+        System.out.println("New department: " + order.getPickupLocation().getLocationName());
+        String sql = "UPDATE active_orders SET pickup_time = ?, delivery_department_id = ? WHERE order_id = ? ";
+        jdbcTemplate.update(sql, order.getPickupDateAndTime().replace('T', ' '), order.getPickupLocation().getDepartmentId(), id);
+    }
 
     public void archiveOrder(int id, Order o) {
         String sqlArchiveOrder = "INSERT INTO archive_tbl (order_id, customer_name, customer_lname, " +

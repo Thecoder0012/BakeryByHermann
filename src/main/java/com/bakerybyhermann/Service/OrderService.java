@@ -97,7 +97,9 @@ public class OrderService {
         return order;
     }
 
-    public void updateById (int id, Order order){}
+    public void updateById (int id, Order order){
+        orderRepo.updateById(id, order);
+    }
 
     public void archiveOrder (int id, Order o){
         orderRepo.archiveOrder(id, o);
