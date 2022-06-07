@@ -29,6 +29,8 @@ public class OrderController {
     @Autowired
     CustomerService customerService;
 
+    //This method is resposible for displaying a view of all the orders in our program
+    //It seperates the orders in columns of where the orders should be delivered to
     @GetMapping("/show-orders")
     public String showOrders (Model model){
 
@@ -94,9 +96,6 @@ public class OrderController {
 
         //Set Customer
         String[] toGetFirstName = o.getCustomer().getFirstName().split(" ");
-        System.out.println(toGetFirstName[0]);
-        System.out.println(toGetFirstName[1]);
-        System.out.println(toGetFirstName[2]);
         int customerPhone = Integer.valueOf(toGetFirstName[2]);
 
         for (int i = 0; i < customers.size(); i++) {
@@ -178,7 +177,6 @@ public class OrderController {
     @GetMapping("/order/{orderId}")
     public String cancelOrder (@PathVariable ("orderId") int orderId){
         orderService.deleteById(orderId);
-        //System.out.println("Order "+orderId+" is deleted");
         return "redirect:/show-orders";
     }
 }

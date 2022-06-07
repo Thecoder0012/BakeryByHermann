@@ -14,6 +14,11 @@ public class ProductList {
     public ProductList() {
     }
 
+    @Override
+    public String toString() {
+        return product.getProductName() + " x "+getQuantity()+"\n";
+    }
+
     public Product getProduct() {
         return product;
     }

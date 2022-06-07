@@ -15,38 +15,36 @@ public class OrderService {
     @Autowired
     OrderRepo orderRepo;
 
-    public ArrayList<ArrayList<Order>> fetchAllSorted (int departmentsCount, int[] departmentIds) {
-        /*for (int i = 0; i < ordersSorted(departmentsCount, departmentIds).get(1).size(); i++) {
-            System.out.println("Ordered: "+ordersSorted(departmentsCount, departmentIds).get(1).get(i).getPickupDateAndTime());
-        }
-        System.out.println();
-        for (int i = 0; i < populateOrders(departmentsCount,departmentIds).get(1).size(); i++) {
-            System.out.println("UnOrdered " + populateOrders(departmentsCount,departmentIds).get(1).get(i).getPickupDateAndTime());
-        }
-        System.out.println();*/
-        return ordersSorted(departmentsCount, departmentIds);
-        //This method is only responsible to return the ArrayList, which would be called
-        //from the Controller
-    }
-    private ArrayList<ArrayList<Order>> ordersSorted (int depCount, int[] depIds){
 
-        for (int i = 0; i < depCount; i++) {
-            Collections.sort(populateOrders(depCount,depIds).get(i));
-        //    for (int j = 0; j < populateOrders(departmentsCount, departmentIds).get(i).size(); j++) {
-        //        populateOrders(departmentsCount, departmentIds).get(i).get(j).getPickupDateAndTime().
-        //    }
-        }
-        return populateOrders(depCount,depIds);
-
-        //This mehtod sorts the orders, on pick-up-time
-    }
-
-    private ArrayList<ArrayList<Order>> populateOrders (int departmentsCount, int[] departmentIds){
-        List<Order> orders = fetchAll();
-        ArrayList<ArrayList<Order>> seperatedByDepartment = ordersSeperated(departmentsCount);
+    //Den får hvor mange afdelinger vi har via int departmentCount.
+    private ArrayList<ArrayList<Order>> ordersSeperated (int departmentsCount) {
+        //opretter den en ny ArrayList, som indeholder antal afdelinger ArrayLists, som indeholder
+        //bestillingerne fordelt på afhentnings afdeling
+        ArrayList<ArrayList<Order>> ordersSeperated = new ArrayList<>();
+        //her looper vi og fordeler på de afdelinger vi har tilrådighed
         for (int i = 0; i < departmentsCount; i++) {
-            for (int j = 0; j < orders.size(); j++) {
+            ordersSeperated.add(new ArrayList<Order>());
+        }//Nu har den bare tre tomme ArrayLists i den store ArrayList
+        return ordersSeperated;//den returnere tomme Arraylister
+
+        //This method takes the count of departments as parameter. It then returns that amount
+        //in empty ArrayLists. These lists would be used to seperate the orders by their
+        //Pick-up location
+    }
+
+    //Her får den en int[] som indeholder afdelingernes id numre
+    private ArrayList<ArrayList<Order>> populateOrders (int departmentsCount, int[] departmentIds){
+        //Nu går den ind og henter alle bestillingerne
+        List<Order> orders = fetchAll();
+        //så henter jeg den ArrayList med de tomme ArrayLists
+        ArrayList<ArrayList<Order>> seperatedByDepartment = ordersSeperated(departmentsCount);
+
+        //Så traversere vi, alle bestillingerne, og fordeler dem således:
+        for (int i = 0; i < departmentsCount; i++) {//den kører departmentsCount gange
+            for (int j = 0; j < orders.size(); j++) {//den kører antal bestillinger i systemet
                 if(orders.get(j).getPickupLocation().getDepartmentId()==departmentIds[i]){
+                    //Alle dem der har pick-up-lokation departmentId, bliver gemt:
+                    //i den liste som matcher
                     seperatedByDepartment.get(i).add(orders.get(j));
                 }
             }
@@ -57,16 +55,15 @@ public class OrderService {
         //And returns a list of lists that contain orders in the right seperation.
     }
 
-    private ArrayList<ArrayList<Order>> ordersSeperated (int departmentsCount) {
-        ArrayList<ArrayList<Order>> ordersSeperated = new ArrayList<>();
-        for (int i = 0; i < departmentsCount; i++) {
-            ordersSeperated.add(new ArrayList<Order>());
-        }
-        return ordersSeperated;
-        //This method takes the count of departments as parameter. It then returns that amount
-        //in empty ArrayLists. These lists would be used to seperate the orders by their
-        //Pick-up location
+    //Den gør listerne klar til at blive sendt til controlleren
+    public ArrayList<ArrayList<Order>> fetchAllSorted (int departmentsCount, int[] departmentIds) {
+
+        return populateOrders(departmentsCount, departmentIds);
+        //This method is only responsible to return the ArrayList, which would be called
+        //from the Controller
     }
+
+
 
     public List<Order> fetchAll(){
         List<Order> orders = orderRepo.fetchAll();
