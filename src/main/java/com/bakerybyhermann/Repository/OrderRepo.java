@@ -1,6 +1,7 @@
 package com.bakerybyhermann.Repository;
 
 import com.bakerybyhermann.Model.*;
+import com.bakerybyhermann.Repository.Mapper.OrderArchivedMapper;
 import com.bakerybyhermann.Repository.Mapper.OrderMapper;
 import com.bakerybyhermann.Repository.Mapper.OrderMapperProducts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +91,6 @@ public class OrderRepo {
 
     public void addNew (Order o){
         o.setOrderDate(LocalDate.now());
-        //o.getPickupDateAndTime().replace('T', ' ');
 
         System.out.println("Order date: "+o.getOrderDate());//Correct
         System.out.println("Order dep.: "+o.getOrderLocation().getShortName());//Correct
@@ -115,21 +115,6 @@ public class OrderRepo {
                 o.getPickupDateAndTime().replace('T', ' '), o.getCustomer().getCustomerId(),
                 o.getCashier().getCashierId(),
                 o.isPayed(), o.isSpecialOrder(), o.getTotalPrice());
-
-        //den skal loope alt efter hvor mange slags produkter der er valgt
-        String sqlOrderProducts = "INSERT INTO in_list (order_id, product_id, quantity) VALUES (?,?,?)";
-        //jdbcTemplate.update(sqlOrderProducts, );
-/*
-        int orderId = getorderId();
-        System.out.println("Is the returned order_id correct? order_id: ");
-
-        //den skal loope så mange gange som der er i en liste
-        //listen indeholder info om order_id, et product_id, quantity
-        String sqlForInList = "INSERT INTO in_list (order_id, product_id, quantity) VALUES (?, ?, ?);";
-        jdbcTemplate.update(sqlForInList, orderId, o.getProductList().getProduct().getProductId(),
-                o.getProductList().getQuantity());
-
-*/
 
     }
 
@@ -217,7 +202,13 @@ public class OrderRepo {
 
         System.out.println("Order "+id+" Is removed");
 
+    }
 
+    public List<Order> fetchArchived (){
+        String sql = "SELECT order_id, customer_name, customer_lname, customer_phone, order_date, " +
+                "pickup_time, total_price, delivery_department_shortname FROM archive_tbl";
+        RowMapper rowMapper = new OrderArchivedMapper();
+        return jdbcTemplate.query(sql, rowMapper);
 
     }
 

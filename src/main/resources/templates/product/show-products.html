@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="product.css"/>
 
 
 </head>
@@ -29,7 +30,13 @@
                 </div>
                 <li><a href="/show-customer">Kunder</a></li>
                 <li  class="product-active"><a href="/show-product">Varer</a></li>
-                <li><a href="/show-orders">Bestillinger</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Bestillinger</a></li>
+                    <div class="dropdown-content">
+                        <a href="/show-orders">Aktive bestillinger</a>
+                        <a href="/show-archived">Arkiverede bestillinger</a>
+                    </div>
+                </div>
                 <li><a href=/logout>Log ud</a></li>
 
             </ul>
@@ -40,7 +47,7 @@
 </header>
 
 
-<table class="product-table"> <!--Har givet en class og navn til tabeller. Style er under layout.css-->
+<table class="product-table">
 
     <div id="headline-products">
 
@@ -48,7 +55,7 @@
             <button onclick="window.location.href='/new-product';">Opret nyt produkt</button>
         </div>
 
-        <h1 class="Headline-product"> <!-- har givet den en klasse, for at centrer den i css-->
+        <h1 class="Headline-product">
             Produkt oplysninger
         </h1>
     </div>
