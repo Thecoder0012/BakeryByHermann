@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Bakery By Hermann</title>
     <link rel="stylesheet" href="../archived-list.css"/>
+    <link rel="stylesheet" href="/layout.css"/>
+
 
 </head>
 <body>
@@ -44,7 +46,8 @@
 </header>
 
 <div class="table-container">
-<table>
+<table class="archived-orders">
+    <thead>
     <tr>
         <th>Id</th>
         <th>Kunde navn</th>
@@ -55,6 +58,8 @@
         <th>Afhentet sted</th>
         <th>Total pris</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="archived :${archivedList}">
         <td th:text="${archived.orderId}"></td>
         <td th:text="${archived.customer.firstName}"></td>
@@ -65,6 +70,7 @@
         <td th:text="${archived.pickupLocation.shortName}"></td>
         <td th:text="${archived.totalPrice}"></td>
     </tr>
+    </tbody>
 </table>
 </div>
 </body>

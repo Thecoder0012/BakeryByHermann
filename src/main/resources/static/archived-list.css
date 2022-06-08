@@ -1,10 +1,31 @@
 
 .table-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 7% 0%;
 }
 
-table{
+.archived-orders{
+    padding: 10% 10%;
+    min-width: 85%;
+    border-collapse: collapse;
+    text-align: center;
+    border-bottom: groove dodgerblue;
 
-    padding: 3% 3%;
+}
+
+.archived-orders tr th {
+    padding: 1.5% 0%;
+    background-color: #84652c;
+    font-weight: bold;
+}
+
+.archived-orders th,
+.archived-orders td {
+    padding: 1% 1%;
+}
+
+.archived-orders tbody tr:nth-of-type(even) {
+    background-color: rgba(175,171,117,0.36);
+
 }
