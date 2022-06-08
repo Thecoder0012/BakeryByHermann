@@ -105,7 +105,12 @@ public class OrderService {
     public void deleteById (int id){
         orderRepo.deleteById(id);
     }
-}
+
+    public List<Order> fetchArchived (){
+        return orderRepo.fetchArchived();
+    }
+
+    }
 
 /*
 public List<Order> fetchAll (){

@@ -174,6 +174,14 @@ public class OrderController {
         return "redirect:/show-orders";
     }
 
+    @GetMapping("/show-archived")
+    public String showArchived (Model model){
+        model.addAttribute("archivedList", orderService.fetchArchived());
+        return "order/show-archived";
+    }
+
+
+
     @GetMapping("/order/{orderId}")
     public String cancelOrder (@PathVariable ("orderId") int orderId){
         orderService.deleteById(orderId);

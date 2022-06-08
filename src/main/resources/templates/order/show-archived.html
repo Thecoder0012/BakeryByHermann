@@ -2,11 +2,8 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Opret bestilling</title>
-    <link rel="stylesheet" href="/layout.css"/>
-    <link rel="stylesheet" href="/add-order-list.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
+    <title>Bakery By Hermann</title>
+    <link rel="stylesheet" href="../archived-list.css"/>
 
 </head>
 <body>
@@ -46,26 +43,29 @@
     </nav>
 </header>
 
-
-
-    <form action="/new-orderlist" method="post">
-        <div class="create-order-container">
-
-            <div class="wrapper">
-            <h2>Vælg produkt</h2>
-        <select name="product.productName">
-            <option th:each="product :${productsList}" th:text="${product.productName+' '+product.price + ' kr'}"></option>
-        </select>
-            <h2>Antal:</h2>
-            <input type="number" min="0" max="30" name="quantity">
-
-            </div>
-
-            <input class="create-order-button" type="submit" value="Vælg og opret kvittering">
-        </div>
-
-    </form>
-
-
+<div class="table-container">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Kunde navn</th>
+        <th>Efternavn</th>
+        <th>Tlf. nr.</th>
+        <th>Bestilt</th>
+        <th>Afhentet tid</th>
+        <th>Afhentet sted</th>
+        <th>Total pris</th>
+    </tr>
+    <tr th:each="archived :${archivedList}">
+        <td th:text="${archived.orderId}"></td>
+        <td th:text="${archived.customer.firstName}"></td>
+        <td th:text="${archived.customer.lastName}"></td>
+        <td th:text="${archived.customer.phoneNumber}"></td>
+        <td th:text="${archived.orderDate}"></td>
+        <td th:text="${archived.pickupDateAndTime}"></td>
+        <td th:text="${archived.pickupLocation.shortName}"></td>
+        <td th:text="${archived.totalPrice}"></td>
+    </tr>
+</table>
+</div>
 </body>
 </html>

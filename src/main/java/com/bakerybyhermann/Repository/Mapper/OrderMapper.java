@@ -66,7 +66,7 @@ public class OrderMapper implements RowMapper {
         //Date rsDate = rs.getDate("order_date");
         //LocalDate newDate = LocalDate.parse((CharSequence) rsDate);
         order.setOrderDate(LocalDate.now());
-
+//FEJL***
         order.setOrderLocation(orderLocation);
         order.setPickupDateAndTime(rs.getString("pickup_time"));
         order.setPickupLocation(pickupLocation);

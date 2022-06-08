@@ -1,0 +1,10 @@
+
+.table-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+table{
+
+    padding: 3% 3%;
+}
