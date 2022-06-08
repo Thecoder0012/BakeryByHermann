@@ -1,0 +1,105 @@
+.Headline-product{
+    margin-left: 40%;
+
+}
+
+.product-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.button-employees{
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    width: 8%;
+    right: 23%;
+    font-size: 1em;
+    height: 6%;
+    border: none;
+    position: absolute;
+    top: 25%;
+    cursor: pointer;
+}
+
+.button-update{
+    border-collapse: collapse;
+    right: 150px;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.button-delete{
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: auto;  /* centrer tabellen til midten*/
+    margin-right: auto; /* centrer tabellen til midten*/
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 150%;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container{
+
+}
+
+
+
+
+
+
+.new-product-label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.new-product-label #register{
+    width: 400px;
+}
+
+.new-product-label input{
+    padding: 3px;
+    box-shadow: 3px 3px 5px grey;
+    font-size: 14px;
+    font-weight: 600;
+    width: 200px;
+}
+
+.new-product-label label{ /* ordner så de står i række*/
+    color: black;
+    font-weight: bold;
+    display: block;
+}
+
+.new-product-label label:after{ content: ": "} /* ordner så de står i række*/
+
+.header-product{
+    color: black;
+}
+

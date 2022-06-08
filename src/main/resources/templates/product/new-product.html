@@ -5,6 +5,9 @@
     <title>Products</title>
     <link rel="stylesheet" href="layout.css"/>
     <link rel="stylesheet" href="tabel-structur.css"/>
+    <link rel="stylesheet" href="product.css"/>
+
+
 </head>
 <body>
 
@@ -44,28 +47,33 @@
     </nav>
 </header>
 
-<div class="header">
-    <h1>Indtast venligst chaufførens oplysninger</h1>
+<div class="header-product">
+    <h1>Indtast venligst varens oplysninger</h1>
 </div>
 
-<div class="form-container">
+<!-- <div class="form-container"> -->
 
 <form action="/new-product" method="post">
 
-
+<fieldset class="new-product-label">
+    <p>
     <label>Vare-navn</label>
     <input type="text" name="productName">
-        <label>Pris</label>
+    </p>
+
+    <p><label>Pris</label>
     <input type="text" name="price">
+    </p>
 
-    <input type="submit" value="Opret">
+    <p>
+        <input type="submit" value="Opret">
+    </p>
 
 
 
-
-
+    </fieldset>
     </form>
-</div>
+<!--</div>-->
 
 
 
