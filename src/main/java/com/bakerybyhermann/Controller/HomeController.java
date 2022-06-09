@@ -27,14 +27,14 @@ public class HomeController {
         return "home/login";
     }
 
-    @GetMapping("/login")
-    public String authenticated(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
-            return "home/login";
-
-        }
-        return "redirect:/";
-    }
+//    @GetMapping("/login")
+//    public String authenticated(){
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
+//            return "home/login";
+//
+//        }
+//        return "redirect:/";
+//    }
 
 }

@@ -64,6 +64,7 @@ public class OrderController {
     @PostMapping("/new-order")
     public String newOrder (@ModelAttribute Order o, Model model){
 
+        //Denne her bruger vi til næste view, hvor vi vælger varer
         model.addAttribute("productsList", productService.fetchAll());
 
         ArrayList<Department> departments = (ArrayList<Department>) departmentService.fetchAll();
@@ -168,14 +169,27 @@ public class OrderController {
 
    @GetMapping("/one-order/{orderId}")
     public String archiveOrder (@PathVariable ("orderId") int orderId, Model model){
-        model.addAttribute("order", orderService.findById(orderId));
-        orderService.archiveOrder(orderId, orderService.findById(orderId));
+        Order order = orderService.findById(orderId);
+        model.addAttribute("order", order);
+
+       List<ProductList> productLists = order.getProductList();
+       int totalPrice = 0;
+       for (int i = 0; i < productLists.size(); i++) {
+           int quantity = productLists.get(i).getQuantity();
+           int productPrice = productLists.get(i).getProduct().getPrice();
+           totalPrice = totalPrice + productPrice * quantity;
+       }
+       order.setTotalPrice(totalPrice);
+
+
+        orderService.archiveOrder(orderId, order);
         return "redirect:/show-orders";
     }
 
     @GetMapping("/show-archived")
     public String showArchived (Model model){
-        model.addAttribute("archivedList", orderService.fetchArchived());
+        ArrayList<Order> archivedOrders = (ArrayList<Order>)  orderService.fetchArchived();
+        model.addAttribute("archivedList", archivedOrders );
         return "order/show-archived";
     }
 
