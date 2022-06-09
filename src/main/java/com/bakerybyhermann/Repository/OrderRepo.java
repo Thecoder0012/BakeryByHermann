@@ -173,22 +173,15 @@ public class OrderRepo {
                 o.getPickupDateAndTime(), o.getTotalPrice(), o.getPickupLocation().getShortName());
 
         int ii = o.getProductList().size();
-
         String sqlInlistArchive = "INSERT INTO archive_inlist (order_id, product_name, product_price," +
                 "quantity) VALUES (?,?,?,?)";
-
         for (int i = 0; i < ii; i++) {
-
             jdbcTemplate.update(sqlInlistArchive, o.getOrderId(),
                     o.getProductList().get(i).getProduct().getProductName(),
                     o.getProductList().get(i).getProduct().getPrice(),
                     o.getProductList().get(i).getQuantity());
-
         }
-
         deleteById(id);
-
-
     }
 
     public void deleteById (int id){
@@ -209,7 +202,6 @@ public class OrderRepo {
                 "pickup_time, total_price, delivery_department_shortname FROM archive_tbl";
         RowMapper rowMapper = new OrderArchivedMapper();
         return jdbcTemplate.query(sql, rowMapper);
-
     }
 
 
