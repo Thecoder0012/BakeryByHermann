@@ -44,7 +44,7 @@ input[type=submit]{
     width: 60%;
     border: none;
     border-radius: 20px;
-    margin: 20% 0 0 20%;
+    margin: 10% 0 0 20%;
     cursor: pointer;
 }
 
@@ -54,4 +54,17 @@ label{
     align-items: center;
     font-size: 1.2em;
     font-weight: 700;
+}
+
+.create-receipt{
+    position: absolute;
+    top: 56%;
+    left: 44%;
+    width: 13%;
+    background: #3283ff;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.3em;
+    cursor: pointer;
 }

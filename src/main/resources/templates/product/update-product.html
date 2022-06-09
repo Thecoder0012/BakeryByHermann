@@ -3,27 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
+    <link rel="stylesheet" href="../layout.css"/>
+    <link rel="stylesheet" href="../product.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
+<header>
+    <nav>
+        <div class="nav-bar">
 
-<div class="form-container">
+            <div class="logo">
+                <a href="/">Bakery By Hermann</a>
+            </div>
+
+            <ul>
+                <li><a href="/">Afdelinger</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Ansatte</a></li>
+                    <div class="dropdown-content">
+                        <a href="/baker">Bager</a>
+                        <a href="/cashier">Butiksansat</a>
+                        <a href="/driver">Chauffør</a>
+                    </div>
+                </div>
+                <li><a href="/show-customer">Kunder</a></li>
+                <li class="product-active"><a href="/show-product">Varer</a></li>
+                <div class="dropdown">
+                    <li><a href="/">Bestillinger</a></li>
+                    <div class="dropdown-content">
+                        <a href="/show-orders">Aktive bestillinger</a>
+                        <a href="/show-archived">Arkiverede bestillinger</a>
+                    </div>
+                </div>
+                <li><a href=/logout>Log ud</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+</header>
+
+<h1>Indtast venligst varens nye oplysninger</h1>
 
 <form action = "/update-product" method ="post">
 
+    <div class="new-product-label">
 
-    <label>vare nummer</label>
+        <p>
+    <label>Vare nummer</label>
     <input type="text" name="productId" th:value="${product.productId}" readonly>
-    <label>Vare navn</label>
+        </p>
+    <p><label>Vare navn</label>
     <input type="text" name="productName" th:value="${product.productName}">
-    <label>Pris</label>
+    </p>
+
+        <p>
+    <label>Pris i kr</label>
     <input type="text" name="price" th:value="${product.price}">
+        </p>
 
     <input type="submit" value="Rediger">
 
+    </div>
+
 </form>
-</div>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Products</title>
     <link rel="stylesheet" href="layout.css"/>
     <link rel="stylesheet" href="product.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
 
 </head>
@@ -29,7 +30,7 @@
                     </div>
                 </div>
                 <li><a href="/show-customer">Kunder</a></li>
-                <li  class="product-active"><a href="/show-product">Varer</a></li>
+                <li class="product-active"><a href="/show-product">Varer</a></li>
                 <div class="dropdown">
                     <li><a href="/">Bestillinger</a></li>
                     <div class="dropdown-content">
@@ -49,37 +50,33 @@
 
 <table class="product-table">
 
-    <div id="headline-products">
 
-        <div class="button-employees">
-            <button onclick="window.location.href='/new-product';">Opret nyt produkt</button>
-        </div>
+           <a href="/new-product"><button class="create-product-button">Opret nyt produkt</button></a>
 
-        <h1 class="Headline-product">
-            Produkt oplysninger
-        </h1>
-    </div>
+
+        <h1 class="Headline-product">Produkt oplysninger</h1>
 
     <thead>
     <tr>
         <th>Vare-nummer</th>
         <th>Vare</th>
         <th>Pris</th>
-        <th>Rediger </th>
+        <th>Rediger</th>
         <th>Slet</th>
     </tr>
+    </thead>
 
-    <tr th:each="product :${productsList}" >
+    <tbody>
+    <tr th:each="product :${productsList}">
         <td th:text="${product.productId}"></td>
         <td th:text="${product.productName}"></td>
         <td th:text="${product.price}"></td>
 
-        <td><a class="button-update" th:href="@{'/update-product/'+${product.productId}}">Rediger</a></td>
-        <td><a class="button-delete" th:href="@{'/product/'+${product.productId}}">Slet</a></td>
-
+        <td><a th:href="@{'/update-product/'+${product.productId}}" ><button class="button-update">Rediger</button></a></td>
+        <td><a th:href="@{'/product/'+${product.productId}}" onclick="return confirm('Du er i gang med at slette. Er du sikker?')" ><button class="button-delete">Slet</button></a></td>
 
     </tr>
-    </thead>
+    </tbody>
 </table>
 
 

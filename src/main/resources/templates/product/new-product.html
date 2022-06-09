@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link rel="stylesheet" href="layout.css"/>
-    <link rel="stylesheet" href="tabel-structur.css"/>
     <link rel="stylesheet" href="product.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
 
 </head>
@@ -29,8 +29,8 @@
                         <a href="/driver">Chauffør</a>
                     </div>
                 </div>
-                <li class="kunde-active"><a href="/show-customer">Kunder</a></li>
-                <li><a href="/show-product">Varer</a></li>
+                <li><a href="/show-customer">Kunder</a></li>
+                <li class="product-active"><a href="/show-product">Varer</a></li>
                 <div class="dropdown">
                     <li><a href="/">Bestillinger</a></li>
                     <div class="dropdown-content">
@@ -47,15 +47,13 @@
     </nav>
 </header>
 
-<div class="header-product">
     <h1>Indtast venligst varens oplysninger</h1>
-</div>
 
 <!-- <div class="form-container"> -->
 
 <form action="/new-product" method="post">
 
-<fieldset class="new-product-label">
+<div class="new-product-label">
     <p>
     <label>Vare-navn</label>
     <input type="text" name="productName">
@@ -64,16 +62,13 @@
     <p><label>Pris</label>
     <input type="text" name="price">
     </p>
-
-    <p>
         <input type="submit" value="Opret">
-    </p>
 
 
 
-    </fieldset>
+
+    </div>
     </form>
-<!--</div>-->
 
 
 
