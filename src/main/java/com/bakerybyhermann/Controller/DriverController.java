@@ -52,7 +52,7 @@ public class DriverController {
     @GetMapping("/driver/{driverId}")
     public String deleteDriver(@PathVariable("driverId") int driverId) {
         driverService.deleteDriver(driverId);
-        return "redirect:/view-driver";
+        return "redirect:/driver";
     }
 
 

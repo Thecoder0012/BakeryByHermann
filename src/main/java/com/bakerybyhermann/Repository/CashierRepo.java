@@ -45,9 +45,8 @@ public class CashierRepo {
         String sql2 = "INSERT INTO employee_tbl(person_id, age, gender, fulltime_employee) VALUES (?,?,?,?)";
         jdbcTemplate.update(sql2, getPersonId(), cashier.getAge(), cashier.isGender(), cashier.isFullTimeEmployee());
 
-        String sql3 = "INSERT INTO cashier_tbl(cashier_id,employee_id, coffee_diplom) VALUES (?,?,?)";
-        jdbcTemplate.update(sql3, cashier.getCashierId(), getEmployeeId(), cashier.isCoffeeDiplom());
-
+        String sql3 = "INSERT INTO cashier_tbl(employee_id, coffee_diplom) VALUES (?,?)";
+        jdbcTemplate.update(sql3, getEmployeeId(), cashier.isCoffeeDiplom());
     }
 
 
@@ -96,7 +95,8 @@ public class CashierRepo {
 
     public int getAddressId() {//bruges TIL ADD-NEW
         String sql = "SELECT address_id,street_name,street_number," +
-                "zip_code_tbl.zip_code, zip_code_tbl.city FROM address_tbl,  zip_code_tbl ORDER BY address_id DESC LIMIT 1";
+                "zip_code_tbl.zip_code, zip_code_tbl.city FROM address_tbl, " +
+                " zip_code_tbl ORDER BY address_id DESC LIMIT 1";
         RowMapper<Address> rowMapper = new BeanPropertyRowMapper<>(Address.class);
         Address address = jdbcTemplate.queryForObject(sql, rowMapper);
         return address.getAddressId();
