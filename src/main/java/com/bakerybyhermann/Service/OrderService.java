@@ -15,7 +15,6 @@ public class OrderService {
     @Autowired
     OrderRepo orderRepo;
 
-
     //Den får hvor mange afdelinger vi har via int departmentCount.
     private ArrayList<ArrayList<Order>> ordersSeperated (int departmentsCount) {
         //opretter den en ny ArrayList, som indeholder antal afdelinger ArrayLists, som indeholder
@@ -26,11 +25,11 @@ public class OrderService {
             ordersSeperated.add(new ArrayList<Order>());
         }//Nu har den bare tre tomme ArrayLists i den store ArrayList
         return ordersSeperated;//den returnere tomme Arraylister
-
+    }
         //This method takes the count of departments as parameter. It then returns that amount
         //in empty ArrayLists. These lists would be used to seperate the orders by their
         //Pick-up location
-    }
+
 
     //Her får den en int[] som indeholder afdelingernes id numre
     private ArrayList<ArrayList<Order>> populateOrders (int departmentsCount, int[] departmentIds){
@@ -59,9 +58,10 @@ public class OrderService {
     public ArrayList<ArrayList<Order>> fetchAllSorted (int departmentsCount, int[] departmentIds) {
 
         return populateOrders(departmentsCount, departmentIds);
+    }
         //This method is only responsible to return the ArrayList, which would be called
         //from the Controller
-    }
+
 
 
 

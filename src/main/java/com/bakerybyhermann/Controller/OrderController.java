@@ -161,7 +161,6 @@ public class OrderController {
                 o.setPickupLocation(department);
             }
         }
-        System.out.println("ENTER UPDATE POST "+ o.getPickupDateAndTime().replace('T', ' ') + " "+ o.getPickupLocation().getLocationName());
         orderService.updateById(o.getOrderId(), o);
         return "redirect:/";
     }
