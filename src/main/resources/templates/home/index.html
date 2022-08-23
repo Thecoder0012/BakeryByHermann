@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,7 @@
                 </div>
                 <li><a href="/show-customer">Kunder</a></li>
                 <li><a href="/show-product">Varer</a></li>
-                <div class="dropdown">
+                <div sec:authorize="hasRole('ADMIN')" class="dropdown">
                     <li><a href="/">Bestillinger</a></li>
                     <div class="dropdown-content">
                     <a href="/show-orders">Aktive bestillinger</a>
@@ -40,7 +41,13 @@
                     </div>
                 </div>
 
-                <li><a href=/logout>Log ud</a></li>
+                <form method="post" th:action="@{/logout}">
+
+                    <li>  <input type="submit" value="Log ud"> </li>
+                    <input type="hidden" th:name="${_csrf.parameterName}"
+                           th:value="${_csrf.token}">
+
+                </form>
 
             </ul>
 
@@ -51,10 +58,22 @@
 
 <div class="img-container"></div>
 
-<div class="center-container">
+<div  class="center-container">
+
+   <div th:class="role">
+   <th:block th:each="role, iter:${#authentication.getAuthorities()}">
+        <span th:text="${role.getAuthority()}"></span>
+       <th:block th:if="${!iter.last}">, </th:block>
+       </th:block>
+    </div>
+
+    <div class="role" sec:authorize="isAuthenticated()">
+       <p sec:authentication="name"></p>
+    </div>
+
     <div class="header">Er du eksisterende eller ny kunde?</div>
 
-    <div class="buttons">
+    <div sec:authorize="hasAnyRole('ADMIN','WORKER')" class="buttons">
         <a href="/new-order">
             <button>Opret bestilling</button>
         </a>
